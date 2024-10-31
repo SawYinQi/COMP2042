@@ -1,10 +1,11 @@
-package com.example.demo;
+package com.example.demo.displays;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
-public class HeartDisplay {
+public class HeartDisplay
+{
 	
 	private static final String HEART_IMAGE_NAME = "/com/example/demo/images/heart.png";
 	private static final int HEART_HEIGHT = 50;
@@ -14,7 +15,8 @@ public class HeartDisplay {
 	private double containerYPosition;
 	private int numberOfHeartsToDisplay;
 	
-	public HeartDisplay(double xPosition, double yPosition, int heartsToDisplay) {
+	public HeartDisplay(double xPosition, double yPosition, int heartsToDisplay)
+	{
 		this.containerXPosition = xPosition;
 		this.containerYPosition = yPosition;
 		this.numberOfHeartsToDisplay = heartsToDisplay;
@@ -22,14 +24,17 @@ public class HeartDisplay {
 		initializeHearts();
 	}
 	
-	private void initializeContainer() {
+	private void initializeContainer()
+	{
 		container = new HBox();
 		container.setLayoutX(containerXPosition);
 		container.setLayoutY(containerYPosition);		
 	}
 	
-	private void initializeHearts() {
-		for (int i = 0; i < numberOfHeartsToDisplay; i++) {
+	private void initializeHearts()
+	{
+		for (int i = 0; i < numberOfHeartsToDisplay; i++)
+		{
 			ImageView heart = new ImageView(new Image(getClass().getResource(HEART_IMAGE_NAME).toExternalForm()));
 
 			heart.setFitHeight(HEART_HEIGHT);
@@ -38,12 +43,14 @@ public class HeartDisplay {
 		}
 	}
 	
-	public void removeHeart() {
+	public void removeHeart()
+	{
 		if (!container.getChildren().isEmpty())
 			container.getChildren().remove(INDEX_OF_FIRST_ITEM);
 	}
 	
-	public HBox getContainer() {
+	public HBox getContainer()
+	{
 		return container;
 	}
 

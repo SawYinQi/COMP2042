@@ -5,7 +5,8 @@ import java.lang.reflect.InvocationTargetException;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class Main extends Application
+{
 
 	private static final int SCREEN_WIDTH = 1300;
 	private static final int SCREEN_HEIGHT = 750;
@@ -14,7 +15,8 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage stage) throws ClassNotFoundException, NoSuchMethodException, SecurityException,
-			InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+			InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException
+	{
 		stage.setTitle(TITLE);
 		stage.setResizable(false);
 		stage.setHeight(SCREEN_HEIGHT);
@@ -23,7 +25,8 @@ public class Main extends Application {
 		myController.launchGame();
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		launch();
 	}
 }

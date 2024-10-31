@@ -1,8 +1,11 @@
-package com.example.demo;
+package com.example.demo.levels;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
+import com.example.demo.entities.ActiveActorDestructible;
+import com.example.demo.entities.FighterPlane;
+import com.example.demo.entities.UserPlane;
 import javafx.animation.*;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
@@ -29,7 +32,7 @@ public abstract class LevelParent extends Observable {
 	private final List<ActiveActorDestructible> enemyUnits;
 	private final List<ActiveActorDestructible> userProjectiles;
 	private final List<ActiveActorDestructible> enemyProjectiles;
-	
+
 	private int currentNumberOfEnemies;
 	private LevelView levelView;
 
