@@ -23,7 +23,7 @@ public abstract class LevelParent extends Observable {
 	private final double enemyMaximumYPosition;
 
 	private final Group root;
-	private final Timeline timeline;
+	protected final Timeline timeline;
 	private final UserPlane user;
 	private final Scene scene;
 	private final ImageView background;
@@ -46,7 +46,7 @@ public abstract class LevelParent extends Observable {
 		this.userProjectiles = new ArrayList<>();
 		this.enemyProjectiles = new ArrayList<>();
 
-		this.background = new ImageView(new Image(getClass().getResource(backgroundImageName).toExternalForm()));
+		this.background = new ImageView(new Image(Objects.requireNonNull(getClass().getResource(backgroundImageName)).toExternalForm()));
 		this.screenHeight = screenHeight;
 		this.screenWidth = screenWidth;
 		this.enemyMaximumYPosition = screenHeight - SCREEN_HEIGHT_ADJUSTMENT;

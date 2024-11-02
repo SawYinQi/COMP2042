@@ -17,12 +17,19 @@ public class LevelOne extends LevelParent {
 	}
 
 	@Override
-	protected void checkIfGameOver() {
-		if (userIsDestroyed()) {
+	protected void checkIfGameOver()
+	{
+		if (userIsDestroyed())
+		{
+			timeline.stop();
 			loseGame();
 		}
 		else if (userHasReachedKillTarget())
-			goToNextLevel(NEXT_LEVEL);
+		{
+			//prevent the looping timeline from repeatedly calling goToNextLevel
+			timeline.stop();//stop the timeline
+			goToNextLevel(NEXT_LEVEL);//go to next level
+		}
 	}
 
 	@Override
