@@ -1,7 +1,5 @@
 package com.example.demo.entities;
 
-import java.util.*;
-
 public class Boss extends FighterPlane
 {
 
@@ -11,33 +9,24 @@ public class Boss extends FighterPlane
 	private static final double PROJECTILE_Y_POSITION_OFFSET = 75.0;
 	private static final double BOSS_FIRE_RATE = .04;
 	private static final int IMAGE_HEIGHT = 300;
-	private static final int VERTICAL_VELOCITY = 8;
 	private static final int HEALTH = 1; //change later easier for testing
-	private static final int MOVE_FREQUENCY_PER_CYCLE = 5;
-	private static final int ZERO = 0;
-	private static final int MAX_FRAMES_WITH_SAME_MOVE = 10;
 	private static final int Y_POSITION_UPPER_BOUND = -100;
 	private static final int Y_POSITION_LOWER_BOUND = 475;
-	private final List<Integer> movePattern;
-	private int framesWithSameMove;
-	private int indexOfCurrentMove;
 	private final BossShield  bossShield;
+	private final BossMovement bossMovement;
 
 	public Boss()
 	{
 		super(IMAGE_NAME, IMAGE_HEIGHT, INITIAL_X_POSITION, INITIAL_Y_POSITION, HEALTH);
-		movePattern = new ArrayList<>();
 		this.bossShield = new BossShield();
-		framesWithSameMove = 0;
-		indexOfCurrentMove = 0;
-		initializeMovePattern();
+		this.bossMovement =new BossMovement();
 	}
 
 	@Override
 	public void updatePosition()
 	{
 		double initialTranslateY = getTranslateY();
-		moveVertically(getNextMove());
+		moveVertically(bossMovement.getNextMove());
 		double currentPosition = getLayoutY() + getTranslateY();
 		if (currentPosition < Y_POSITION_UPPER_BOUND || currentPosition > Y_POSITION_LOWER_BOUND)
 		{
@@ -53,12 +42,6 @@ public class Boss extends FighterPlane
 	}
 
 	@Override
-	public ActiveActorDestructible fireProjectile()
-	{
-		return projectileShouldFire() ? new BossProjectile(getProjectileYPosition(PROJECTILE_Y_POSITION_OFFSET)) : null;
-	}
-	
-	@Override
 	public void takeDamage()
 	{
 		if (!bossShield.isShielded())
@@ -67,32 +50,10 @@ public class Boss extends FighterPlane
 		}
 	}
 
-	private void initializeMovePattern()
+	@Override
+	public ActiveActorDestructible fireProjectile()
 	{
-		for (int i = 0; i < MOVE_FREQUENCY_PER_CYCLE; i++)
-		{
-			movePattern.add(VERTICAL_VELOCITY);
-			movePattern.add(-VERTICAL_VELOCITY);
-			movePattern.add(ZERO);
-		}
-		Collections.shuffle(movePattern);
-	}
-
-	private double getNextMove()
-	{
-		double currentMove = movePattern.get(indexOfCurrentMove);
-		framesWithSameMove++;
-		if (framesWithSameMove == MAX_FRAMES_WITH_SAME_MOVE)
-		{
-			Collections.shuffle(movePattern);
-			framesWithSameMove = 0;
-			indexOfCurrentMove++;
-		}
-		if (indexOfCurrentMove == movePattern.size())
-		{
-			indexOfCurrentMove = 0;
-		}
-		return currentMove;
+		return projectileShouldFire() ? new BossProjectile(getProjectileYPosition(PROJECTILE_Y_POSITION_OFFSET)) : null;
 	}
 
 	private boolean projectileShouldFire()
