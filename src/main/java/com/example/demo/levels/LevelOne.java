@@ -3,7 +3,8 @@ package com.example.demo.levels;
 import com.example.demo.entities.ActiveActorDestructible;
 import com.example.demo.entities.EnemyPlane;
 
-public class LevelOne extends LevelParent {
+public class LevelOne extends LevelParent
+{
 	
 	private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/background1.jpg";
 	private static final String NEXT_LEVEL = "com.example.demo.levels.LevelTwo";
@@ -12,7 +13,8 @@ public class LevelOne extends LevelParent {
 	private static final double ENEMY_SPAWN_PROBABILITY = .20;
 	private static final int PLAYER_INITIAL_HEALTH = 5;
 
-	public LevelOne(double screenHeight, double screenWidth) {
+	public LevelOne(double screenHeight, double screenWidth)
+	{
 		super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH);
 	}
 
@@ -33,15 +35,19 @@ public class LevelOne extends LevelParent {
 	}
 
 	@Override
-	protected void initializeFriendlyUnits() {
+	protected void initializeFriendlyUnits()
+	{
 		getRoot().getChildren().add(getUser());
 	}
 
 	@Override
-	protected void spawnEnemyUnits() {
+	protected void spawnEnemyUnits()
+	{
 		int currentNumberOfEnemies = getNumberOfEnemies();
-		for (int i = 0; i < TOTAL_ENEMIES - currentNumberOfEnemies; i++) {
-			if (Math.random() < ENEMY_SPAWN_PROBABILITY) {
+		for (int i = 0; i < TOTAL_ENEMIES - currentNumberOfEnemies; i++)
+		{
+			if (Math.random() < ENEMY_SPAWN_PROBABILITY)
+			{
 				double newEnemyInitialYPosition = Math.random() * getEnemyMaximumYPosition();
 				ActiveActorDestructible newEnemy = new EnemyPlane(getScreenWidth(), newEnemyInitialYPosition);
 				addEnemyUnit(newEnemy);
@@ -49,16 +55,19 @@ public class LevelOne extends LevelParent {
 		}
 	}
 
-	private int getNumberOfEnemies() {
+	private int getNumberOfEnemies()
+	{
 		return getCurrentNumberOfEnemies();
 	}
 
 	@Override
-	protected LevelView instantiateLevelView() {
+	protected LevelView instantiateLevelView()
+	{
 		return new LevelView(getRoot(), PLAYER_INITIAL_HEALTH);
 	}
 
-	private boolean userHasReachedKillTarget() {
+	private boolean userHasReachedKillTarget()
+	{
 		return getUser().getNumberOfKills() >= KILLS_TO_ADVANCE;
 	}
 

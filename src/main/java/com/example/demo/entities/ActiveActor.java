@@ -2,13 +2,16 @@ package com.example.demo.entities;
 
 import javafx.scene.image.*;
 
-public abstract class ActiveActor extends ImageView {
+import java.util.Objects;
+
+public abstract class ActiveActor extends ImageView
+{
 	
 	private static final String IMAGE_LOCATION = "/com/example/demo/images/";
 
-	public ActiveActor(String imageName, int imageHeight, double initialXPos, double initialYPos) {
-		//this.setImage(new Image(IMAGE_LOCATION + imageName));
-		this.setImage(new Image(getClass().getResource(IMAGE_LOCATION + imageName).toExternalForm()));
+	public ActiveActor(String imageName, int imageHeight, double initialXPos, double initialYPos)
+	{
+		this.setImage(new Image(Objects.requireNonNull(getClass().getResource(IMAGE_LOCATION + imageName)).toExternalForm()));
 		this.setLayoutX(initialXPos);
 		this.setLayoutY(initialYPos);
 		this.setFitHeight(imageHeight);
@@ -17,11 +20,15 @@ public abstract class ActiveActor extends ImageView {
 
 	public abstract void updatePosition();
 
-	protected void moveHorizontally(double horizontalMove) {
+	public abstract void updateActor();
+
+	protected void moveHorizontally(double horizontalMove)
+	{
 		this.setTranslateX(getTranslateX() + horizontalMove);
 	}
 
-	protected void moveVertically(double verticalMove) {
+	protected void moveVertically(double verticalMove)
+	{
 		this.setTranslateY(getTranslateY() + verticalMove);
 	}
 
