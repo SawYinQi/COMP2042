@@ -1,6 +1,7 @@
 package com.example.demo.entities;
 
-public class EnemyPlane extends FighterPlane {
+public class EnemyPlane extends FighterPlane
+{
 
 	private static final String IMAGE_NAME = "enemyplane.png";
 	private static final int IMAGE_HEIGHT = 150;
@@ -15,23 +16,26 @@ public class EnemyPlane extends FighterPlane {
 	}
 
 	@Override
-	public void updatePosition() {
+	public void updatePosition()
+	{
 		moveHorizontally(HORIZONTAL_VELOCITY);
 	}
 
 	@Override
-	public ActiveActorDestructible fireProjectile() {
-		if (Math.random() < FIRE_RATE) {
+	public ActiveActorDestructible fireProjectile()
+	{
+		if (projectileShouldFire())
+		{
 			double projectileXPosition = getProjectileXPosition(PROJECTILE_X_POSITION_OFFSET);
-			double projectileYPostion = getProjectileYPosition(PROJECTILE_Y_POSITION_OFFSET);
-			return new EnemyProjectile(projectileXPosition, projectileYPostion);
+			double projectileYPosition = getProjectileYPosition(PROJECTILE_Y_POSITION_OFFSET);
+			return new EnemyProjectile(projectileXPosition, projectileYPosition);
 		}
 		return null;
 	}
 
-	@Override
-	public void updateActor() {
-		updatePosition();
+	private boolean projectileShouldFire()
+	{
+		return Math.random() < FIRE_RATE;
 	}
 
 }

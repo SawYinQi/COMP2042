@@ -40,7 +40,6 @@ public class Controller implements Observer
 			Scene scene = myLevel.initializeScene();
 			stage.setScene(scene);
 			myLevel.startGame();
-
 	}
 
 	@Override
