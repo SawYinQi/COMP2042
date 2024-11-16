@@ -12,7 +12,6 @@ public abstract class FighterPlane extends ActiveActorDestructible
 	}
 
 	public abstract ActiveActorDestructible fireProjectile();
-
 	
 	@Override
 	public void takeDamage()

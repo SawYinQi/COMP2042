@@ -4,20 +4,28 @@ public class BossShield
 {
     private boolean isShielded;
     private int shieldActiveTime;
-    private static final double BOSS_SHIELD_PROBABILITY = 0.3;
+    private static final double BOSS_SHIELD_PROBABILITY = 0.02;
     private static final int SHIELD_DURATION = 500;
 
     public BossShield()
     {
         this.isShielded = false;
-
     }
 
     protected void updateShield()
     {
-        if (isShielded) shieldActiveTime++;
-        else if (shieldShouldBeActivated()) activateShield();
-        if (shieldExhausted()) deactivateShield();
+        if (isShielded)
+        {
+            shieldActiveTime++;
+        }
+        else if (shieldShouldBeActivated())
+        {
+            activateShield();
+        }
+        if (shieldExhausted())
+        {
+            deactivateShield();
+        }
     }
 
     private boolean shieldShouldBeActivated()
@@ -39,10 +47,12 @@ public class BossShield
     {
         isShielded = false;
         shieldActiveTime = 0;
+
     }
 
-    public boolean isShielded()
+    public boolean shielded()
     {
         return isShielded;
     }
+
 }

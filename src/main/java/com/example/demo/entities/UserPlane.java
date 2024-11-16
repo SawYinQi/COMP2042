@@ -14,6 +14,11 @@ public class UserPlane extends FighterPlane
 	private int velocityMultiplier;
 	private int numberOfKills;
 
+	public enum Direction
+	{
+		up,down,stop
+	}
+
 	public UserPlane(int initialHealth) {
 		super(IMAGE_NAME, IMAGE_HEIGHT, INITIAL_X_POSITION, INITIAL_Y_POSITION, initialHealth);
 		velocityMultiplier = 0;
@@ -45,19 +50,20 @@ public class UserPlane extends FighterPlane
 		return velocityMultiplier != 0;
 	}
 
-	public void moveUp()
+	public void moves(Direction direction)
 	{
-		velocityMultiplier = -1;
-	}
-
-	public void moveDown()
-	{
-		velocityMultiplier = 1;
-	}
-
-	public void stop()
-	{
-		velocityMultiplier = 0;
+		switch (direction)
+		{
+			case up:
+				velocityMultiplier = -1;
+				break;
+			case down:
+				velocityMultiplier = 1;
+				break;
+			case stop:
+				velocityMultiplier = 0;
+				break;
+		}
 	}
 
 	public int getNumberOfKills()

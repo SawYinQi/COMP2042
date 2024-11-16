@@ -12,3 +12,12 @@ list of things done
 11. remove the same override updatePosition() in different children of projectile class, since the method is the same it can be place generally in projectile class, and each individual velocity will be passed onto the projectile class using super()
 12. remove redundant setDestroy 
 13. separate shield responsibilities from Boss 
+14. separate Movement responsibilities from Boss 
+15. combine moveup,down,stop methods into one using switch() 
+16. initialise friendly unit method in level parent, since its the same for levelone and two 
+17. separate collision logic from level parent 
+18. separate user input logic from level parent
+19. separate actors updating, removal mechanic from level parent 
+20. Separate gameOver logic from level parent
+21. separated win condition from checkIfGameOver, to new method checkIfLevelCompleted
+22. move levelview and leveltwoview to displays

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class BossMovement
+public class BossMovementPattern
 {
     private static final int VERTICAL_VELOCITY = 8;
     private static final int ZERO = 0;
@@ -14,7 +14,7 @@ public class BossMovement
     private int framesWithSameMove;
     private int indexOfCurrentMove;
 
-    public BossMovement()
+    public BossMovementPattern()
     {
         this.indexOfCurrentMove = 0;
         this.framesWithSameMove = 0;
@@ -49,4 +49,5 @@ public class BossMovement
         }
         return currentMove;
     }
+
 }
