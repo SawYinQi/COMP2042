@@ -1,7 +1,4 @@
 package com.example.demo.entities;
-import javafx.geometry.BoundingBox;
-import javafx.geometry.Bounds;
-
 
 public class Boss extends FighterPlane
 {
@@ -20,7 +17,6 @@ public class Boss extends FighterPlane
 	private static final int X_POSITION_RIGHT_BOUND = 1000;
 	private final BossShield  bossShield;
 	private final BossMovementPattern bossMovement;
-	private static final double HITBOX_MARGIN = 50.0;
 
 	public Boss()
 	{

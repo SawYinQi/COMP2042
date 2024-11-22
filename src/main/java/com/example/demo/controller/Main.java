@@ -30,19 +30,12 @@ public class Main extends Application
 	public void start(Stage stage) throws ClassNotFoundException, NoSuchMethodException, SecurityException,
 			InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException
 	{
-		try
-		{
-			stage.setTitle(TITLE);
-			stage.setResizable(false);
-			stage.setHeight(SCREEN_HEIGHT);
-			stage.setWidth(SCREEN_WIDTH);
-			mainController = new MainController(stage);
-			mainController.showMainMenu();
-		}
-		catch (Exception e)
-		{
-			mainController.showError(e);
-		}
+		stage.setTitle(TITLE);
+		stage.setResizable(false);
+		stage.setHeight(SCREEN_HEIGHT);
+		stage.setWidth(SCREEN_WIDTH);
+		mainController = new MainController(stage);
+		mainController.showMainMenu();
 	}
 
 	public static void main(String[] args)
