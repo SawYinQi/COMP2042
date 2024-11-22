@@ -21,3 +21,11 @@ list of things done
 20. Separate gameOver logic from level parent
 21. separated win condition from checkIfGameOver, to new method checkIfLevelCompleted
 22. move levelview and leveltwoview to displays
+23. replace deprecated Observer class with JavaFX's StringProperty and SimpleStringProperty for event handling
+24. combine movevertically and movehorizontally method into one
+25. added left and right movement to boss movement pattern
+27. enhance SRP moving generateenemyFire, addEnemyUnit, updatekillcount, getcurrentnumenemies etc to gameactormanager 
+28. added switchScreen method in MainController to handle screen transition between diffrent fxml files
+29. added screenController which delegates user interaction to MainController class(formerly controller), startGame,exitGame methods. 
+30. added win, lose, and menu fxml, removed class for gameover and win image, since i directly added the image to the fxml
+31. added ammunition logic to user plane

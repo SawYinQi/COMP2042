@@ -1,4 +1,7 @@
 package com.example.demo.entities;
+import javafx.geometry.BoundingBox;
+import javafx.geometry.Bounds;
+
 
 public class Boss extends FighterPlane
 {
@@ -13,8 +16,11 @@ public class Boss extends FighterPlane
 	private static final int HEALTH = 1; //change later easier for testing
 	private static final int Y_POSITION_UPPER_BOUND = -100;
 	private static final int Y_POSITION_LOWER_BOUND = 475;
+	private static final int X_POSITION_LEFT_BOUND = 700;
+	private static final int X_POSITION_RIGHT_BOUND = 1000;
 	private final BossShield  bossShield;
 	private final BossMovementPattern bossMovement;
+	private static final double HITBOX_MARGIN = 50.0;
 
 	public Boss()
 	{
@@ -27,11 +33,19 @@ public class Boss extends FighterPlane
 	public void updatePosition()
 	{
 		double initialTranslateY = getTranslateY();
-		moveVertically(bossMovement.getNextMove());
-		double currentPosition = getLayoutY() + getTranslateY();
-		if (currentPosition < Y_POSITION_UPPER_BOUND || currentPosition > Y_POSITION_LOWER_BOUND)
+		double initialTranslateX = getTranslateX();
+		int[] nextMove = bossMovement.getNextMove();
+		double x = nextMove[0];
+		double y = nextMove[1];
+		move(x, y);
+		double currentYPosition = getLayoutY() + getTranslateY();
+		double currentXPosition = getLayoutX() + getTranslateX();
+		if (currentYPosition < Y_POSITION_UPPER_BOUND || currentYPosition > Y_POSITION_LOWER_BOUND)
 		{
 			setTranslateY(initialTranslateY);
+		}
+		if (currentXPosition < X_POSITION_LEFT_BOUND || currentXPosition > X_POSITION_RIGHT_BOUND) {
+			setTranslateX(initialTranslateX);
 		}
 	}
 	

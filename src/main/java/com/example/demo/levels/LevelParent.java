@@ -2,10 +2,11 @@ package com.example.demo.levels;
 
 import java.util.*;
 
+import com.example.demo.controller.MainController;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import com.example.demo.displays.LevelTwoView;
 import com.example.demo.displays.LevelView;
-import com.example.demo.entities.ActiveActorDestructible;
-import com.example.demo.entities.FighterPlane;
 import com.example.demo.entities.UserPlane;
 import javafx.animation.*;
 import javafx.scene.Group;
@@ -13,9 +14,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.*;
 import javafx.util.Duration;
 
-public abstract class LevelParent extends Observable
+public abstract class LevelParent
 {
-
 	private static final double SCREEN_HEIGHT_ADJUSTMENT = 150;
 	private static final int MILLISECOND_DELAY = 50;
 	private final double screenHeight;
@@ -28,21 +28,20 @@ public abstract class LevelParent extends Observable
 	private final Scene scene;
 	private final ImageView background;
 
-	private int currentNumberOfEnemies;
+	private final StringProperty nextLevel;
 	private final LevelView levelView;
 	private final CollisionManager collisionManager;
 	private final UserInputHandler userInputHandler;
 	private final GameActorManager gameActorManager;
 	private final LevelStateManager levelStateManager;
+	private final MainController mainController;
 
-
-	public LevelParent(String backgroundImageName, double screenHeight, double screenWidth, int playerInitialHealth)
+	public LevelParent(String backgroundImageName, double screenHeight, double screenWidth, int playerInitialHealth, MainController mainController)
 	{
 		this.root = new Group();
 		this.scene = new Scene(root, screenWidth, screenHeight);
 		this.timeline = new Timeline();
 		this.user = new UserPlane(playerInitialHealth);
-
 		this.background = new ImageView(new Image(Objects.requireNonNull(getClass().getResource(backgroundImageName)).toExternalForm()));
 		this.screenHeight = screenHeight;
 		this.screenWidth = screenWidth;
@@ -52,7 +51,8 @@ public abstract class LevelParent extends Observable
 		this.userInputHandler = new UserInputHandler();
 		this.gameActorManager = new GameActorManager(root);
 		this.levelStateManager = new LevelStateManager(this);
-		this.currentNumberOfEnemies = 0;
+		this.mainController = mainController;
+		this.nextLevel = new SimpleStringProperty();
 		initializeTimeline();
 		gameActorManager.getFriendlyUnits().add(user);
 	}
@@ -79,31 +79,36 @@ public abstract class LevelParent extends Observable
 		background.requestFocus();
 		timeline.play();
 	}
-	//new method for encapsulation
+
 	public void stopGame()
 	{
 		timeline.stop();
 	}
 
+	public StringProperty nextLevelProperty()
+	{
+		return nextLevel;
+	}
+
+
+
 	public void goToNextLevel(String levelName)
 	{
-		setChanged();
-		notifyObservers(levelName);
+		nextLevel.set(levelName);
 	}
 
 	private void updateScene()
 	{
 		spawnEnemyUnits();
 		gameActorManager.updateActors();
-		generateEnemyFire();
-		updateNumberOfEnemies();
+		gameActorManager.generateEnemyFire();
 		collisionManager.handleEnemyPenetration(user, gameActorManager.getEnemyUnits(), screenWidth);
 		collisionManager.handleUserProjectileCollisions(gameActorManager.getUserProjectiles(), gameActorManager.getEnemyUnits());
 		collisionManager.handleEnemyProjectileCollisions(gameActorManager.getEnemyProjectiles(), gameActorManager.getFriendlyUnits());
 		collisionManager.handlePlaneCollisions(gameActorManager.getFriendlyUnits(), gameActorManager.getEnemyUnits());
 
 		gameActorManager.removeAllDestroyedActors();
-		updateKillCount();
+		gameActorManager.updateKillCount(user);
 		updateLevelView();
 		if (levelView instanceof LevelTwoView) {
 			((LevelTwoView) levelView).updateLevelTwoView();
@@ -134,23 +139,16 @@ public abstract class LevelParent extends Observable
 		levelView.removeHearts(user.getHealth());
 	}
 
-	private void updateKillCount()
-	{
-		for (int i = 0; i < currentNumberOfEnemies - gameActorManager.getEnemyUnits().size(); i++) {
-			user.incrementKillCount();
-		}
-	}
-
 	protected void winGame()
 	{
 		timeline.stop();
-		levelView.showWinImage();
+		mainController.showWinScreen();
 	}
 
 	protected void loseGame()
 	{
 		timeline.stop();
-		levelView.showGameOverImage();
+		mainController.showLoseScreen();
 	}
 
 	protected UserPlane getUser()
@@ -158,25 +156,9 @@ public abstract class LevelParent extends Observable
 		return user;
 	}
 
-	protected Group getRoot()
+	public Group getRoot()
 	{
 		return root;
-	}
-
-	protected int getCurrentNumberOfEnemies()
-	{
-		return gameActorManager.getEnemyUnits().size();
-	}
-
-	protected void generateEnemyFire()
-	{
-		gameActorManager.getEnemyUnits().forEach(enemy -> gameActorManager.spawnEnemyProjectile(((FighterPlane) enemy).fireProjectile()));
-	}
-
-	protected void addEnemyUnit(ActiveActorDestructible enemy)
-	{
-		gameActorManager.getEnemyUnits().add(enemy);
-		root.getChildren().add(enemy);
 	}
 
 	protected double getEnemyMaximumYPosition()
@@ -194,9 +176,9 @@ public abstract class LevelParent extends Observable
 		return user.isDestroyed();
 	}
 
-	private void updateNumberOfEnemies()
+	protected GameActorManager getGameActorManager()
 	{
-		currentNumberOfEnemies = gameActorManager.getEnemyUnits().size();
+		return gameActorManager;
 	}
 
 }

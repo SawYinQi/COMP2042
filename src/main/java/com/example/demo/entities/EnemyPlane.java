@@ -18,7 +18,7 @@ public class EnemyPlane extends FighterPlane
 	@Override
 	public void updatePosition()
 	{
-		moveHorizontally(HORIZONTAL_VELOCITY);
+		move(HORIZONTAL_VELOCITY, 0.0);
 	}
 
 	@Override

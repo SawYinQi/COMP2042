@@ -9,11 +9,12 @@ import javafx.scene.input.KeyEvent;
 import java.util.List;
 
 public class UserInputHandler {
-    public void onKeyPressed(KeyEvent e, UserPlane user, Group root, List<ActiveActorDestructible> userProjectiles) {
+    public void onKeyPressed(KeyEvent e, UserPlane user, Group root, List<ActiveActorDestructible> userProjectiles)
+    {
         KeyCode kc = e.getCode();
         if (kc == KeyCode.UP) user.moves(UserPlane.Direction.up);
         if (kc == KeyCode.DOWN) user.moves(UserPlane.Direction.down);
-        if (kc == KeyCode.SPACE) fireProjectile(user, root, userProjectiles);
+        if (kc == KeyCode.SPACE && user.getAmmunition() > 0) fireProjectile(user, root, userProjectiles);
     }
 
     public void onKeyReleased(KeyEvent e, UserPlane user) {

@@ -1,12 +1,13 @@
 package com.example.demo.levels;
 
+import com.example.demo.entities.ActiveActor;
 import com.example.demo.entities.ActiveActorDestructible;
 import com.example.demo.entities.FighterPlane;
+import com.example.demo.entities.UserPlane;
 import javafx.scene.Group;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class GameActorManager
 {
@@ -15,6 +16,7 @@ public class GameActorManager
     private final List<ActiveActorDestructible> userProjectiles;
     private final List<ActiveActorDestructible> enemyProjectiles;
     private final Group root;
+    private int previousNumberOfEnemies;
 
     public GameActorManager(Group root)
     {
@@ -22,15 +24,26 @@ public class GameActorManager
         this.enemyUnits = new ArrayList<>();
         this.userProjectiles = new ArrayList<>();
         this.enemyProjectiles = new ArrayList<>();
+        this.previousNumberOfEnemies = 0;
         this.root = root;
+    }
+
+    protected void updateKillCount(UserPlane user)
+    {
+        int kills = previousNumberOfEnemies - getCurrentNumberOfEnemies();
+        previousNumberOfEnemies = getCurrentNumberOfEnemies();
+        for (int i = 0; i < kills; i++) {
+            user.incrementKillCount();
+        }
+
     }
 
     protected void updateActors()
     {
-        friendlyUnits.forEach(plane -> plane.updateActor());
-        enemyUnits.forEach(enemy -> enemy.updateActor());
-        userProjectiles.forEach(projectile -> projectile.updateActor());
-        enemyProjectiles.forEach(projectile -> projectile.updateActor());
+        friendlyUnits.forEach(ActiveActor::updateActor);
+        enemyUnits.forEach(ActiveActor::updateActor);
+        userProjectiles.forEach(ActiveActor::updateActor);
+        enemyProjectiles.forEach(ActiveActor::updateActor);
     }
 
     protected void removeAllDestroyedActors()
@@ -43,10 +56,16 @@ public class GameActorManager
 
     private void removeDestroyedActors(List<ActiveActorDestructible> actors)
     {
-        List<ActiveActorDestructible> destroyedActors = actors.stream().filter(actor -> actor.isDestroyed())
-                .collect(Collectors.toList());
+        List<ActiveActorDestructible> destroyedActors = actors.stream().filter(ActiveActorDestructible::isDestroyed)
+                .toList();
         root.getChildren().removeAll(destroyedActors);
         actors.removeAll(destroyedActors);
+    }
+
+    protected void addEnemyUnit(ActiveActorDestructible enemy)
+    {
+        getEnemyUnits().add(enemy);
+        root.getChildren().add(enemy);
     }
 
     protected void spawnEnemyProjectile(ActiveActorDestructible projectile)
@@ -58,6 +77,17 @@ public class GameActorManager
             enemyProjectiles.add(projectile);
         }
     }
+
+    protected void generateEnemyFire()
+    {
+        enemyUnits.forEach(enemy -> spawnEnemyProjectile(((FighterPlane) enemy).fireProjectile()));
+    }
+
+    protected int getCurrentNumberOfEnemies()
+    {
+        return getEnemyUnits().size();
+    }
+
 
     public List<ActiveActorDestructible> getFriendlyUnits() {
         return friendlyUnits;
@@ -74,4 +104,5 @@ public class GameActorManager
     public List<ActiveActorDestructible> getUserProjectiles() {
         return userProjectiles;
     }
+
 }

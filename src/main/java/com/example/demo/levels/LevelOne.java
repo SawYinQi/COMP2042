@@ -1,5 +1,6 @@
 package com.example.demo.levels;
 
+import com.example.demo.controller.MainController;
 import com.example.demo.displays.LevelView;
 import com.example.demo.entities.ActiveActorDestructible;
 import com.example.demo.entities.EnemyPlane;
@@ -14,9 +15,9 @@ public class LevelOne extends LevelParent
 	private static final int PLAYER_INITIAL_HEALTH = 5;
 
 
-	public LevelOne(double screenHeight, double screenWidth)
+	public LevelOne(double screenHeight, double screenWidth, MainController mainController)
 	{
-		super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH);
+		super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH, mainController);
 	}
 
 	@Override
@@ -29,14 +30,14 @@ public class LevelOne extends LevelParent
 			{
 				double newEnemyInitialYPosition = Math.random() * getEnemyMaximumYPosition();
 				ActiveActorDestructible newEnemy = new EnemyPlane(getScreenWidth(), newEnemyInitialYPosition);
-				addEnemyUnit(newEnemy);
+				getGameActorManager().addEnemyUnit(newEnemy);
 			}
 		}
 	}
 
 	private int getNumberOfEnemies()
 	{
-		return getCurrentNumberOfEnemies();
+		return getGameActorManager().getCurrentNumberOfEnemies();
 	}
 
 	@Override

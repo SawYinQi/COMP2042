@@ -25,6 +25,7 @@ public class CollisionManager
     protected void handleCollisions(List<ActiveActorDestructible> actors1,
                                   List<ActiveActorDestructible> actors2)
     {
+
         for (ActiveActorDestructible actor : actors2)
         {
             for (ActiveActorDestructible otherActor : actors1)

@@ -25,7 +25,7 @@ public abstract class Projectile extends ActiveActorDestructible
 	@Override
 	public void updatePosition()
 	{
-		moveHorizontally(horizontalVelocity);
+		move(horizontalVelocity, 0.0);
 	}
 
 }

@@ -1,5 +1,9 @@
 package com.example.demo.entities;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
+
 public class UserPlane extends FighterPlane
 {
 	private static final String IMAGE_NAME = "userplane.png";
@@ -11,17 +15,24 @@ public class UserPlane extends FighterPlane
 	private static final int VERTICAL_VELOCITY = 8;
 	private static final int PROJECTILE_X_POSITION = 110;
 	private static final int PROJECTILE_Y_POSITION_OFFSET = 20;
+	private static final int AMMO_INCREMENT_INTERVAL = 3000;
+	private static final int MAX_AMMUNITION = 20;
 	private int velocityMultiplier;
 	private int numberOfKills;
+	private int ammunition;
+	private Timeline timeline;
 
 	public enum Direction
 	{
 		up,down,stop
 	}
 
-	public UserPlane(int initialHealth) {
+	public UserPlane(int initialHealth)
+	{
 		super(IMAGE_NAME, IMAGE_HEIGHT, INITIAL_X_POSITION, INITIAL_Y_POSITION, initialHealth);
 		velocityMultiplier = 0;
+		ammunition = 5;
+		initializeTimeline();
 	}
 	
 	@Override
@@ -30,7 +41,7 @@ public class UserPlane extends FighterPlane
 		if (isMoving())
 		{
 			double initialTranslateY = getTranslateY();
-			this.moveVertically(VERTICAL_VELOCITY * velocityMultiplier);
+			this.move(0.0, VERTICAL_VELOCITY * velocityMultiplier);
 			double newPosition = getLayoutY() + getTranslateY();
 			if (newPosition < Y_UPPER_BOUND || newPosition > Y_LOWER_BOUND)
 			{
@@ -42,7 +53,12 @@ public class UserPlane extends FighterPlane
 	@Override
 	public ActiveActorDestructible fireProjectile()
 	{
-		return new UserProjectile(PROJECTILE_X_POSITION, getProjectileYPosition(PROJECTILE_Y_POSITION_OFFSET));
+		if(ammunition > 0)
+		{
+			ammunition--;
+			return new UserProjectile(PROJECTILE_X_POSITION, getProjectileYPosition(PROJECTILE_Y_POSITION_OFFSET));
+		}
+		return null;
 	}
 
 	private boolean isMoving()
@@ -74,6 +90,26 @@ public class UserPlane extends FighterPlane
 	public void incrementKillCount()
 	{
 		numberOfKills++;
+	}
+
+	private void incrementAmmunition()
+	{
+		if(ammunition < MAX_AMMUNITION)
+		{
+			ammunition++;
+		}
+	}
+
+	private void initializeTimeline()
+	{
+		timeline = new Timeline(new KeyFrame(Duration.millis(AMMO_INCREMENT_INTERVAL), e -> incrementAmmunition()));
+		timeline.setCycleCount(Timeline.INDEFINITE);
+		timeline.play();
+	}
+
+	public int getAmmunition()
+	{
+		return ammunition;
 	}
 
 }

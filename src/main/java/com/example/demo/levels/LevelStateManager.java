@@ -1,8 +1,10 @@
 package com.example.demo.levels;
 
+
 public class LevelStateManager
 {
     private final LevelParent levelParent;
+
 
     public LevelStateManager(LevelParent level)
     {
