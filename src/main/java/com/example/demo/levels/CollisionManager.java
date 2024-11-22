@@ -14,7 +14,7 @@ public class CollisionManager
 
     protected void handleUserProjectileCollisions(List<ActiveActorDestructible> userProjectiles, List<ActiveActorDestructible> enemyUnits)
     {
-        handleCollisions(userProjectiles, enemyUnits);
+        handleCollisions(enemyUnits, userProjectiles);
     }
 
     protected void handleEnemyProjectileCollisions(List<ActiveActorDestructible> enemyProjectiles, List<ActiveActorDestructible> friendlyUnits)
@@ -34,6 +34,7 @@ public class CollisionManager
                 {
                     actor.takeDamage();
                     otherActor.takeDamage();
+                    break;
                 }
             }
         }
