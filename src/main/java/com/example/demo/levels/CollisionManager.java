@@ -19,13 +19,12 @@ public class CollisionManager
 
     protected void handleEnemyProjectileCollisions(List<ActiveActorDestructible> enemyProjectiles, List<ActiveActorDestructible> friendlyUnits)
     {
-        handleCollisions(enemyProjectiles, friendlyUnits);
+        handleCollisions(friendlyUnits, enemyProjectiles);
     }
 
     protected void handleCollisions(List<ActiveActorDestructible> actors1,
                                   List<ActiveActorDestructible> actors2)
     {
-
         for (ActiveActorDestructible actor : actors2)
         {
             for (ActiveActorDestructible otherActor : actors1)
@@ -52,7 +51,6 @@ public class CollisionManager
             if (enemyHasPenetratedDefenses(enemy, screenWidth))
             {
                 user.takeDamage();
-                enemy.destroy();
             }
         }
     }

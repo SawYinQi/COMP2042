@@ -16,7 +16,6 @@ public class GameActorManager
     private final List<ActiveActorDestructible> userProjectiles;
     private final List<ActiveActorDestructible> enemyProjectiles;
     private final Group root;
-    private int previousNumberOfEnemies;
 
     public GameActorManager(Group root)
     {
@@ -24,18 +23,7 @@ public class GameActorManager
         this.enemyUnits = new ArrayList<>();
         this.userProjectiles = new ArrayList<>();
         this.enemyProjectiles = new ArrayList<>();
-        this.previousNumberOfEnemies = 0;
         this.root = root;
-    }
-
-    protected void updateKillCount(UserPlane user)
-    {
-        int kills = previousNumberOfEnemies - getCurrentNumberOfEnemies();
-        previousNumberOfEnemies = getCurrentNumberOfEnemies();
-        for (int i = 0; i < kills; i++) {
-            user.incrementKillCount();
-        }
-
     }
 
     protected void updateActors()
@@ -46,12 +34,13 @@ public class GameActorManager
         enemyProjectiles.forEach(ActiveActor::updateActor);
     }
 
-    protected void removeAllDestroyedActors()
+    protected void removeAllDestroyedActors(double screenWidth)
     {
         removeDestroyedActors(friendlyUnits);
         removeDestroyedActors(enemyUnits);
         removeDestroyedActors(userProjectiles);
         removeDestroyedActors(enemyProjectiles);
+        removePenetratedEnemies(enemyUnits,screenWidth);
     }
 
     private void removeDestroyedActors(List<ActiveActorDestructible> actors)
@@ -83,11 +72,26 @@ public class GameActorManager
         enemyUnits.forEach(enemy -> spawnEnemyProjectile(((FighterPlane) enemy).fireProjectile()));
     }
 
+    protected void removePenetratedEnemies(List<ActiveActorDestructible> enemyUnits, double screenWidth)
+    {
+        List<ActiveActorDestructible> penetratedDefense = enemyUnits.stream().filter(enemy -> Math.abs(enemy.getTranslateX()) > screenWidth)
+                .toList();
+        root.getChildren().removeAll(penetratedDefense);
+        enemyUnits.removeAll(penetratedDefense);
+    }
+
+    protected void updateKillCount(UserPlane user)
+    {
+        List<ActiveActorDestructible> destroyedEnemy = getEnemyUnits().stream().filter(ActiveActorDestructible::isDestroyed)
+                .toList();
+
+        destroyedEnemy.forEach(enemy -> user.incrementKillCount());
+    }
+
     protected int getCurrentNumberOfEnemies()
     {
         return getEnemyUnits().size();
     }
-
 
     public List<ActiveActorDestructible> getFriendlyUnits() {
         return friendlyUnits;

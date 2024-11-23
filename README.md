@@ -24,8 +24,12 @@ list of things done
 23. replace deprecated Observer class with JavaFX's StringProperty and SimpleStringProperty for event handling
 24. combine movevertically and movehorizontally method into one
 25. added left and right movement to boss movement pattern
-27. enhance SRP moving generateenemyFire, addEnemyUnit, updatekillcount, getcurrentnumenemies etc to gameactormanager 
-28. added switchScreen method in MainController to handle screen transition between diffrent fxml files
-29. added screenController which delegates user interaction to MainController class(formerly controller), startGame,exitGame methods. 
-30. added win, lose, and menu fxml, removed class for gameover and win image, since i directly added the image to the fxml
-31. added ammunition logic to user plane
+26. enhance SRP moving generateenemyFire, addEnemyUnit, updatekillcount, getcurrentnumenemies etc to gameactormanager 
+27. added switchScreen method in MainController to handle screen transition between diffrent fxml files
+28. added screenController which delegates user interaction to MainController class(formerly controller), startGame,exitGame methods. 
+29. added win, lose, and menu fxml, removed class for gameover and win image, since i directly added the image to the fxml
+30. added ammunition logic to user plane
+31. fix the looping problem where beacuse userprojectile is the actor in the outter loop it allows for multiple enemies to be killed in inner loop when projectiles intersect.
+32. remove enemy.destroyed() from handleEnemyPenetration, so it wont mark it as destroyed when enemy pass defense line. 
+33. added removePenetratedEnemies() which removes enemies enemy which pass defense line.
+34. replace update kill mechanic to be base on number of enemies which are set to destroyed instead of remaining enemies on screen.

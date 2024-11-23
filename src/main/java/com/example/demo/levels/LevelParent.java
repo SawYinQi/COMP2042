@@ -100,21 +100,13 @@ public abstract class LevelParent
 	private void updateScene()
 	{
 		spawnEnemyUnits();
-		gameActorManager.updateActors();
-		gameActorManager.generateEnemyFire();
-		collisionManager.handleEnemyPenetration(user, gameActorManager.getEnemyUnits(), screenWidth);
-		collisionManager.handleUserProjectileCollisions(gameActorManager.getUserProjectiles(), gameActorManager.getEnemyUnits());
-		collisionManager.handleEnemyProjectileCollisions(gameActorManager.getEnemyProjectiles(), gameActorManager.getFriendlyUnits());
-		collisionManager.handlePlaneCollisions(gameActorManager.getFriendlyUnits(), gameActorManager.getEnemyUnits());
-
-		gameActorManager.removeAllDestroyedActors();
-		gameActorManager.updateKillCount(user);
+		handleCollisions();
+		updateAllActors();
 		updateLevelView();
 		if (levelView instanceof LevelTwoView) {
 			((LevelTwoView) levelView).updateLevelTwoView();
 		}
-		levelStateManager.checkIfGameOver();
-		levelStateManager.checkIfLevelCompleted();
+		checkLevelState();
 	}
 
 	private void initializeTimeline()
@@ -137,6 +129,28 @@ public abstract class LevelParent
 	private void updateLevelView()
 	{
 		levelView.removeHearts(user.getHealth());
+	}
+
+	private void updateAllActors()
+	{
+		gameActorManager.updateActors();
+		gameActorManager.generateEnemyFire();
+		gameActorManager.updateKillCount(user);
+		gameActorManager.removeAllDestroyedActors(screenWidth);
+	}
+
+	private void handleCollisions()
+	{
+		collisionManager.handleEnemyPenetration(user, gameActorManager.getEnemyUnits(), screenWidth);
+		collisionManager.handleUserProjectileCollisions(gameActorManager.getUserProjectiles(), gameActorManager.getEnemyUnits());
+		collisionManager.handleEnemyProjectileCollisions(gameActorManager.getEnemyProjectiles(), gameActorManager.getFriendlyUnits());
+		collisionManager.handlePlaneCollisions(gameActorManager.getFriendlyUnits(), gameActorManager.getEnemyUnits());
+	}
+
+	private void checkLevelState()
+	{
+		levelStateManager.checkIfGameOver();
+		levelStateManager.checkIfLevelCompleted();
 	}
 
 	protected void winGame()
