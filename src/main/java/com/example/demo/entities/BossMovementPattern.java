@@ -56,8 +56,6 @@ public class BossMovementPattern
             case 4:
                 x = -HORIZONTAL_VELOCITY;
                 break;
-            default:
-                break;
         }
         int[] nextMove = {x,y};
         framesWithSameMove++;

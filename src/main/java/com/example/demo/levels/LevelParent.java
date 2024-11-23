@@ -133,18 +133,18 @@ public abstract class LevelParent
 
 	private void updateAllActors()
 	{
-		gameActorManager.updateActors();
-		gameActorManager.generateEnemyFire();
 		gameActorManager.updateKillCount(user);
 		gameActorManager.removeAllDestroyedActors(screenWidth);
+		gameActorManager.updateActors();
+		gameActorManager.generateEnemyFire();
 	}
 
 	private void handleCollisions()
 	{
-		collisionManager.handleEnemyPenetration(user, gameActorManager.getEnemyUnits(), screenWidth);
 		collisionManager.handleUserProjectileCollisions(gameActorManager.getUserProjectiles(), gameActorManager.getEnemyUnits());
 		collisionManager.handleEnemyProjectileCollisions(gameActorManager.getEnemyProjectiles(), gameActorManager.getFriendlyUnits());
 		collisionManager.handlePlaneCollisions(gameActorManager.getFriendlyUnits(), gameActorManager.getEnemyUnits());
+		collisionManager.handleEnemyPenetration(user, gameActorManager.getEnemyUnits(), screenWidth);
 	}
 
 	private void checkLevelState()
