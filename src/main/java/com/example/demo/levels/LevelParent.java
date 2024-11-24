@@ -3,6 +3,7 @@ package com.example.demo.levels;
 import java.util.*;
 
 import com.example.demo.controller.MainController;
+import com.example.demo.displays.LevelTutorialView;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import com.example.demo.displays.LevelTwoView;
@@ -103,9 +104,6 @@ public abstract class LevelParent
 		handleCollisions();
 		updateAllActors();
 		updateLevelView();
-		if (levelView instanceof LevelTwoView) {
-			((LevelTwoView) levelView).updateLevelTwoView();
-		}
 		checkLevelState();
 	}
 
@@ -129,6 +127,13 @@ public abstract class LevelParent
 	private void updateLevelView()
 	{
 		levelView.removeHearts(user.getHealth());
+		if (levelView instanceof LevelTwoView) {
+			((LevelTwoView) levelView).updateLevelTwoView();
+		}
+		else if(levelView instanceof LevelTutorialView)
+		{
+			((LevelTutorialView) levelView).showInstructions();
+		}
 	}
 
 	private void updateAllActors()
@@ -163,6 +168,12 @@ public abstract class LevelParent
 	{
 		timeline.stop();
 		mainController.showLoseScreen();
+	}
+
+	protected void backToMenu()
+	{
+		timeline.stop();
+		mainController.showMainMenu();
 	}
 
 	protected UserPlane getUser()

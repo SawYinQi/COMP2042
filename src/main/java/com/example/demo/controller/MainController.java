@@ -19,6 +19,7 @@ public class MainController
 	private static final String LOSE_PATH = "/lose.fxml";
 	private static final String WIN_PATH = "/win.fxml";
 	private static final String LEVEL_ONE_CLASS_NAME = "com.example.demo.levels.LevelOne";
+	private static final String LEVEL_Tutorial_CLASS_NAME = "com.example.demo.levels.LevelTutorial";
 	private final Stage stage;
 
 
@@ -48,6 +49,13 @@ public class MainController
 	{
 		stage.show();
 		goToLevel(LEVEL_ONE_CLASS_NAME);
+	}
+
+	public void launchTutorial() throws ClassNotFoundException, NoSuchMethodException, SecurityException,
+			InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException
+	{
+		stage.show();
+		goToLevel(LEVEL_Tutorial_CLASS_NAME);
 	}
 
 	/**

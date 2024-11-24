@@ -24,6 +24,14 @@ public class LevelStateManager
     {
         switch (levelParent.getClass().getSimpleName())
         {
+            case "LevelTutorial":
+                LevelTutorial levelTutorial = (LevelTutorial) levelParent;
+                if (levelTutorial.userHasReachedKillTarget())
+                {
+                    levelParent.stopGame();
+                    levelParent.backToMenu();
+                }
+                break;
             case "LevelOne":
                 LevelOne levelOne = (LevelOne) levelParent;
                 if (levelOne.userHasReachedKillTarget())

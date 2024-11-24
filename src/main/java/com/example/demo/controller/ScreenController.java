@@ -43,5 +43,18 @@ public class ScreenController
     {
         mainController.getStage().close();
     }
+
+    @FXML
+    private void startTutorial()
+    {
+        try
+        {
+            mainController.launchTutorial();
+        }
+        catch (Exception e)
+        {
+            mainController.showError(e);
+        }
+    }
 }
 
