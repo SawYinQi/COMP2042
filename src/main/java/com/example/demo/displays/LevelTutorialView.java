@@ -19,14 +19,15 @@ public class LevelTutorialView extends LevelView
     {
         Label instructions = new Label("""
                 Instructions:
-                Press up key to move up
-                Press down key to mover down
-                Press space key to fire projectiles
-                Objective: Destroy EnemyPlane to go back to main menu""");
+                Press up key to move up.
+                Press down key to mover down.
+                Press space key to fire projectiles.
+                Press p key to pause game, press again to resume.
+                Objective: Destroy EnemyPlane to go back to main menu.""");
         instructions.setFont(new Font("Arial", 24));
         instructions.setTextFill(Color.BLACK);
         instructions.setLayoutX(20);
-        instructions.setLayoutY(570);
+        instructions.setLayoutY(550);
         root.getChildren().add(instructions);
     }
 

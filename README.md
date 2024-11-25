@@ -39,4 +39,4 @@ list of things done
 38. added backToMenu in Level Parent, used for when Level tutorial ends
 39. organize managers into dedicated manager package
 40. added displays for ammo and kill target for level advancement
-41. 
+41. add pause option to userinputhandler and pause display image.

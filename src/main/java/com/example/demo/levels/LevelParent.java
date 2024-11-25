@@ -1,7 +1,6 @@
 package com.example.demo.levels;
 
 import java.util.*;
-
 import com.example.demo.Managers.CollisionManager;
 import com.example.demo.Managers.GameActorManager;
 import com.example.demo.Managers.LevelStateManager;
@@ -123,7 +122,7 @@ public abstract class LevelParent
 		background.setFocusTraversable(true);
 		background.setFitHeight(screenHeight);
 		background.setFitWidth(screenWidth);
-		background.setOnKeyPressed(e -> userInputHandler.onKeyPressed(e, user, root, gameActorManager.getUserProjectiles()));
+		background.setOnKeyPressed(e -> userInputHandler.onKeyPressed(e, user, root, gameActorManager.getUserProjectiles(), timeline, levelView));
 		background.setOnKeyReleased(e -> userInputHandler.onKeyReleased(e, user));
 		root.getChildren().add(background);
 	}
