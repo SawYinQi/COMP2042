@@ -9,19 +9,20 @@ public class LevelTutorialView extends LevelView
 {
     private final Group root;
 
-    public LevelTutorialView(Group root, int heartsToDisplay)
+    public LevelTutorialView(Group root, int heartsToDisplay, int kills)
     {
-        super(root, heartsToDisplay);
+        super(root, heartsToDisplay, kills);
         this.root = root;
     }
 
     public void showInstructions()
     {
-        Label instructions = new Label("Instructions:\n" +
-                "Press up key to move up\n" +
-                "Press down key to mover down\n" +
-                "Press space key to fire projectiles\n" +
-                "Objective: Destroy EnemyPlane to go back to main menu");
+        Label instructions = new Label("""
+                Instructions:
+                Press up key to move up
+                Press down key to mover down
+                Press space key to fire projectiles
+                Objective: Destroy EnemyPlane to go back to main menu""");
         instructions.setFont(new Font("Arial", 24));
         instructions.setTextFill(Color.BLACK);
         instructions.setLayoutX(20);

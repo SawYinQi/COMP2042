@@ -2,6 +2,10 @@ package com.example.demo.levels;
 
 import java.util.*;
 
+import com.example.demo.Managers.CollisionManager;
+import com.example.demo.Managers.GameActorManager;
+import com.example.demo.Managers.LevelStateManager;
+import com.example.demo.Managers.UserInputHandler;
 import com.example.demo.controller.MainController;
 import com.example.demo.displays.LevelTutorialView;
 import javafx.beans.property.SimpleStringProperty;
@@ -71,7 +75,7 @@ public abstract class LevelParent
 	{
 		initializeBackground();
 		initializeFriendlyUnits();
-		levelView.showHeartDisplay();
+		levelView.showGameDisplays();
 		return scene;
 	}
 
@@ -101,7 +105,7 @@ public abstract class LevelParent
 	private void updateScene()
 	{
 		spawnEnemyUnits();
-		handleCollisions();
+		handleAllCollisions();
 		updateAllActors();
 		updateLevelView();
 		checkLevelState();
@@ -127,6 +131,8 @@ public abstract class LevelParent
 	private void updateLevelView()
 	{
 		levelView.removeHearts(user.getHealth());
+		levelView.updateAmmunitionDisplay(user.getAmmunition());
+		levelView.updateKillTargetDisplay(user.getNumberOfKills());
 		if (levelView instanceof LevelTwoView) {
 			((LevelTwoView) levelView).updateLevelTwoView();
 		}
@@ -138,41 +144,37 @@ public abstract class LevelParent
 
 	private void updateAllActors()
 	{
-		gameActorManager.updateKillCount(user);
-		gameActorManager.removeAllDestroyedActors(screenWidth);
-		gameActorManager.updateActors();
-		gameActorManager.generateEnemyFire();
+		gameActorManager.updateAllActors(gameActorManager, user, screenWidth);
 	}
 
-	private void handleCollisions()
+	private void handleAllCollisions()
 	{
-		collisionManager.handleUserProjectileCollisions(gameActorManager.getUserProjectiles(), gameActorManager.getEnemyUnits());
-		collisionManager.handleEnemyProjectileCollisions(gameActorManager.getEnemyProjectiles(), gameActorManager.getFriendlyUnits());
-		collisionManager.handlePlaneCollisions(gameActorManager.getFriendlyUnits(), gameActorManager.getEnemyUnits());
-		collisionManager.handleEnemyPenetration(user, gameActorManager.getEnemyUnits(), screenWidth);
+		collisionManager.handleAllCollisions(gameActorManager, user, screenWidth);
 	}
 
 	private void checkLevelState()
 	{
-		levelStateManager.checkIfGameOver();
-		levelStateManager.checkIfLevelCompleted();
+		levelStateManager.checkLevelState();
 	}
 
-	protected void winGame()
+	public void winGame()
 	{
 		timeline.stop();
+		user.getTimeline().stop();
 		mainController.showWinScreen();
 	}
 
-	protected void loseGame()
+	public void loseGame()
 	{
 		timeline.stop();
+		user.getTimeline().stop();
 		mainController.showLoseScreen();
 	}
 
-	protected void backToMenu()
+	public void backToMenu()
 	{
 		timeline.stop();
+		user.getTimeline().stop();
 		mainController.showMainMenu();
 	}
 
@@ -196,7 +198,7 @@ public abstract class LevelParent
 		return screenWidth;
 	}
 
-	protected boolean userIsDestroyed()
+	public boolean userIsDestroyed()
 	{
 		return user.isDestroyed();
 	}
@@ -205,5 +207,4 @@ public abstract class LevelParent
 	{
 		return gameActorManager;
 	}
-
 }

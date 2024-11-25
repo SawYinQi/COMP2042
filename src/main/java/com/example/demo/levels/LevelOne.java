@@ -30,7 +30,7 @@ public class LevelOne extends LevelParent
 			{
 				double newEnemyInitialYPosition = Math.random() * getEnemyMaximumYPosition();
 				ActiveActorDestructible newEnemy = new EnemyPlane(getScreenWidth(), newEnemyInitialYPosition);
-				getGameActorManager().addEnemyUnit(newEnemy);
+				getGameActorManager().setAddEnemyUnit(newEnemy);
 			}
 		}
 	}
@@ -43,12 +43,16 @@ public class LevelOne extends LevelParent
 	@Override
 	protected LevelView instantiateLevelView()
 	{
-		return new LevelView(getRoot(), PLAYER_INITIAL_HEALTH);
+		return new LevelView(getRoot(), PLAYER_INITIAL_HEALTH, KILLS_TO_ADVANCE);
 	}
 
-	protected boolean userHasReachedKillTarget()
+	private boolean userHasReachedKillTarget()
 	{
 		return getUser().getNumberOfKills() >= KILLS_TO_ADVANCE;
 	}
 
+	public boolean getUserHasReachedKillTarget()
+	{
+		return userHasReachedKillTarget();
+	}
 }

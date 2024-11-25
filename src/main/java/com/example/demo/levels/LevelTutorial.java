@@ -21,32 +21,41 @@ public class LevelTutorial extends LevelParent
     @Override
     protected void spawnEnemyUnits()
     {
-        ActiveActorDestructible newEnemy = new EnemyPlane( 1080, 310)
+        if(getGameActorManager().getCurrentNumberOfEnemies() == 0)
         {
-            @Override
-            public void updatePosition()
+            ActiveActorDestructible newEnemy = new EnemyPlane( 1080, 310)
             {
-                move(0.0,0.0);
-            }
+                @Override
+                public void updatePosition()
+                {
+                    move(0.0,0.0);
+                }
 
-            @Override
-            public ActiveActorDestructible fireProjectile()
-            {
-                return null;
-            }
-        };
-        getGameActorManager().addEnemyUnit(newEnemy);
+                @Override
+                public ActiveActorDestructible fireProjectile()
+                {
+                    return null;
+                }
+            };
+            getGameActorManager().setAddEnemyUnit(newEnemy);
+        }
     }
 
     @Override
     protected LevelView instantiateLevelView()
     {
-        levelView = new LevelTutorialView(getRoot(), PLAYER_INITIAL_HEALTH);
+        levelView = new LevelTutorialView(getRoot(), PLAYER_INITIAL_HEALTH, KILLS_TO_ADVANCE);
         return levelView;
     }
 
-    protected boolean userHasReachedKillTarget()
+    private boolean userHasReachedKillTarget()
     {
         return getUser().getNumberOfKills() >= KILLS_TO_ADVANCE;
     }
+
+    public boolean getUserHasReachedKillTarget()
+    {
+        return userHasReachedKillTarget();
+    }
+
 }

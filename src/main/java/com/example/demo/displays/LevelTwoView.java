@@ -12,9 +12,9 @@ public class LevelTwoView extends LevelView
 	private final ShieldImage shieldImage;
 	private final BossShield bossShield;
 	
-	public LevelTwoView(Group root, int heartsToDisplay)
+	public LevelTwoView(Group root, int heartsToDisplay, int kills)
 	{
-		super(root, heartsToDisplay);
+		super(root, heartsToDisplay, kills);
 		this.root = root;
 		this.shieldImage = new ShieldImage(SHIELD_X_POSITION, SHIELD_Y_POSITION);
 		this.bossShield = new BossShield();
@@ -23,15 +23,15 @@ public class LevelTwoView extends LevelView
 
 	private void addImagesToRoot()
 	{
-		root.getChildren().addAll(shieldImage);
+		root.getChildren().add(shieldImage);
 	}
 	
-	public void showShield()
+	private void showShield()
 	{
 		shieldImage.showShield();
 	}
 
-	public void hideShield()
+	private void hideShield()
 	{
 		shieldImage.hideShield();
 	}

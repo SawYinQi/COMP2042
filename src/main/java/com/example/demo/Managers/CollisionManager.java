@@ -1,4 +1,4 @@
-package com.example.demo.levels;
+package com.example.demo.Managers;
 
 import com.example.demo.entities.ActiveActorDestructible;
 import com.example.demo.entities.UserPlane;
@@ -53,5 +53,13 @@ public class CollisionManager
                 user.takeDamage();
             }
         }
+    }
+
+    public void handleAllCollisions(GameActorManager gameActorManager, UserPlane user, double screenWidth)
+    {
+        handleUserProjectileCollisions(gameActorManager.getUserProjectiles(), gameActorManager.getEnemyUnits());
+        handleEnemyProjectileCollisions(gameActorManager.getEnemyProjectiles(), gameActorManager.getFriendlyUnits());
+        handlePlaneCollisions(gameActorManager.getFriendlyUnits(), gameActorManager.getEnemyUnits());
+        handleEnemyPenetration(user, gameActorManager.getEnemyUnits(), screenWidth);
     }
 }

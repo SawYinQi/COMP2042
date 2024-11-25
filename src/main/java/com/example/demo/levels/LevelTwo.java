@@ -24,14 +24,14 @@ public class LevelTwo extends LevelParent
 	{
 		if (getGameActorManager().getCurrentNumberOfEnemies() == 0)
 		{
-			getGameActorManager().addEnemyUnit(boss);
+			getGameActorManager().setAddEnemyUnit(boss);
 		}
 	}
 
 	@Override
 	protected LevelView instantiateLevelView()
 	{
-		levelView = new LevelTwoView(getRoot(), PLAYER_INITIAL_HEALTH);
+		levelView = new LevelTwoView(getRoot(), PLAYER_INITIAL_HEALTH, 0);
 		return levelView;
 	}
 

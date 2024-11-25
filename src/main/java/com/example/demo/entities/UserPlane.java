@@ -15,7 +15,7 @@ public class UserPlane extends FighterPlane
 	private static final int VERTICAL_VELOCITY = 10;
 	private static final int PROJECTILE_X_POSITION = 110;
 	private static final int PROJECTILE_Y_POSITION_OFFSET = 20;
-	private static final int AMMO_INCREMENT_INTERVAL = 1000;
+	private static final int AMMO_INCREMENT_INTERVAL = 1500;
 	private static final int MAX_AMMUNITION = 20;
 	private int velocityMultiplier;
 	private int numberOfKills;
@@ -110,6 +110,11 @@ public class UserPlane extends FighterPlane
 	public int getAmmunition()
 	{
 		return ammunition;
+	}
+
+	public Timeline getTimeline()
+	{
+		return timeline;
 	}
 
 }

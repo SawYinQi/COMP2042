@@ -1,5 +1,10 @@
-package com.example.demo.levels;
+package com.example.demo.Managers;
 
+
+import com.example.demo.levels.LevelOne;
+import com.example.demo.levels.LevelParent;
+import com.example.demo.levels.LevelTutorial;
+import com.example.demo.levels.LevelTwo;
 
 public class LevelStateManager
 {
@@ -26,7 +31,7 @@ public class LevelStateManager
         {
             case "LevelTutorial":
                 LevelTutorial levelTutorial = (LevelTutorial) levelParent;
-                if (levelTutorial.userHasReachedKillTarget())
+                if (levelTutorial.getUserHasReachedKillTarget())
                 {
                     levelParent.stopGame();
                     levelParent.backToMenu();
@@ -34,7 +39,7 @@ public class LevelStateManager
                 break;
             case "LevelOne":
                 LevelOne levelOne = (LevelOne) levelParent;
-                if (levelOne.userHasReachedKillTarget())
+                if (levelOne.getUserHasReachedKillTarget())
                 {
                     levelParent.stopGame();
                     levelParent.goToNextLevel("com.example.demo.levels.LevelTwo");
@@ -49,5 +54,11 @@ public class LevelStateManager
                 }
                 break;
         }
+    }
+
+    public void checkLevelState()
+    {
+        checkIfGameOver();
+        checkIfLevelCompleted();
     }
 }

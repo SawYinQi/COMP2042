@@ -33,3 +33,10 @@ list of things done
 32. remove enemy.destroyed() from handleEnemyPenetration, so it wont mark it as destroyed when enemy pass defense line. 
 33. added removePenetratedEnemies() which removes enemies enemy which pass defense line.
 34. replace update kill mechanic to be base on number of enemies which are set to destroyed instead of remaining enemies on screen.
+35. made Level Tutorial
+36. added tutorial button to menu fxml
+37. made Level Tutorial View to display instructions to user.
+38. added backToMenu in Level Parent, used for when Level tutorial ends
+39. organize managers into dedicated manager package
+40. added displays for ammo and kill target for level advancement
+41. 

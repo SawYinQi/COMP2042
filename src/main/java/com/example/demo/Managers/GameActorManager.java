@@ -1,4 +1,4 @@
-package com.example.demo.levels;
+package com.example.demo.Managers;
 
 import com.example.demo.entities.ActiveActor;
 import com.example.demo.entities.ActiveActorDestructible;
@@ -88,7 +88,20 @@ public class GameActorManager
         destroyedEnemy.forEach(enemy -> user.incrementKillCount());
     }
 
-    protected int getCurrentNumberOfEnemies()
+    public void updateAllActors(GameActorManager gameActorManager, UserPlane user, double screenWidth)
+    {
+        gameActorManager.updateKillCount(user);
+        gameActorManager.removeAllDestroyedActors(screenWidth);
+        gameActorManager.updateActors();
+        gameActorManager.generateEnemyFire();
+    }
+
+    public void setAddEnemyUnit(ActiveActorDestructible enemy)
+    {
+        addEnemyUnit(enemy);
+    }
+
+    public int getCurrentNumberOfEnemies()
     {
         return getEnemyUnits().size();
     }
