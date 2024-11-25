@@ -5,7 +5,6 @@ import com.example.demo.entities.ActiveActorDestructible;
 import com.example.demo.entities.FighterPlane;
 import com.example.demo.entities.UserPlane;
 import javafx.scene.Group;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -88,12 +87,12 @@ public class GameActorManager
         destroyedEnemy.forEach(enemy -> user.incrementKillCount());
     }
 
-    public void updateAllActors(GameActorManager gameActorManager, UserPlane user, double screenWidth)
+    public void updateAllActors(UserPlane user, double screenWidth)
     {
-        gameActorManager.updateKillCount(user);
-        gameActorManager.removeAllDestroyedActors(screenWidth);
-        gameActorManager.updateActors();
-        gameActorManager.generateEnemyFire();
+        updateKillCount(user);
+        removeAllDestroyedActors(screenWidth);
+        updateActors();
+        generateEnemyFire();
     }
 
     public void setAddEnemyUnit(ActiveActorDestructible enemy)

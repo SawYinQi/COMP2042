@@ -40,3 +40,4 @@ list of things done
 39. organize managers into dedicated manager package
 40. added displays for ammo and kill target for level advancement
 41. add pause option to userinputhandler and pause display image.
+42. fix some minor problems with user being able to generate projectiles when paused and ammo regenerating while paused

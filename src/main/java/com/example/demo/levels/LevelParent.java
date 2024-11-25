@@ -143,7 +143,7 @@ public abstract class LevelParent
 
 	private void updateAllActors()
 	{
-		gameActorManager.updateAllActors(gameActorManager, user, screenWidth);
+		gameActorManager.updateAllActors(user, screenWidth);
 	}
 
 	private void handleAllCollisions()
