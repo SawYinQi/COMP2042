@@ -42,5 +42,6 @@ list of things done
 41. add pause option to userinputhandler and pause display image.
 42. fix some minor problems with user being able to generate projectiles when paused and ammo regenerating while paused
 43. add go back to menu method in ScreenController class for win and lose fxml to have backtomenu button function
-43. added initialiseLevelView in levelParent, this ensures level subclass constructor is initialise first before initialiselevelview, so boss object wont be null
-44. fix visibility of shield and update shield image to be forcefield type of shield and make shield follow boss plane
+44. added initialiseLevelView in levelParent, this ensures level subclass constructor is initialise first before initialiselevelview, so boss object wont be null
+45. fix visibility of shield and update shield image to be forcefield type of shield and make shield follow boss plane
+46. added boss healthbar display
