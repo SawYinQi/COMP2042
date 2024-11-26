@@ -33,12 +33,12 @@ public abstract class LevelParent
 	private final ImageView background;
 
 	private final StringProperty nextLevel;
-	private final LevelView levelView;
 	private final CollisionManager collisionManager;
 	private final UserInputHandler userInputHandler;
 	private final GameActorManager gameActorManager;
 	private final LevelStateManager levelStateManager;
 	private final MainController mainController;
+	private LevelView levelView;
 
 	public LevelParent(String backgroundImageName, double screenHeight, double screenWidth, int playerInitialHealth, MainController mainController)
 	{
@@ -50,7 +50,6 @@ public abstract class LevelParent
 		this.screenHeight = screenHeight;
 		this.screenWidth = screenWidth;
 		this.enemyMaximumYPosition = screenHeight - SCREEN_HEIGHT_ADJUSTMENT;
-		this.levelView = instantiateLevelView();
 		this.collisionManager = new CollisionManager();
 		this.userInputHandler = new UserInputHandler();
 		this.gameActorManager = new GameActorManager(root);
@@ -69,6 +68,11 @@ public abstract class LevelParent
 	protected abstract void spawnEnemyUnits();
 
 	protected abstract LevelView instantiateLevelView();
+
+	protected void initializeLevelView()
+	{
+		this.levelView = instantiateLevelView();
+	}
 
 	public Scene initializeScene()
 	{
@@ -93,8 +97,6 @@ public abstract class LevelParent
 	{
 		return nextLevel;
 	}
-
-
 
 	public void goToNextLevel(String levelName)
 	{

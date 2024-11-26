@@ -8,14 +8,12 @@ import java.util.Objects;
 public class ShieldImage extends ImageView
 {
 	private static final String IMAGE_NAME = "/com/example/demo/images/shield.png";
-	private static final int SHIELD_SIZE = 500;
+	private static final int SHIELD_SIZE = 300;
 	
-	public ShieldImage(double xPosition, double yPosition)
+	public ShieldImage()
 	{
-		this.setLayoutX(xPosition);
-		this.setLayoutY(yPosition);
 		this.setImage(new Image(Objects.requireNonNull(getClass().getResource(IMAGE_NAME)).toExternalForm()));
-		this.setVisible(true);
+		this.setVisible(false);
 		this.setFitHeight(SHIELD_SIZE);
 		this.setFitWidth(SHIELD_SIZE);
 	}

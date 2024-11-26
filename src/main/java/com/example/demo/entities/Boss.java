@@ -17,25 +17,29 @@ public class Boss extends FighterPlane
 	private static final int X_POSITION_RIGHT_BOUND = 1000;
 	private final BossShield  bossShield;
 	private final BossMovementPattern bossMovement;
+	private double initialTranslateY;
+	private double initialTranslateX;
+	private double currentYPosition;
+	private double currentXPosition;
 
 	public Boss()
 	{
 		super(IMAGE_NAME, IMAGE_HEIGHT, INITIAL_X_POSITION, INITIAL_Y_POSITION, HEALTH);
 		this.bossShield = new BossShield();
-		this.bossMovement =new BossMovementPattern();
+		this.bossMovement = new BossMovementPattern();
 	}
 
 	@Override
 	public void updatePosition()
 	{
-		double initialTranslateY = getTranslateY();
-		double initialTranslateX = getTranslateX();
+		initialTranslateY = getTranslateY();
+		initialTranslateX = getTranslateX();
 		int[] nextMove = bossMovement.getNextMove();
 		double x = nextMove[0];
 		double y = nextMove[1];
 		move(x, y);
-		double currentYPosition = getLayoutY() + getTranslateY();
-		double currentXPosition = getLayoutX() + getTranslateX();
+		currentYPosition = getLayoutY() + getTranslateY();
+		currentXPosition = getLayoutX() + getTranslateX();
 		if (currentYPosition < Y_POSITION_UPPER_BOUND || currentYPosition > Y_POSITION_LOWER_BOUND)
 		{
 			setTranslateY(initialTranslateY);
@@ -75,5 +79,20 @@ public class Boss extends FighterPlane
 	private boolean projectileShouldFire()
 	{
 		return Math.random() < BOSS_FIRE_RATE;
+	}
+
+	public BossShield getBossShield()
+	{
+		return bossShield;
+	}
+
+	public double getCurrentXPosition()
+	{
+		return currentXPosition;
+	}
+
+	public double getCurrentYPosition()
+	{
+		return currentYPosition;
 	}
 }

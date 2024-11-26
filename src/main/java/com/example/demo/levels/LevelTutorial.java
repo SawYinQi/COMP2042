@@ -16,6 +16,7 @@ public class LevelTutorial extends LevelParent
     public LevelTutorial(double screenHeight, double screenWidth, MainController mainController)
     {
         super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH, mainController);
+        initializeLevelView();
     }
 
     @Override

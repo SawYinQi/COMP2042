@@ -40,6 +40,7 @@ public class GameActorManager
         removeDestroyedActors(userProjectiles);
         removeDestroyedActors(enemyProjectiles);
         removePenetratedEnemies(enemyUnits,screenWidth);
+        removeOffScreenUserProjectiles(userProjectiles, screenWidth);
     }
 
     private void removeDestroyedActors(List<ActiveActorDestructible> actors)
@@ -77,6 +78,14 @@ public class GameActorManager
                 .toList();
         root.getChildren().removeAll(penetratedDefense);
         enemyUnits.removeAll(penetratedDefense);
+    }
+
+    protected void removeOffScreenUserProjectiles(List<ActiveActorDestructible> userProjectiles, double screenWidth)
+    {
+        List<ActiveActorDestructible> offScreenUserProjectiles = userProjectiles.stream().filter(projectile -> Math.abs(projectile.getTranslateX()) > screenWidth)
+                .toList();
+        root.getChildren().removeAll(offScreenUserProjectiles);
+        userProjectiles.removeAll(offScreenUserProjectiles);
     }
 
     protected void updateKillCount(UserPlane user)

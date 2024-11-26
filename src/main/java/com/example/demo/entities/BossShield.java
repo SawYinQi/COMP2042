@@ -21,7 +21,6 @@ public class BossShield
         else if (shieldShouldBeActivated())
         {
             activateShield();
-
         }
         if (shieldExhausted())
         {
@@ -36,7 +35,7 @@ public class BossShield
 
     private boolean shieldExhausted()
     {
-        return shieldActiveTime == SHIELD_DURATION;
+        return shieldActiveTime >= SHIELD_DURATION;
     }
 
     private void activateShield()

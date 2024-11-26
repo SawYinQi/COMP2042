@@ -27,7 +27,6 @@ public class LevelView
 		this.ammunitionDisplay = new AmmunitionDisplay(AMMO_DISPLAY_X_POSITION, AMMO_DISPLAY_Y_POSITION);
 		this.killTargetDisplay = new KillTargetDisplay(KILL_TARGET_X_POSITION, KILL_TARGET_Y_POSITION, killsToAdvance);
 		this.pauseImage = new PauseImage(PAUSE_IMAGE_X_POSITION, PAUSE_IMAGE_Y_POSITION);
-
 	}
 	
 	public void showGameDisplays()

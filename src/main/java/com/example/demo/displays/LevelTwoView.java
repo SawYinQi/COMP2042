@@ -1,28 +1,27 @@
 package com.example.demo.displays;
 
-import com.example.demo.entities.BossShield;
+import com.example.demo.entities.Boss;
 import javafx.scene.Group;
 
 public class LevelTwoView extends LevelView
 {
 
-	private static final int SHIELD_X_POSITION = 400;
-	private static final int SHIELD_Y_POSITION = 500;
 	private final Group root;
 	private final ShieldImage shieldImage;
-	private final BossShield bossShield;
+	private final Boss boss;
 	
-	public LevelTwoView(Group root, int heartsToDisplay, int kills)
+	public LevelTwoView(Group root, int heartsToDisplay, int kills, Boss boss)
 	{
 		super(root, heartsToDisplay, kills);
 		this.root = root;
-		this.shieldImage = new ShieldImage(SHIELD_X_POSITION, SHIELD_Y_POSITION);
-		this.bossShield = new BossShield();
-		addImagesToRoot();
+		this.shieldImage = new ShieldImage();
+		this.boss = boss;
 	}
 
-	private void addImagesToRoot()
+	@Override
+	public void showGameDisplays()
 	{
+		super.showGameDisplays();
 		root.getChildren().add(shieldImage);
 	}
 	
@@ -38,7 +37,13 @@ public class LevelTwoView extends LevelView
 
 	public void updateLevelTwoView()
 	{
-		if (bossShield.shielded())
+		updateShieldVisibility();
+		updateShieldPosition();
+	}
+
+	private void updateShieldVisibility()
+	{
+		if (boss.getBossShield().shielded())
 		{
 			showShield();
 		}
@@ -46,6 +51,12 @@ public class LevelTwoView extends LevelView
 		{
 			hideShield();
 		}
+	}
+
+	private void updateShieldPosition()
+	{
+		shieldImage.setLayoutX(boss.getCurrentXPosition() + 50);
+		shieldImage.setLayoutY(boss.getCurrentYPosition() + 15);
 	}
 
 }

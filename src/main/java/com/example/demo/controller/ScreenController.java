@@ -56,5 +56,11 @@ public class ScreenController
             mainController.showError(e);
         }
     }
+
+    @FXML
+    private void backToMenu()
+    {
+        mainController.showMainMenu();
+    }
 }
 

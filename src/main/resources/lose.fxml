@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 
+<?import javafx.scene.layout.HBox?>
 <AnchorPane prefHeight="750.0"
             prefWidth="1310.0"
             xmlns="http://javafx.com/javafx"
@@ -22,15 +21,12 @@
             <Image url="@com/example/demo/images/gameover.png" />
         </image>
     </ImageView>
-    <VBox alignment="CENTER" layoutX="620.0" layoutY="450.0" prefHeight="118.0" prefWidth="100.0">
+    <HBox alignment="CENTER" layoutX="500.0" layoutY="450.0" prefHeight="118.0" prefWidth="300.0" spacing="10">
         <children>
-            <Button mnemonicParsing="false" onAction="#startGame" prefHeight="33.0" prefWidth="96.0" text="Retry">
-                <VBox.margin>
-                    <Insets bottom="10.0" />
-                </VBox.margin>
-            </Button>
+            <Button mnemonicParsing="false" onAction="#startGame" prefHeight="33.0" prefWidth="96.0" text="Retry"/>
+            <Button  mnemonicParsing="false" onAction="#backToMenu" prefHeight="33.0" prefWidth="96.0" text="Main Menu"/>
             <Button mnemonicParsing="false" onAction="#exitGame" prefHeight="33.0" prefWidth="96.0" text="Exit" />
         </children>
-    </VBox>
+    </HBox>
 
 </AnchorPane>

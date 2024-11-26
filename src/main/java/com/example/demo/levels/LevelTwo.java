@@ -16,7 +16,8 @@ public class LevelTwo extends LevelParent
 	public LevelTwo(double screenHeight, double screenWidth, MainController mainController)
 	{
 		super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH, mainController);
-		boss = new Boss();
+		this.boss = new Boss();
+		initializeLevelView();
 	}
 
 	@Override
@@ -31,7 +32,7 @@ public class LevelTwo extends LevelParent
 	@Override
 	protected LevelView instantiateLevelView()
 	{
-		levelView = new LevelTwoView(getRoot(), PLAYER_INITIAL_HEALTH, 0);
+		levelView = new LevelTwoView(getRoot(), PLAYER_INITIAL_HEALTH, 0, boss);
 		return levelView;
 	}
 

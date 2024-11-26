@@ -11,7 +11,6 @@ public class HeartDisplay
 	
 	private static final String HEART_IMAGE_NAME = "/com/example/demo/images/heart.png";
 	private static final int HEART_HEIGHT = 50;
-	private static final int INDEX_OF_FIRST_ITEM = 0;
 	private HBox container;
 	private double containerXPosition;
 	private double containerYPosition;
@@ -48,7 +47,7 @@ public class HeartDisplay
 	public void removeHeart()
 	{
 		if (!container.getChildren().isEmpty())
-			container.getChildren().remove(INDEX_OF_FIRST_ITEM);
+			container.getChildren().removeFirst();
 	}
 	
 	public HBox getContainer()
