@@ -4,7 +4,7 @@ public class BossShield
 {
     private boolean isShielded;
     private int shieldActiveTime;
-    private static final double BOSS_SHIELD_PROBABILITY = 0.005;
+    private static final double BOSS_SHIELD_PROBABILITY = 0.0005;
     private static final int SHIELD_DURATION = 500;
 
     public BossShield()

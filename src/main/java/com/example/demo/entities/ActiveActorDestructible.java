@@ -1,6 +1,7 @@
 package com.example.demo.entities;
 
 import com.example.demo.Destructible;
+import javafx.scene.shape.Rectangle;
 
 public abstract class ActiveActorDestructible extends ActiveActor implements Destructible
 {
@@ -26,5 +27,7 @@ public abstract class ActiveActorDestructible extends ActiveActor implements Des
 	{
 		return isDestroyed;
 	}
+
+	public abstract Rectangle getHitBox();
 
 }

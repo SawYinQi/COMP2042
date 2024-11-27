@@ -45,3 +45,5 @@ list of things done
 44. added initialiseLevelView in levelParent, this ensures level subclass constructor is initialise first before initialiselevelview, so boss object wont be null
 45. fix visibility of shield and update shield image to be forcefield type of shield and make shield follow boss plane
 46. added boss healthbar display
+47. added custom rectangle hitbox, hitboxes are returned by each actors
+48. added display for hitbox for adjusting hitbox size

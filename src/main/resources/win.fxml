@@ -16,7 +16,7 @@
             <Image url="@com/example/demo/images/background1.jpg" />
         </image>
     </ImageView>
-    <ImageView layoutX="350.0" layoutY="50.0" fitHeight="500.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="false">
+    <ImageView layoutX="350.0" layoutY="70.0" fitHeight="500.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="false">
         <image>
             <Image url="@com/example/demo/images/youwin.png" />
         </image>

@@ -2,6 +2,7 @@ package com.example.demo.entities;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 public class UserPlane extends FighterPlane
@@ -115,6 +116,17 @@ public class UserPlane extends FighterPlane
 	public Timeline getTimeline()
 	{
 		return timeline;
+	}
+
+	@Override
+	public Rectangle getHitBox()
+	{
+		return new Rectangle(
+				getLayoutX() + getTranslateX() + 25,
+				getLayoutY() + getTranslateY() + 60,
+				150,
+				35
+		);
 	}
 
 }

@@ -9,7 +9,7 @@ public class BossHealthBarDisplay
 {
     private final Label label;
     private final ProgressBar healthBar;
-    private double bossInitialHealth;
+    private final double bossInitialHealth;
 
     public BossHealthBarDisplay(double bossInitialHealth)
     {
@@ -26,12 +26,12 @@ public class BossHealthBarDisplay
         label.setFont(Font.font("Verdana", FontWeight.BOLD, 25));
         label.setLayoutX(805);
         label.setLayoutY(20);
-        label.setOpacity(0.8);
+        label.setOpacity(0.7);
     }
 
     public void updateBossHealth(double currentBossHP)
     {
-        double currentHealthPercentage = currentBossHP/ bossInitialHealth;
+        double currentHealthPercentage = currentBossHP / bossInitialHealth;
         healthBar.setProgress(currentHealthPercentage);
     }
 

@@ -37,7 +37,6 @@ public class HeartDisplay
 		for (int i = 0; i < numberOfHeartsToDisplay; i++)
 		{
 			ImageView heart = new ImageView(new Image(Objects.requireNonNull(getClass().getResource(HEART_IMAGE_NAME)).toExternalForm()));
-
 			heart.setFitHeight(HEART_HEIGHT);
 			heart.setPreserveRatio(true);
 			container.getChildren().add(heart);

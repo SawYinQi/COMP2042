@@ -1,5 +1,7 @@
 package com.example.demo.entities;
 
+import javafx.scene.shape.Rectangle;
+
 public class BossProjectile extends Projectile
 {
 	
@@ -10,6 +12,17 @@ public class BossProjectile extends Projectile
 	public BossProjectile(double initialXPos, double initialYPos)
 	{
 		super(IMAGE_NAME, IMAGE_HEIGHT, initialXPos, initialYPos, HORIZONTAL_VELOCITY);
+	}
+
+	@Override
+	public Rectangle getHitBox()
+	{
+		return new Rectangle(
+				getLayoutX() + getTranslateX(),
+				getLayoutY() + getTranslateY() + 20,
+				100,
+				50
+		);
 	}
 	
 }

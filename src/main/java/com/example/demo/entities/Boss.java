@@ -1,5 +1,7 @@
 package com.example.demo.entities;
 
+import javafx.scene.shape.Rectangle;
+
 public class Boss extends FighterPlane
 {
 
@@ -10,7 +12,7 @@ public class Boss extends FighterPlane
 	private static final double PROJECTILE_X_POSITION_OFFSET = -100.0;
 	private static final double BOSS_FIRE_RATE = .04;
 	private static final int IMAGE_HEIGHT = 300;
-	private static final int HEALTH = 5; //change later easier for testing
+	private static final int HEALTH = 2; //change later easier for testing
 	private static final int Y_POSITION_UPPER_BOUND = -100;
 	private static final int Y_POSITION_LOWER_BOUND = 475;
 	private static final int X_POSITION_LEFT_BOUND = 700;
@@ -79,6 +81,17 @@ public class Boss extends FighterPlane
 	private boolean projectileShouldFire()
 	{
 		return Math.random() < BOSS_FIRE_RATE;
+	}
+
+	@Override
+	public Rectangle getHitBox()
+	{
+		return new Rectangle(
+				getLayoutX() + getTranslateX() + 60,
+				getLayoutY() + getTranslateY() + 130,
+				280,
+				40
+		);
 	}
 
 	public BossShield getBossShield()

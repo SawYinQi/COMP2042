@@ -5,6 +5,9 @@ import com.example.demo.entities.ActiveActorDestructible;
 import com.example.demo.entities.FighterPlane;
 import com.example.demo.entities.UserPlane;
 import javafx.scene.Group;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -102,6 +105,7 @@ public class GameActorManager
         removeAllDestroyedActors(screenWidth);
         updateActors();
         generateEnemyFire();
+        displayAllHitbox();
     }
 
     public void setAddEnemyUnit(ActiveActorDestructible enemy)
@@ -130,4 +134,41 @@ public class GameActorManager
         return userProjectiles;
     }
 
+
+    protected void displayAllHitbox()
+    {
+        root.getChildren().removeIf(node -> node instanceof Rectangle);
+
+        friendlyUnits.forEach(actor ->
+        {
+            Rectangle hitbox = actor.getHitBox();
+            hitbox.setStroke(Color.RED);
+            hitbox.setFill(Color.TRANSPARENT);
+            root.getChildren().add(hitbox);
+        });
+
+        enemyUnits.forEach(actor ->
+        {
+            Rectangle hitbox = actor.getHitBox();
+            hitbox.setStroke(Color.BLUE);
+            hitbox.setFill(Color.TRANSPARENT);
+            root.getChildren().add(hitbox);
+        });
+
+        userProjectiles.forEach(projectile ->
+        {
+            Rectangle hitbox = projectile.getHitBox();
+            hitbox.setStroke(Color.GREEN);
+            hitbox.setFill(Color.TRANSPARENT);
+            root.getChildren().add(hitbox);
+        });
+
+        enemyProjectiles.forEach(projectile ->
+        {
+            Rectangle hitbox = projectile.getHitBox();
+            hitbox.setStroke(Color.YELLOW);
+            hitbox.setFill(Color.TRANSPARENT);
+            root.getChildren().add(hitbox);
+        });
+    }
 }

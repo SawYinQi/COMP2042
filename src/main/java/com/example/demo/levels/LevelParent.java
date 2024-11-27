@@ -105,6 +105,7 @@ public abstract class LevelParent
 
 	private void updateScene()
 	{
+
 		spawnEnemyUnits();
 		handleAllCollisions();
 		updateAllActors();

@@ -1,5 +1,7 @@
 package com.example.demo.entities;
 
+import javafx.scene.shape.Rectangle;
+
 public class EnemyPlane extends FighterPlane
 {
 
@@ -36,6 +38,17 @@ public class EnemyPlane extends FighterPlane
 	private boolean projectileShouldFire()
 	{
 		return Math.random() < FIRE_RATE;
+	}
+
+	@Override
+	public Rectangle getHitBox()
+	{
+		return new Rectangle(
+				getLayoutX() + getTranslateX() + 20,
+				getLayoutY() + getTranslateY() + 60,
+				150,
+				45
+		);
 	}
 
 }

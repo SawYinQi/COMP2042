@@ -29,7 +29,7 @@ public class CollisionManager
         {
             for (ActiveActorDestructible otherActor : actors1)
             {
-                if (actor.getBoundsInParent().intersects(otherActor.getBoundsInParent()))
+                if (actor.getHitBox().intersects(otherActor.getHitBox().getBoundsInParent()))
                 {
                     actor.takeDamage();
                     otherActor.takeDamage();
