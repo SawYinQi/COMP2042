@@ -7,6 +7,8 @@ import javafx.scene.text.Font;
 
 public class LevelTutorialView extends LevelView
 {
+    private static final double INSTRUCTION_LABEL_X_POSITION = 20;
+    private static final double INSTRUCTION_LABEL_Y_POSITION = 550;
     private final Group root;
 
     public LevelTutorialView(Group root, int heartsToDisplay, int kills)
@@ -26,8 +28,8 @@ public class LevelTutorialView extends LevelView
                 Objective: Destroy EnemyPlane to go back to main menu.""");
         instructions.setFont(new Font("Arial", 24));
         instructions.setTextFill(Color.BLACK);
-        instructions.setLayoutX(20);
-        instructions.setLayoutY(550);
+        instructions.setLayoutX(INSTRUCTION_LABEL_X_POSITION);
+        instructions.setLayoutY(INSTRUCTION_LABEL_Y_POSITION);
         root.getChildren().add(instructions);
     }
 

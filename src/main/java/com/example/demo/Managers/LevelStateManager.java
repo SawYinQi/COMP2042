@@ -1,22 +1,18 @@
 package com.example.demo.Managers;
 
 
-import com.example.demo.levels.LevelOne;
-import com.example.demo.levels.LevelParent;
-import com.example.demo.levels.LevelTutorial;
-import com.example.demo.levels.LevelTwo;
+import com.example.demo.levels.*;
 
 public class LevelStateManager
 {
     private final LevelParent levelParent;
-
 
     public LevelStateManager(LevelParent level)
     {
         this.levelParent = level;
     }
 
-    protected void checkIfGameOver()
+    private void checkIfGameOver()
     {
         if (levelParent.userIsDestroyed())
         {
@@ -25,7 +21,7 @@ public class LevelStateManager
         }
     }
 
-    protected void checkIfLevelCompleted()
+    private void checkIfLevelCompleted()
     {
         switch (levelParent.getClass().getSimpleName())
         {
@@ -47,7 +43,23 @@ public class LevelStateManager
                 break;
             case "LevelTwo":
                 LevelTwo levelTwo = (LevelTwo) levelParent;
-                if (levelTwo.getBoss().isDestroyed())
+                if (levelTwo.getUserHasReachedKillTarget())
+                {
+                    levelParent.stopGame();
+                    levelParent.goToNextLevel("com.example.demo.levels.LevelThree");
+                }
+                break;
+            case "LevelThree":
+                LevelThree levelThree = (LevelThree) levelParent;
+                if (levelThree.getUserHasReachedKillTarget())
+                {
+                    levelParent.stopGame();
+                    levelParent.goToNextLevel("com.example.demo.levels.LevelBoss");
+                }
+                break;
+            case "LevelBoss":
+                LevelBoss levelBoss = (LevelBoss) levelParent;
+                if (levelBoss.getBoss().getIsDestroyed())
                 {
                     levelParent.stopGame();
                     levelParent.winGame();

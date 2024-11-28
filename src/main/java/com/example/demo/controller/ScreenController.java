@@ -41,7 +41,7 @@ public class ScreenController
     @FXML
     private void exitGame()
     {
-        mainController.getStage().close();
+        System.exit(0);
     }
 
     @FXML

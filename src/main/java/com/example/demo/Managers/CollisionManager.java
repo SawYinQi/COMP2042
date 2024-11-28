@@ -2,27 +2,36 @@ package com.example.demo.Managers;
 
 import com.example.demo.entities.ActiveActorDestructible;
 import com.example.demo.entities.UserPlane;
-
 import java.util.List;
 
 public class CollisionManager
 {
-    protected void handlePlaneCollisions(List<ActiveActorDestructible> friendlyUnits, List<ActiveActorDestructible> enemyUnits)
+    private final GameActorManager gameActorManager;
+    private final UserPlane user;
+    private final double screenWidth;
+
+    public CollisionManager(GameActorManager gameActorManager, UserPlane user, double screenWidth)
     {
-        handleCollisions(friendlyUnits, enemyUnits);
+        this.user = user;
+        this.screenWidth = screenWidth;
+        this.gameActorManager = gameActorManager;
+    }
+    private void handlePlaneCollisions()
+    {
+        handleCollisions(gameActorManager.getFriendlyUnits(), gameActorManager.getEnemyUnits());
     }
 
-    protected void handleUserProjectileCollisions(List<ActiveActorDestructible> userProjectiles, List<ActiveActorDestructible> enemyUnits)
+    private void handleUserProjectileCollisions()
     {
-        handleCollisions(enemyUnits, userProjectiles);
+        handleCollisions(gameActorManager.getEnemyUnits(), gameActorManager.getUserProjectiles());
     }
 
-    protected void handleEnemyProjectileCollisions(List<ActiveActorDestructible> enemyProjectiles, List<ActiveActorDestructible> friendlyUnits)
+    private void handleEnemyProjectileCollisions()
     {
-        handleCollisions(friendlyUnits, enemyProjectiles);
+        handleCollisions(gameActorManager.getFriendlyUnits(), gameActorManager.getEnemyProjectiles());
     }
 
-    protected void handleCollisions(List<ActiveActorDestructible> actors1,
+    private void handleCollisions(List<ActiveActorDestructible> actors1,
                                   List<ActiveActorDestructible> actors2)
     {
         for (ActiveActorDestructible actor : actors2)
@@ -39,27 +48,27 @@ public class CollisionManager
         }
     }
 
-    private boolean enemyHasPenetratedDefenses(ActiveActorDestructible enemy, double screenWidth)
+    private boolean enemyHasPenetratedDefenses(ActiveActorDestructible enemy)
     {
         return Math.abs(enemy.getTranslateX()) > screenWidth;
     }
 
-    protected void handleEnemyPenetration(UserPlane user, List<ActiveActorDestructible> enemyUnits, double screenWidth)
+    private void handleEnemyPenetration()
     {
-        for (ActiveActorDestructible enemy : enemyUnits)
+        for (ActiveActorDestructible enemy : gameActorManager.getEnemyUnits())
         {
-            if (enemyHasPenetratedDefenses(enemy, screenWidth))
+            if (enemyHasPenetratedDefenses(enemy))
             {
                 user.takeDamage();
             }
         }
     }
 
-    public void handleAllCollisions(GameActorManager gameActorManager, UserPlane user, double screenWidth)
+    public void handleAllCollisions()
     {
-        handleUserProjectileCollisions(gameActorManager.getUserProjectiles(), gameActorManager.getEnemyUnits());
-        handleEnemyProjectileCollisions(gameActorManager.getEnemyProjectiles(), gameActorManager.getFriendlyUnits());
-        handlePlaneCollisions(gameActorManager.getFriendlyUnits(), gameActorManager.getEnemyUnits());
-        handleEnemyPenetration(user, gameActorManager.getEnemyUnits(), screenWidth);
+        handleUserProjectileCollisions();
+        handleEnemyProjectileCollisions();
+        handlePlaneCollisions();
+        handleEnemyPenetration();
     }
 }

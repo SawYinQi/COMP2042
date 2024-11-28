@@ -149,15 +149,4 @@ public class MainController
 		switchScreen(LOSE_PATH);
 	}
 
-	/**
-	 * returns the main stage used for displaying screens.
-	 *
-	 * @return the main Stage object
-	 */
-
-	public Stage getStage()
-	{
-		return stage;
-	}
-
 }

@@ -16,8 +16,12 @@ public class UserPlane extends FighterPlane
 	private static final int VERTICAL_VELOCITY = 10;
 	private static final int PROJECTILE_X_POSITION = 110;
 	private static final int PROJECTILE_Y_POSITION_OFFSET = 20;
-	private static final int AMMO_INCREMENT_INTERVAL = 1500;
+	private static final int AMMO_INCREMENT_INTERVAL = 1000;
 	private static final int MAX_AMMUNITION = 20;
+	private static final int HITBOX_X_OFFSET = 25;
+	private static final int HITBOX_Y_OFFSET = 55;
+	private static final int HITBOX_WIDTH = 150;
+	private static final int HITBOX_HEIGHT = 40;
 	private int velocityMultiplier;
 	private int numberOfKills;
 	private int ammunition;
@@ -42,7 +46,7 @@ public class UserPlane extends FighterPlane
 		if (isMoving())
 		{
 			double initialTranslateY = getTranslateY();
-			this.move(0.0, VERTICAL_VELOCITY * velocityMultiplier);
+			move(0.0, VERTICAL_VELOCITY * velocityMultiplier);
 			double newPosition = getLayoutY() + getTranslateY();
 			if (newPosition < Y_UPPER_BOUND || newPosition > Y_LOWER_BOUND)
 			{
@@ -122,10 +126,10 @@ public class UserPlane extends FighterPlane
 	public Rectangle getHitBox()
 	{
 		return new Rectangle(
-				getLayoutX() + getTranslateX() + 25,
-				getLayoutY() + getTranslateY() + 60,
-				150,
-				35
+				getLayoutX() + getTranslateX() + HITBOX_X_OFFSET,
+				getLayoutY() + getTranslateY() + HITBOX_Y_OFFSET,
+				HITBOX_WIDTH,
+				HITBOX_HEIGHT
 		);
 	}
 

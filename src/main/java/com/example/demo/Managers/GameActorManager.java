@@ -7,7 +7,6 @@ import com.example.demo.entities.UserPlane;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,17 +17,21 @@ public class GameActorManager
     private final List<ActiveActorDestructible> userProjectiles;
     private final List<ActiveActorDestructible> enemyProjectiles;
     private final Group root;
+    private final double screenWidth;
+    private final UserPlane user;
 
-    public GameActorManager(Group root)
+    public GameActorManager(Group root, double screenWidth, UserPlane user)
     {
         this.friendlyUnits = new ArrayList<>();
         this.enemyUnits = new ArrayList<>();
         this.userProjectiles = new ArrayList<>();
         this.enemyProjectiles = new ArrayList<>();
         this.root = root;
+        this.screenWidth = screenWidth;
+        this.user = user;
     }
 
-    protected void updateActors()
+    private void updateActors()
     {
         friendlyUnits.forEach(ActiveActor::updateActor);
         enemyUnits.forEach(ActiveActor::updateActor);
@@ -36,31 +39,31 @@ public class GameActorManager
         enemyProjectiles.forEach(ActiveActor::updateActor);
     }
 
-    protected void removeAllDestroyedActors(double screenWidth)
+    private void removeAllDestroyedActors()
     {
         removeDestroyedActors(friendlyUnits);
         removeDestroyedActors(enemyUnits);
         removeDestroyedActors(userProjectiles);
         removeDestroyedActors(enemyProjectiles);
-        removePenetratedEnemies(enemyUnits,screenWidth);
-        removeOffScreenUserProjectiles(userProjectiles, screenWidth);
+        removePenetratedEnemies();
+        removeOffScreenUserProjectiles();
     }
 
     private void removeDestroyedActors(List<ActiveActorDestructible> actors)
     {
-        List<ActiveActorDestructible> destroyedActors = actors.stream().filter(ActiveActorDestructible::isDestroyed)
+        List<ActiveActorDestructible> destroyedActors = actors.stream().filter(ActiveActorDestructible::getIsDestroyed)
                 .toList();
         root.getChildren().removeAll(destroyedActors);
         actors.removeAll(destroyedActors);
     }
 
-    protected void addEnemyUnit(ActiveActorDestructible enemy)
+    private void addEnemyUnit(ActiveActorDestructible enemy)
     {
         getEnemyUnits().add(enemy);
         root.getChildren().add(enemy);
     }
 
-    protected void spawnEnemyProjectile(ActiveActorDestructible projectile)
+    private void spawnEnemyProjectile(ActiveActorDestructible projectile)
 
     {
         if (projectile != null)
@@ -70,12 +73,12 @@ public class GameActorManager
         }
     }
 
-    protected void generateEnemyFire()
+    private void generateEnemyFire()
     {
         enemyUnits.forEach(enemy -> spawnEnemyProjectile(((FighterPlane) enemy).fireProjectile()));
     }
 
-    protected void removePenetratedEnemies(List<ActiveActorDestructible> enemyUnits, double screenWidth)
+    private void removePenetratedEnemies()
     {
         List<ActiveActorDestructible> penetratedDefense = enemyUnits.stream().filter(enemy -> Math.abs(enemy.getTranslateX()) > screenWidth)
                 .toList();
@@ -83,26 +86,32 @@ public class GameActorManager
         enemyUnits.removeAll(penetratedDefense);
     }
 
-    protected void removeOffScreenUserProjectiles(List<ActiveActorDestructible> userProjectiles, double screenWidth)
+    private void removeOffScreenUserProjectiles()
     {
         List<ActiveActorDestructible> offScreenUserProjectiles = userProjectiles.stream().filter(projectile -> Math.abs(projectile.getTranslateX()) > screenWidth)
                 .toList();
+        List<ActiveActorDestructible> offScreenEnemyProjectiles = enemyProjectiles.stream().filter(projectile -> Math.abs(projectile.getTranslateX()) > screenWidth)
+                .toList();
+
         root.getChildren().removeAll(offScreenUserProjectiles);
         userProjectiles.removeAll(offScreenUserProjectiles);
+
+        root.getChildren().removeAll(offScreenEnemyProjectiles);
+        userProjectiles.removeAll(offScreenEnemyProjectiles);
     }
 
-    protected void updateKillCount(UserPlane user)
+    private void updateKillCount()
     {
-        List<ActiveActorDestructible> destroyedEnemy = getEnemyUnits().stream().filter(ActiveActorDestructible::isDestroyed)
+        List<ActiveActorDestructible> destroyedEnemy = getEnemyUnits().stream().filter(ActiveActorDestructible::getIsDestroyed)
                 .toList();
 
         destroyedEnemy.forEach(enemy -> user.incrementKillCount());
     }
 
-    public void updateAllActors(UserPlane user, double screenWidth)
+    public void updateAllActors()
     {
-        updateKillCount(user);
-        removeAllDestroyedActors(screenWidth);
+        updateKillCount();
+        removeAllDestroyedActors();
         updateActors();
         generateEnemyFire();
         displayAllHitbox();
@@ -134,8 +143,7 @@ public class GameActorManager
         return userProjectiles;
     }
 
-
-    protected void displayAllHitbox()
+    private void displayAllHitbox()
     {
         root.getChildren().removeIf(node -> node instanceof Rectangle);
 
@@ -171,4 +179,6 @@ public class GameActorManager
             root.getChildren().add(hitbox);
         });
     }
+
+
 }

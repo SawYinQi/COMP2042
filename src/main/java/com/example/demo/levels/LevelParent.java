@@ -9,7 +9,7 @@ import com.example.demo.controller.MainController;
 import com.example.demo.displays.LevelTutorialView;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import com.example.demo.displays.LevelTwoView;
+import com.example.demo.displays.LevelBossView;
 import com.example.demo.displays.LevelView;
 import com.example.demo.entities.UserPlane;
 import javafx.animation.*;
@@ -50,9 +50,9 @@ public abstract class LevelParent
 		this.screenHeight = screenHeight;
 		this.screenWidth = screenWidth;
 		this.enemyMaximumYPosition = screenHeight - SCREEN_HEIGHT_ADJUSTMENT;
-		this.collisionManager = new CollisionManager();
+		this.gameActorManager = new GameActorManager(root, screenWidth, user);
+		this.collisionManager = new CollisionManager(gameActorManager, user, screenWidth);
 		this.userInputHandler = new UserInputHandler();
-		this.gameActorManager = new GameActorManager(root);
 		this.levelStateManager = new LevelStateManager(this);
 		this.mainController = mainController;
 		this.nextLevel = new SimpleStringProperty();
@@ -105,7 +105,6 @@ public abstract class LevelParent
 
 	private void updateScene()
 	{
-
 		spawnEnemyUnits();
 		handleAllCollisions();
 		updateAllActors();
@@ -135,8 +134,8 @@ public abstract class LevelParent
 		levelView.removeHearts(user.getHealth());
 		levelView.updateAmmunitionDisplay(user.getAmmunition());
 		levelView.updateKillTargetDisplay(user.getNumberOfKills());
-		if (levelView instanceof LevelTwoView) {
-			((LevelTwoView) levelView).updateLevelTwoView();
+		if (levelView instanceof LevelBossView) {
+			((LevelBossView) levelView).updateLevelTwoView();
 		}
 		else if(levelView instanceof LevelTutorialView)
 		{
@@ -146,12 +145,12 @@ public abstract class LevelParent
 
 	private void updateAllActors()
 	{
-		gameActorManager.updateAllActors(user, screenWidth);
+		gameActorManager.updateAllActors();
 	}
 
 	private void handleAllCollisions()
 	{
-		collisionManager.handleAllCollisions(gameActorManager, user, screenWidth);
+		collisionManager.handleAllCollisions();
 	}
 
 	private void checkLevelState()
@@ -185,7 +184,7 @@ public abstract class LevelParent
 		return user;
 	}
 
-	public Group getRoot()
+	protected Group getRoot()
 	{
 		return root;
 	}
@@ -202,7 +201,7 @@ public abstract class LevelParent
 
 	public boolean userIsDestroyed()
 	{
-		return user.isDestroyed();
+		return user.getIsDestroyed();
 	}
 
 	protected GameActorManager getGameActorManager()

@@ -12,8 +12,13 @@ public class EnemyPlane extends FighterPlane
 	private static final double PROJECTILE_Y_POSITION_OFFSET = 50.0;
 	private static final int INITIAL_HEALTH = 1;
 	private static final double FIRE_RATE = .01;
+	private static final int HITBOX_X_OFFSET = 20;
+	private static final int HITBOX_Y_OFFSET = 55;
+	private static final int HITBOX_WIDTH = 150;
+	private static final int HITBOX_HEIGHT = 50;
 
-	public EnemyPlane(double initialXPos, double initialYPos) {
+	public EnemyPlane(double initialXPos, double initialYPos)
+	{
 		super(IMAGE_NAME, IMAGE_HEIGHT, initialXPos, initialYPos, INITIAL_HEALTH);
 	}
 
@@ -44,10 +49,10 @@ public class EnemyPlane extends FighterPlane
 	public Rectangle getHitBox()
 	{
 		return new Rectangle(
-				getLayoutX() + getTranslateX() + 20,
-				getLayoutY() + getTranslateY() + 60,
-				150,
-				45
+				getLayoutX() + getTranslateX() + HITBOX_X_OFFSET,
+				getLayoutY() + getTranslateY() + HITBOX_Y_OFFSET,
+				HITBOX_WIDTH,
+				HITBOX_HEIGHT
 		);
 	}
 

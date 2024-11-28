@@ -3,20 +3,23 @@ package com.example.demo.displays;
 import com.example.demo.entities.Boss;
 import javafx.scene.Group;
 
-public class LevelTwoView extends LevelView
+public class LevelBossView extends LevelView
 {
-
+	private static final double HP_BAR_X_POSITION = 795;
+	private static final double HP_BAR_Y_POSITION = 10;
+	private static final double SHIELD_X_OFFSET = 50;
+	private static final double SHIELD_Y_OFFSET = 15;
 	private final Group root;
 	private final ShieldImage shieldImage;
 	private final BossHealthBarDisplay bossHealthBarDisplay;
 	private final Boss boss;
 	
-	public LevelTwoView(Group root, int heartsToDisplay, int kills, Boss boss)
+	public LevelBossView(Group root, int heartsToDisplay, int kills, Boss boss)
 	{
 		super(root, heartsToDisplay, kills);
 		this.root = root;
 		this.shieldImage = new ShieldImage();
-		this.bossHealthBarDisplay = new BossHealthBarDisplay(boss.getHealth());
+		this.bossHealthBarDisplay = new BossHealthBarDisplay(HP_BAR_X_POSITION, HP_BAR_Y_POSITION, boss.getHealth());
 		this.boss = boss;
 	}
 
@@ -60,8 +63,8 @@ public class LevelTwoView extends LevelView
 
 	private void updateShieldPosition()
 	{
-		shieldImage.setLayoutX(boss.getCurrentXPosition() + 50);
-		shieldImage.setLayoutY(boss.getCurrentYPosition() + 15);
+		shieldImage.setLayoutX(boss.getCurrentXPosition() + SHIELD_X_OFFSET);
+		shieldImage.setLayoutY(boss.getCurrentYPosition() + SHIELD_Y_OFFSET);
 	}
 
 	private void updateBossHealth()
