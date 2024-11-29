@@ -6,6 +6,9 @@ import javafx.scene.layout.HBox;
 
 import java.util.Objects;
 
+/**
+ * The HeartDisplay class is responsible for the display of hearts representing player lives.
+ */
 public class HeartDisplay
 {
 	
@@ -15,7 +18,14 @@ public class HeartDisplay
 	private final double containerXPosition;
 	private final double containerYPosition;
 	private final int numberOfHeartsToDisplay;
-	
+
+	/**
+	 * Constructs a HeartDisplay at the specified x and y position with a specified number of hearts.
+	 *
+	 * @param xPosition       the x-coordinate for the heart display container.
+	 * @param yPosition       the y-coordinate for the heart display container.
+	 * @param heartsToDisplay the initial number of hearts to display.
+	 */
 	public HeartDisplay(double xPosition, double yPosition, int heartsToDisplay)
 	{
 		this.containerXPosition = xPosition;
@@ -24,14 +34,20 @@ public class HeartDisplay
 		initializeContainer();
 		initializeHearts();
 	}
-	
+
+	/**
+	 * Initializes the container for the heart display.
+	 */
 	private void initializeContainer()
 	{
 		container = new HBox();
 		container.setLayoutX(containerXPosition);
 		container.setLayoutY(containerYPosition);		
 	}
-	
+
+	/**
+	 * Initializes the heart within the container.
+	 */
 	private void initializeHearts()
 	{
 		for (int i = 0; i < numberOfHeartsToDisplay; i++)
@@ -42,16 +58,23 @@ public class HeartDisplay
 			container.getChildren().add(heart);
 		}
 	}
-	
+
+	/**
+	 * Removes a single heart from the display.
+	 */
 	public void removeHeart()
 	{
 		if (!container.getChildren().isEmpty())
 			container.getChildren().removeFirst();
 	}
-	
+
+	/**
+	 * Return the Hbox object.
+	 *
+	 * @return the Hbox object containing the heart icons.
+	 */
 	public HBox getContainer()
 	{
 		return container;
 	}
-
 }

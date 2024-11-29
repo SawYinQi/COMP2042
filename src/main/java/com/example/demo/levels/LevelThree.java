@@ -20,33 +20,38 @@ public class LevelThree extends LevelParent {
     }
 
     @Override
-    protected void spawnEnemyUnits() {
+    protected void spawnEnemyUnits()
+    {
         int currentNumberOfEnemies = getNumberOfEnemies();
-        for (int i = 0; i < TOTAL_ENEMIES - currentNumberOfEnemies; i++) {
-            if (Math.random() < ENEMY_SPAWN_PROBABILITY) {
+        for (int i = 0; i < TOTAL_ENEMIES - currentNumberOfEnemies; i++)
+        {
+            if (Math.random() < ENEMY_SPAWN_PROBABILITY)
+            {
                 double newEnemyInitialYPosition = Math.random() * getEnemyMaximumYPosition();
-                ActiveActorDestructible newEnemy = new EnemyPlane(getScreenWidth(), newEnemyInitialYPosition);
-                ActiveActorDestructible newEnemyTwo = new EnemyPlaneVerTwo(getScreenWidth(), newEnemyInitialYPosition);
-                getGameActorManager().setAddEnemyUnit(newEnemy);
-                getGameActorManager().setAddEnemyUnit(newEnemyTwo);
+                if(newEnemyInitialYPosition > 50)
+                {
+                    ActiveActorDestructible newEnemy = new EnemyPlane(getScreenWidth(), newEnemyInitialYPosition);
+                    ActiveActorDestructible newEnemyTwo = new EnemyPlaneVerTwo(getScreenWidth(), newEnemyInitialYPosition);
+                    getGameActorManager().setAddEnemyUnit(newEnemy);
+                    getGameActorManager().setAddEnemyUnit(newEnemyTwo);
+                }
             }
         }
     }
 
-    private int getNumberOfEnemies() {
-        return getGameActorManager().getCurrentNumberOfEnemies();
-    }
-
     @Override
-    protected LevelView instantiateLevelView() {
+    protected LevelView instantiateLevelView()
+    {
         return new LevelView(getRoot(), PLAYER_INITIAL_HEALTH, KILLS_TO_ADVANCE);
     }
 
-    private boolean userHasReachedKillTarget() {
+    private boolean userHasReachedKillTarget()
+    {
         return getUser().getNumberOfKills() >= KILLS_TO_ADVANCE;
     }
 
-    public boolean getUserHasReachedKillTarget() {
+    public boolean getUserHasReachedKillTarget()
+    {
         return userHasReachedKillTarget();
     }
 }

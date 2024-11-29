@@ -29,15 +29,13 @@ public class LevelTwo extends LevelParent
             if (Math.random() < ENEMY_SPAWN_PROBABILITY)
             {
                 double newEnemyInitialYPosition = Math.random() * getEnemyMaximumYPosition();
-                ActiveActorDestructible newEnemy = new EnemyPlaneVerTwo(getScreenWidth(), newEnemyInitialYPosition);
-                getGameActorManager().setAddEnemyUnit(newEnemy);
+                if(newEnemyInitialYPosition > 50)
+                {
+                    ActiveActorDestructible newEnemy = new EnemyPlaneVerTwo(getScreenWidth(), newEnemyInitialYPosition);
+                    getGameActorManager().setAddEnemyUnit(newEnemy);
+                }
             }
         }
-    }
-
-    private int getNumberOfEnemies()
-    {
-        return getGameActorManager().getCurrentNumberOfEnemies();
     }
 
     @Override

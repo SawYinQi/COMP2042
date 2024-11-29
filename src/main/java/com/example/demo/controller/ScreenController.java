@@ -36,7 +36,7 @@ public class ScreenController
     }
 
     /**
-     * Exits the application by closing the main stage.
+     * Exits the application by existing program.
      */
     @FXML
     private void exitGame()
@@ -44,6 +44,9 @@ public class ScreenController
         System.exit(0);
     }
 
+    /**
+     * Starts the tutorial by invoking the main controller's launchTutorial method.
+     */
     @FXML
     private void startTutorial()
     {
@@ -57,6 +60,9 @@ public class ScreenController
         }
     }
 
+    /**
+     * Returns to the main menu by invoking the main controller's showMainMenu method.
+     */
     @FXML
     private void backToMenu()
     {

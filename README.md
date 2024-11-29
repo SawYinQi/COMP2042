@@ -53,6 +53,10 @@ list of things done
 52. renamed leveltwoview to levelbosview
 52. added level 2 and 3 which contains new enemy type
 53. modified boss level to include enemyversiontwo
+54. further seperate input handling from levelParent, seprated the even handler handling to userinputhandler
+55. made base movement pattern class for bossmovementpattern and new enemy type movement pattern
+56. renamed Max_frames with same move and Frame with same move to max moves since last shuffle and move executed for better readabillity 
+57. move entity behavior related class into behavior package in entities package
 
 
 ## GitHub Link:https://github.com/SawYinQi/COMP2042

@@ -11,4 +11,5 @@ module com.example.demo
     opens com.example.demo.levels to javafx.fxml;
     opens com.example.demo.displays to javafx.fxml;
     opens com.example.demo.Managers to javafx.fxml;
+    opens com.example.demo.entities.behaviors to javafx.fxml;
 }

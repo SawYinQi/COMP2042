@@ -12,9 +12,23 @@ import java.util.List;
 
 public class UserInputHandler
 {
+    private final Timeline timeline;
+    private final UserPlane user;
+    private final Group root;
+    private final List<ActiveActorDestructible> userProjectiles;
+    private final LevelView levelView;
     private boolean isNotPlaying = true;
 
-    public void onKeyPressed(KeyEvent e, UserPlane user, Group root, List<ActiveActorDestructible> userProjectiles, Timeline timeline, LevelView levelView)
+    public UserInputHandler(UserPlane user, Group root, List<ActiveActorDestructible> userProjectiles, Timeline timeline, LevelView levelView)
+    {
+        this.user = user;
+        this.root = root;
+        this.userProjectiles = userProjectiles;
+        this.timeline = timeline;
+        this.levelView = levelView;
+    }
+
+    private void onKeyPressed(KeyEvent e)
     {
         KeyCode kc = e.getCode();
         if (kc == KeyCode.UP) user.moves(UserPlane.Direction.up);
@@ -40,10 +54,20 @@ public class UserInputHandler
         }
     }
 
-    public void onKeyReleased(KeyEvent e, UserPlane user)
+    private void onKeyReleased(KeyEvent e)
     {
         KeyCode kc = e.getCode();
         if (kc == KeyCode.UP || kc == KeyCode.DOWN) user.moves(UserPlane.Direction.stop);
+    }
+
+    public void handleKeyPressed(KeyEvent event)
+    {
+        onKeyPressed(event);
+    }
+
+    public void handleKeyReleased(KeyEvent event)
+    {
+        onKeyReleased(event);
     }
 
     private void fireProjectile(UserPlane user, Group root, List<ActiveActorDestructible> userProjectiles)

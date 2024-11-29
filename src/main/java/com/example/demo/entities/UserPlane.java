@@ -5,10 +5,13 @@ import javafx.animation.Timeline;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
+/**
+ * The UserPlane class extends FighterPlane represents the user's plane in the game which moves vertically.
+ */
 public class UserPlane extends FighterPlane
 {
 	private static final String IMAGE_NAME = "userplane.png";
-	private static final double Y_UPPER_BOUND = -40;
+	private static final double Y_UPPER_BOUND = 0.0;
 	private static final double Y_LOWER_BOUND = 600.0;
 	private static final double INITIAL_X_POSITION = 5.0;
 	private static final double INITIAL_Y_POSITION = 300.0;
@@ -27,19 +30,30 @@ public class UserPlane extends FighterPlane
 	private int ammunition;
 	private Timeline timeline;
 
+	/**
+	 * Defines movement directions for the user's plane.
+	 */
 	public enum Direction
 	{
 		up,down,stop
 	}
 
+	/**
+	 * Constructs a UserPlane with the specified initial health.
+	 *
+	 * @param initialHealth the initial health of the user's plane.
+	 */
 	public UserPlane(int initialHealth)
 	{
 		super(IMAGE_NAME, IMAGE_HEIGHT, INITIAL_X_POSITION, INITIAL_Y_POSITION, initialHealth);
 		velocityMultiplier = 0;
-		ammunition = 5;
+		ammunition = 10;
 		initializeTimeline();
 	}
-	
+
+	/**
+	 * Updates the position of the user's plane based on its current velocity multiplier within set vertical boundaries.
+	 */
 	@Override
 	public void updatePosition()
 	{
@@ -54,7 +68,12 @@ public class UserPlane extends FighterPlane
 			}
 		}
 	}
-	
+
+	/**
+	 * Fires a projectile from the user's plane if ammunition more than zero.
+	 *
+	 * @return a UserProjectile object if ammunition is available, or null otherwise.
+	 */
 	@Override
 	public ActiveActorDestructible fireProjectile()
 	{
@@ -66,11 +85,21 @@ public class UserPlane extends FighterPlane
 		return null;
 	}
 
+	/**
+	 * Determines if user's plane is moving base on velocity multiplier.
+	 *
+	 * @return true if the user's plane is moving, false otherwise.
+	 */
 	private boolean isMoving()
 	{
 		return velocityMultiplier != 0;
 	}
 
+	/**
+	 * Sets the movement direction of the user's plane.
+	 *
+	 * @param direction indicates the desired movement.
+	 */
 	public void moves(Direction direction)
 	{
 		switch (direction)
@@ -87,16 +116,27 @@ public class UserPlane extends FighterPlane
 		}
 	}
 
+	/**
+	 * Returns the number of kills achieved by the user.
+	 *
+	 * @return the number of kills.
+	 */
 	public int getNumberOfKills()
 	{
 		return numberOfKills;
 	}
 
+	/**
+	 * Increments the user's kill count by 1.
+	 */
 	public void incrementKillCount()
 	{
 		numberOfKills++;
 	}
 
+	/**
+	 * Increments the plane's ammunition count, if ammunition count is less than maximum capacity.
+	 */
 	private void incrementAmmunition()
 	{
 		if(ammunition < MAX_AMMUNITION)
@@ -105,6 +145,9 @@ public class UserPlane extends FighterPlane
 		}
 	}
 
+	/**
+	 * Initializes the timeline for regenerating ammunition.
+	 */
 	private void initializeTimeline()
 	{
 		timeline = new Timeline(new KeyFrame(Duration.millis(AMMO_INCREMENT_INTERVAL), e -> incrementAmmunition()));
@@ -112,16 +155,31 @@ public class UserPlane extends FighterPlane
 		timeline.play();
 	}
 
+	/**
+	 * Returns the current ammunition count of the user's plane.
+	 *
+	 * @return the current ammunition count.
+	 */
 	public int getAmmunition()
 	{
 		return ammunition;
 	}
 
+	/**
+	 * Returns the timeline responsible for regenerating ammunition.
+	 *
+	 * @return the Timeline for ammo replenishment.
+	 */
 	public Timeline getTimeline()
 	{
 		return timeline;
 	}
 
+	/**
+	 * Returns the hitbox of the user's plane.
+	 *
+	 * @return a Rectangle object representing the user's plane's hitbox.
+	 */
 	@Override
 	public Rectangle getHitBox()
 	{

@@ -13,7 +13,7 @@ public class LevelBoss extends LevelParent
 	private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/background2.jpg";
 	private static final int PLAYER_INITIAL_HEALTH = 5;
 	private static final int TOTAL_ENEMIES = 3;
-	private static final double ENEMY_SPAWN_PROBABILITY = .20;
+	private static final double ENEMY_SPAWN_PROBABILITY = .01;
 	private final Boss boss;
 	private LevelBossView levelView;
 
@@ -33,20 +33,17 @@ public class LevelBoss extends LevelParent
 			if (Math.random() < ENEMY_SPAWN_PROBABILITY)
 			{
 				double newEnemyInitialYPosition = Math.random() * getEnemyMaximumYPosition();
-				ActiveActorDestructible newEnemy = new EnemyPlaneVerTwo(getScreenWidth(), newEnemyInitialYPosition);
-				getGameActorManager().setAddEnemyUnit(newEnemy);
+				if(newEnemyInitialYPosition > 50)
+				{
+					ActiveActorDestructible newEnemy = new EnemyPlaneVerTwo(getScreenWidth(), newEnemyInitialYPosition);
+					getGameActorManager().setAddEnemyUnit(newEnemy);
+				}
 			}
 		}
 		if(!getGameActorManager().getEnemyUnits().contains(boss))
 		{
 			getGameActorManager().setAddEnemyUnit(boss);
 		}
-
-	}
-
-	private int getNumberOfEnemies()
-	{
-		return getGameActorManager().getCurrentNumberOfEnemies();
 	}
 
 	@Override

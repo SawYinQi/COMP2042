@@ -22,13 +22,13 @@ public class GameActorManager
 
     public GameActorManager(Group root, double screenWidth, UserPlane user)
     {
-        this.friendlyUnits = new ArrayList<>();
-        this.enemyUnits = new ArrayList<>();
-        this.userProjectiles = new ArrayList<>();
-        this.enemyProjectiles = new ArrayList<>();
         this.root = root;
         this.screenWidth = screenWidth;
         this.user = user;
+        this.friendlyUnits = new ArrayList<>(List.of(user));
+        this.enemyUnits = new ArrayList<>();
+        this.userProjectiles = new ArrayList<>();
+        this.enemyProjectiles = new ArrayList<>();
     }
 
     private void updateActors()

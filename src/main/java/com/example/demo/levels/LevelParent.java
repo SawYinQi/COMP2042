@@ -52,12 +52,11 @@ public abstract class LevelParent
 		this.enemyMaximumYPosition = screenHeight - SCREEN_HEIGHT_ADJUSTMENT;
 		this.gameActorManager = new GameActorManager(root, screenWidth, user);
 		this.collisionManager = new CollisionManager(gameActorManager, user, screenWidth);
-		this.userInputHandler = new UserInputHandler();
+		this.userInputHandler = new UserInputHandler(user, root, gameActorManager.getUserProjectiles(), timeline, levelView);
 		this.levelStateManager = new LevelStateManager(this);
 		this.mainController = mainController;
 		this.nextLevel = new SimpleStringProperty();
 		initializeTimeline();
-		gameActorManager.getFriendlyUnits().add(user);
 	}
 
 	protected void initializeFriendlyUnits()
@@ -124,8 +123,8 @@ public abstract class LevelParent
 		background.setFocusTraversable(true);
 		background.setFitHeight(screenHeight);
 		background.setFitWidth(screenWidth);
-		background.setOnKeyPressed(e -> userInputHandler.onKeyPressed(e, user, root, gameActorManager.getUserProjectiles(), timeline, levelView));
-		background.setOnKeyReleased(e -> userInputHandler.onKeyReleased(e, user));
+		background.setOnKeyPressed(userInputHandler::handleKeyPressed);
+		background.setOnKeyReleased(userInputHandler::handleKeyReleased);
 		root.getChildren().add(background);
 	}
 
@@ -208,4 +207,10 @@ public abstract class LevelParent
 	{
 		return gameActorManager;
 	}
+
+	protected int getNumberOfEnemies()
+	{
+		return getGameActorManager().getCurrentNumberOfEnemies();
+	}
+
 }

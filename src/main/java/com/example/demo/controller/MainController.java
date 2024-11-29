@@ -51,6 +51,17 @@ public class MainController
 		goToLevel(LEVEL_ONE_CLASS_NAME);
 	}
 
+	/**
+	 * Launches the tutorial, transitioning to the LevelTutorial.
+	 *
+	 * @throws ClassNotFoundException      if the class cannot be found.
+	 * @throws NoSuchMethodException       if a method cannot be found.
+	 * @throws SecurityException           if access to the constructor is denied.
+	 * @throws InstantiationException      if the level class cannot be instantiated.
+	 * @throws IllegalAccessException      if the constructor for the class cannot be accessed.
+	 * @throws IllegalArgumentException    if the invoked method's argument is invalid.
+	 * @throws InvocationTargetException   if the constructor invocation throws an exception.
+	 */
 	public void launchTutorial() throws ClassNotFoundException, NoSuchMethodException, SecurityException,
 			InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException
 	{
@@ -61,8 +72,7 @@ public class MainController
 	/**
 	 * Transition to the specified level.
 	 *
-	 *
-	 * @param className 					class name refers to class and package name of the level to transition to.
+	 * @param className 					refers to class and package name of the level to transition to.
 	 * @throws ClassNotFoundException		if the specified level class cannot be found.
 	 * @throws NoSuchMethodException		if the required method for the level is not found.
 	 * @throws SecurityException			if access to the constructor is denied.
@@ -92,6 +102,11 @@ public class MainController
 			myLevel.startGame();
 	}
 
+	/**
+	 * Displays an error with details about the provided exception.
+	 *
+	 * @param e the exception to display.
+	 */
 	public void showError(Exception e)
 	{
 		Alert alert = new Alert(AlertType.ERROR);
@@ -105,7 +120,6 @@ public class MainController
 	 *
 	 * @param fxmlPath the path to the FXML file to be loaded.
 	 */
-
 	private void switchScreen(String fxmlPath)
 	{
 		try {
@@ -126,7 +140,6 @@ public class MainController
 	/**
 	 * Displays the main menu screen by switching to the menu FXML.
 	 */
-
 	public void showMainMenu()
 	{
 		switchScreen(MENU_PATH);
@@ -135,7 +148,6 @@ public class MainController
 	/**
 	 * Displays the win screen by switching to the win FXML.
 	 */
-
 	public void showWinScreen()
 	{
 		switchScreen(WIN_PATH);

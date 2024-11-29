@@ -38,6 +38,11 @@ public class Main extends Application
 		mainController.showMainMenu();
 	}
 
+	/**
+	 * Launch JavaFX application.
+	 *
+	 * @param args command line arguments passed onto application.
+	 */
 	public static void main(String[] args)
 	{
 		launch();

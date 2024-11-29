@@ -30,15 +30,13 @@ public class LevelOne extends LevelParent
 			if (Math.random() < ENEMY_SPAWN_PROBABILITY)
 			{
 				double newEnemyInitialYPosition = Math.random() * getEnemyMaximumYPosition();
-				ActiveActorDestructible newEnemy = new EnemyPlane(getScreenWidth(), newEnemyInitialYPosition);
-				getGameActorManager().setAddEnemyUnit(newEnemy);
+				if(newEnemyInitialYPosition > 50)
+				{
+					ActiveActorDestructible newEnemy = new EnemyPlane(getScreenWidth(), newEnemyInitialYPosition);
+					getGameActorManager().setAddEnemyUnit(newEnemy);
+				}
 			}
 		}
-	}
-
-	private int getNumberOfEnemies()
-	{
-		return getGameActorManager().getCurrentNumberOfEnemies();
 	}
 
 	@Override
