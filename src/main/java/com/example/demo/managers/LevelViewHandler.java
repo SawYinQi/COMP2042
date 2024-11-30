@@ -3,7 +3,7 @@ package com.example.demo.managers;
 import com.example.demo.displays.LevelBossView;
 import com.example.demo.displays.LevelTutorialView;
 import com.example.demo.displays.LevelView;
-import com.example.demo.entities.UserPlane;
+import com.example.demo.entities.planes.UserPlane;
 
 /**
  * The LevelViewHandler class handles updates to LevelView for specific levels.

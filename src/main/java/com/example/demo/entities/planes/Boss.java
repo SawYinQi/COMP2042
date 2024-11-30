@@ -1,5 +1,6 @@
-package com.example.demo.entities;
+package com.example.demo.entities.planes;
 
+import com.example.demo.entities.projectiles.BossProjectile;
 import com.example.demo.entities.behaviors.BossMovementPattern;
 import com.example.demo.entities.behaviors.BossShield;
 import com.example.demo.entities.destructibles.ActiveActorDestructible;

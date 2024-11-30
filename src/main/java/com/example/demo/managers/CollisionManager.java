@@ -1,7 +1,7 @@
 package com.example.demo.managers;
 
 import com.example.demo.entities.destructibles.ActiveActorDestructible;
-import com.example.demo.entities.UserPlane;
+import com.example.demo.entities.planes.UserPlane;
 import java.util.List;
 
 /**

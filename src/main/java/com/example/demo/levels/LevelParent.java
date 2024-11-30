@@ -6,7 +6,7 @@ import com.example.demo.controller.MainController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import com.example.demo.displays.LevelView;
-import com.example.demo.entities.UserPlane;
+import com.example.demo.entities.planes.UserPlane;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.*;

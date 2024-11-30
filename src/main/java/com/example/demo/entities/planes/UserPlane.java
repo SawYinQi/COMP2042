@@ -1,5 +1,6 @@
-package com.example.demo.entities;
+package com.example.demo.entities.planes;
 
+import com.example.demo.entities.projectiles.UserProjectile;
 import com.example.demo.managers.TimelineManager;
 import com.example.demo.entities.destructibles.ActiveActorDestructible;
 import javafx.animation.Timeline;

@@ -1,4 +1,4 @@
-package com.example.demo.entities;
+package com.example.demo.entities.projectiles;
 
 import com.example.demo.entities.destructibles.ActiveActorDestructible;
 
