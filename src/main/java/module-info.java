@@ -11,5 +11,4 @@ module com.example.demo
     opens com.example.demo.managers to javafx.fxml;
     opens com.example.demo.entities.behaviors to javafx.fxml;
     opens com.example.demo.entities.destructibles to javafx.fxml;
-    exports com.example.demo.entities.destructibles;
 }

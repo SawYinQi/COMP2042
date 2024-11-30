@@ -131,16 +131,31 @@ public class Boss extends FighterPlane
 		);
 	}
 
+	/**
+	 * Public accessor for getting BossShield.
+	 *
+	 * @return BossShield instance of boss.
+	 */
 	public BossShield getBossShield()
 	{
 		return bossShield;
 	}
 
+	/**
+	 * Returns the current x position of boss.
+	 *
+	 * @return current x position.
+	 */
 	public double getCurrentXPosition()
 	{
 		return currentXPosition;
 	}
 
+	/**
+	 * Returns the current y position of boss.
+	 *
+	 * @return current y position.
+	 */
 	public double getCurrentYPosition()
 	{
 		return currentYPosition;

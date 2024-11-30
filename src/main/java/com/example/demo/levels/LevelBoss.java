@@ -7,6 +7,10 @@ import com.example.demo.entities.Boss;
 import com.example.demo.entities.EnemyPlaneVerTwo;
 import com.example.demo.utility.EnemySpawner;
 
+/**
+ * The LevelBoss class extends LevelParent and
+ * represents the final level which spawns the boss unit and additional enemy version two.
+ */
 public class LevelBoss extends LevelParent
 {
 
@@ -18,6 +22,13 @@ public class LevelBoss extends LevelParent
 	private LevelBossView levelView;
 	private final Boss boss;
 
+	/**
+	 * Constructs a LevelBoss instance with the specified screen height, width and main controller.
+	 *
+	 * @param screenHeight   the height of the game screen.
+	 * @param screenWidth    the width of the game screen.
+	 * @param mainController the MainController managing the game flow.
+	 */
 	public LevelBoss(double screenHeight, double screenWidth, MainController mainController)
 	{
 		super(BACKGROUND_IMAGE_NAME, screenHeight, screenWidth, PLAYER_INITIAL_HEALTH, mainController);
@@ -25,6 +36,11 @@ public class LevelBoss extends LevelParent
 		initializeLevelView();
 	}
 
+	/**
+	 * Spawns additional enemy units and boss for the boss level using the EnemySpawner utility class,
+	 * base on enemy type, total enemies, spawn probability, screen width, maximum y spawning position,
+	 * and game actor manager.
+	 */
 	@Override
 	protected void spawnEnemyUnits()
 	{
@@ -42,6 +58,11 @@ public class LevelBoss extends LevelParent
 		}
 	}
 
+	/**
+	 * Instantiates the LevelBossView for the boss level.
+	 *
+	 * @return the LevelBossView of the boss level.
+	 */
 	@Override
 	protected LevelView instantiateLevelView()
 	{
@@ -49,6 +70,11 @@ public class LevelBoss extends LevelParent
 		return levelView;
 	}
 
+	/**
+	 * Returns the Boss object for the level.
+	 *
+	 * @return the Boss instance.
+	 */
 	public Boss getBoss()
 	{
 		return boss;

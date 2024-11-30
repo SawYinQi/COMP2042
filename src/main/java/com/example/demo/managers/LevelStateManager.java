@@ -2,6 +2,10 @@ package com.example.demo.managers;
 
 import com.example.demo.levels.*;
 
+/**
+ * The LevelStateManager manages the state transitions of levels in the game
+ * and state of the current level.
+ */
 public class LevelStateManager
 {
     private final LevelParent levelParent;
@@ -9,11 +13,19 @@ public class LevelStateManager
     private static final String LEVEL_THREE = "com.example.demo.levels.LevelThree";
     private static final String LEVEL_BOSS = "com.example.demo.levels.LevelBoss";
 
+    /**
+     * Constructs a LevelStateManager for the specified level.
+     *
+     * @param level the LevelParent representing the current level.
+     */
     public LevelStateManager(LevelParent level)
     {
         this.levelParent = level;
     }
 
+    /**
+     * Checks if the game is over, by checking the destruction status of user plane.
+     */
     private void checkIfGameOver()
     {
         if (levelParent.userIsDestroyed())
@@ -23,6 +35,9 @@ public class LevelStateManager
         }
     }
 
+    /**
+     * Checks if the current level is completed and transitions to the next state.
+     */
     private void checkIfLevelCompleted()
     {
         switch (levelParent.getClass().getSimpleName())
@@ -70,6 +85,10 @@ public class LevelStateManager
         }
     }
 
+    /**
+     * Public method which serves as a wrapper,
+     * allowing LevelParent to invoke LevelStateManager's private methods.
+     */
     public void checkLevelState()
     {
         checkIfGameOver();
