@@ -51,12 +51,16 @@ list of things done
 50. added new enemytype "enemyVersiontwo" and enemyversiontwo movement 
 51. renamed level2 to levelboss
 52. renamed leveltwoview to levelbosview
-52. added level 2 and 3 which contains new enemy type
-53. modified boss level to include enemyversiontwo
-54. further seperate input handling from levelParent, seprated the even handler handling to userinputhandler
-55. made base movement pattern class for bossmovementpattern and new enemy type movement pattern
-56. renamed Max_frames with same move and Frame with same move to max moves since last shuffle and move executed for better readabillity 
-57. move entity behavior related class into behavior package in entities package
+53. added level 2 and 3 which contains new enemy type
+54. modified boss level to include enemyversiontwo
+55. further seperate input handling from levelParent, seprated the even handler handling to userinputhandler
+56. made base movement pattern class for bossmovementpattern and new enemy type movement pattern
+57. renamed Max_frames with same move and Frame with same move to max moves since last shuffle and move executed for better readabillity 
+58. move entity behavior related class into behavior package in entities package
+59. Added TimelineManager to manage time line of leveParent and Userplane ammo
+60. Added LevelViewHandler responsible for managing the view of the current level
+61. Move activeActor ActiveActordestructibles and destructibles to package destructibles
+62. added EnemySpawner class which contains logic for spawning enemies(enemyplane, enemyplanev2), due to similarities across levels
 
 
 ## GitHub Link:https://github.com/SawYinQi/COMP2042

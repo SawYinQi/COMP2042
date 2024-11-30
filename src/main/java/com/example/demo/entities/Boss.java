@@ -2,6 +2,7 @@ package com.example.demo.entities;
 
 import com.example.demo.entities.behaviors.BossMovementPattern;
 import com.example.demo.entities.behaviors.BossShield;
+import com.example.demo.entities.destructibles.ActiveActorDestructible;
 import javafx.scene.shape.Rectangle;
 
 /**

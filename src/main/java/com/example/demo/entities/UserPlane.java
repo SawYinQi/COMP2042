@@ -1,9 +1,9 @@
 package com.example.demo.entities;
 
-import javafx.animation.KeyFrame;
+import com.example.demo.managers.TimelineManager;
+import com.example.demo.entities.destructibles.ActiveActorDestructible;
 import javafx.animation.Timeline;
 import javafx.scene.shape.Rectangle;
-import javafx.util.Duration;
 
 /**
  * The UserPlane class extends FighterPlane represents the user's plane in the game which moves vertically.
@@ -25,10 +25,10 @@ public class UserPlane extends FighterPlane
 	private static final int HITBOX_Y_OFFSET = 55;
 	private static final int HITBOX_WIDTH = 150;
 	private static final int HITBOX_HEIGHT = 40;
+	private final TimelineManager timelineManager;
 	private int velocityMultiplier;
 	private int numberOfKills;
 	private int ammunition;
-	private Timeline timeline;
 
 	/**
 	 * Defines movement directions for the user's plane.
@@ -48,7 +48,8 @@ public class UserPlane extends FighterPlane
 		super(IMAGE_NAME, IMAGE_HEIGHT, INITIAL_X_POSITION, INITIAL_Y_POSITION, initialHealth);
 		velocityMultiplier = 0;
 		ammunition = 10;
-		initializeTimeline();
+		this.timelineManager = new TimelineManager(AMMO_INCREMENT_INTERVAL,this::incrementAmmunition);
+		timelineManager.play();
 	}
 
 	/**
@@ -145,15 +146,6 @@ public class UserPlane extends FighterPlane
 		}
 	}
 
-	/**
-	 * Initializes the timeline for regenerating ammunition.
-	 */
-	private void initializeTimeline()
-	{
-		timeline = new Timeline(new KeyFrame(Duration.millis(AMMO_INCREMENT_INTERVAL), e -> incrementAmmunition()));
-		timeline.setCycleCount(Timeline.INDEFINITE);
-		timeline.play();
-	}
 
 	/**
 	 * Returns the current ammunition count of the user's plane.
@@ -172,7 +164,7 @@ public class UserPlane extends FighterPlane
 	 */
 	public Timeline getTimeline()
 	{
-		return timeline;
+		return timelineManager.getTimeline();
 	}
 
 	/**

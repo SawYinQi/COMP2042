@@ -3,8 +3,6 @@ package com.example.demo.controller;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import com.example.demo.levels.LevelParent;
 import javafx.fxml.FXMLLoader;
@@ -94,24 +92,12 @@ public class MainController
 				}
 			catch (Exception e)
 			{
-					showError(e);
+					e.printStackTrace();
 			}
 			});
 			Scene scene = myLevel.initializeScene();
 			stage.setScene(scene);
 			myLevel.startGame();
-	}
-
-	/**
-	 * Displays an error with details about the provided exception.
-	 *
-	 * @param e the exception to display.
-	 */
-	public void showError(Exception e)
-	{
-		Alert alert = new Alert(AlertType.ERROR);
-		alert.setContentText(e.getClass().getSimpleName() + ": " + e.getMessage());
-		alert.show();
 	}
 
 	/**
@@ -132,8 +118,10 @@ public class MainController
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
-		} catch (Exception e) {
-			showError(e);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
 		}
 	}
 

@@ -1,5 +1,7 @@
 package com.example.demo.entities;
 
+import com.example.demo.entities.destructibles.ActiveActorDestructible;
+
 /**
  * The FighterPlane class is an abstract base class for plane entities in the game
  * that can fire projectiles, take damage, and be destroyed when their health reaches zero.

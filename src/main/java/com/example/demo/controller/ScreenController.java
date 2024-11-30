@@ -31,7 +31,7 @@ public class ScreenController
         }
         catch (Exception e)
         {
-            mainController.showError(e);
+            e.printStackTrace();
         }
     }
 
@@ -56,7 +56,7 @@ public class ScreenController
         }
         catch (Exception e)
         {
-            mainController.showError(e);
+            e.printStackTrace();
         }
     }
 

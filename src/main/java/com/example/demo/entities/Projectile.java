@@ -1,5 +1,7 @@
 package com.example.demo.entities;
 
+import com.example.demo.entities.destructibles.ActiveActorDestructible;
+
 /**
  * The Projectile class is an abstract base class representing projectiles in the game,
  * capable of moving horizontally and being destroyed upon collision.

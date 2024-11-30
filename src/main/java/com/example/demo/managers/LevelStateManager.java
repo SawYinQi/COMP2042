@@ -1,11 +1,13 @@
-package com.example.demo.Managers;
-
+package com.example.demo.managers;
 
 import com.example.demo.levels.*;
 
 public class LevelStateManager
 {
     private final LevelParent levelParent;
+    private static final String LEVEL_TWO = "com.example.demo.levels.LevelTwo";
+    private static final String LEVEL_THREE = "com.example.demo.levels.LevelThree";
+    private static final String LEVEL_BOSS = "com.example.demo.levels.LevelBoss";
 
     public LevelStateManager(LevelParent level)
     {
@@ -38,7 +40,7 @@ public class LevelStateManager
                 if (levelOne.getUserHasReachedKillTarget())
                 {
                     levelParent.stopGame();
-                    levelParent.goToNextLevel("com.example.demo.levels.LevelTwo");
+                    levelParent.goToNextLevel(LEVEL_TWO);
                 }
                 break;
             case "LevelTwo":
@@ -46,7 +48,7 @@ public class LevelStateManager
                 if (levelTwo.getUserHasReachedKillTarget())
                 {
                     levelParent.stopGame();
-                    levelParent.goToNextLevel("com.example.demo.levels.LevelThree");
+                    levelParent.goToNextLevel(LEVEL_THREE);
                 }
                 break;
             case "LevelThree":
@@ -54,7 +56,7 @@ public class LevelStateManager
                 if (levelThree.getUserHasReachedKillTarget())
                 {
                     levelParent.stopGame();
-                    levelParent.goToNextLevel("com.example.demo.levels.LevelBoss");
+                    levelParent.goToNextLevel(LEVEL_BOSS);
                 }
                 break;
             case "LevelBoss":

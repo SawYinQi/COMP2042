@@ -2,14 +2,17 @@ package com.example.demo.levels;
 
 import com.example.demo.controller.MainController;
 import com.example.demo.displays.LevelView;
-import com.example.demo.entities.ActiveActorDestructible;
 import com.example.demo.entities.EnemyPlane;
 import com.example.demo.entities.EnemyPlaneVerTwo;
+import com.example.demo.entities.destructibles.ActiveActorDestructible;
+import com.example.demo.utility.EnemySpawner;
+
+import java.util.List;
 
 public class LevelThree extends LevelParent {
     private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/background1.jpg";
     private static final int TOTAL_ENEMIES = 5;
-    private static final int KILLS_TO_ADVANCE = 1;
+    private static final int KILLS_TO_ADVANCE = 10;
     private static final double ENEMY_SPAWN_PROBABILITY = .20;
     private static final int PLAYER_INITIAL_HEALTH = 5;
 
@@ -22,21 +25,21 @@ public class LevelThree extends LevelParent {
     @Override
     protected void spawnEnemyUnits()
     {
-        int currentNumberOfEnemies = getNumberOfEnemies();
-        for (int i = 0; i < TOTAL_ENEMIES - currentNumberOfEnemies; i++)
+        List<Class<? extends ActiveActorDestructible>> enemyType = List.of(
+                EnemyPlane.class,
+                EnemyPlaneVerTwo.class);
+
+        for (Class<? extends ActiveActorDestructible> enemy:enemyType)
         {
-            if (Math.random() < ENEMY_SPAWN_PROBABILITY)
-            {
-                double newEnemyInitialYPosition = Math.random() * getEnemyMaximumYPosition();
-                if(newEnemyInitialYPosition > 50)
-                {
-                    ActiveActorDestructible newEnemy = new EnemyPlane(getScreenWidth(), newEnemyInitialYPosition);
-                    ActiveActorDestructible newEnemyTwo = new EnemyPlaneVerTwo(getScreenWidth(), newEnemyInitialYPosition);
-                    getGameActorManager().setAddEnemyUnit(newEnemy);
-                    getGameActorManager().setAddEnemyUnit(newEnemyTwo);
-                }
-            }
+            EnemySpawner.spawnEnemyUnits(
+                    enemy,
+                    TOTAL_ENEMIES,
+                    ENEMY_SPAWN_PROBABILITY,
+                    getScreenWidth(),
+                    getEnemyMaximumYPosition(),
+                    getGameActorManager());
         }
+
     }
 
     @Override

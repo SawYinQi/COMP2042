@@ -2,8 +2,8 @@ package com.example.demo.levels;
 
 import com.example.demo.controller.MainController;
 import com.example.demo.displays.LevelView;
-import com.example.demo.entities.ActiveActorDestructible;
 import com.example.demo.entities.EnemyPlaneVerTwo;
+import com.example.demo.utility.EnemySpawner;
 
 public class LevelTwo extends LevelParent
 {
@@ -23,19 +23,12 @@ public class LevelTwo extends LevelParent
     @Override
     protected void spawnEnemyUnits()
     {
-        int currentNumberOfEnemies = getNumberOfEnemies();
-        for (int i = 0; i < TOTAL_ENEMIES - currentNumberOfEnemies; i++)
-        {
-            if (Math.random() < ENEMY_SPAWN_PROBABILITY)
-            {
-                double newEnemyInitialYPosition = Math.random() * getEnemyMaximumYPosition();
-                if(newEnemyInitialYPosition > 50)
-                {
-                    ActiveActorDestructible newEnemy = new EnemyPlaneVerTwo(getScreenWidth(), newEnemyInitialYPosition);
-                    getGameActorManager().setAddEnemyUnit(newEnemy);
-                }
-            }
-        }
+        EnemySpawner.spawnEnemyUnits(EnemyPlaneVerTwo.class,
+                TOTAL_ENEMIES,
+                ENEMY_SPAWN_PROBABILITY,
+                getScreenWidth(),
+                getEnemyMaximumYPosition(),
+                getGameActorManager());
     }
 
     @Override

@@ -3,19 +3,20 @@ package com.example.demo.levels;
 import com.example.demo.controller.MainController;
 import com.example.demo.displays.LevelBossView;
 import com.example.demo.displays.LevelView;
-import com.example.demo.entities.ActiveActorDestructible;
 import com.example.demo.entities.Boss;
 import com.example.demo.entities.EnemyPlaneVerTwo;
+import com.example.demo.utility.EnemySpawner;
 
 public class LevelBoss extends LevelParent
 {
 
 	private static final String BACKGROUND_IMAGE_NAME = "/com/example/demo/images/background2.jpg";
 	private static final int PLAYER_INITIAL_HEALTH = 5;
+	private static final int NO_KILL_TARGET_OBJECTIVE = 0;
 	private static final int TOTAL_ENEMIES = 3;
 	private static final double ENEMY_SPAWN_PROBABILITY = .01;
-	private final Boss boss;
 	private LevelBossView levelView;
+	private final Boss boss;
 
 	public LevelBoss(double screenHeight, double screenWidth, MainController mainController)
 	{
@@ -27,19 +28,14 @@ public class LevelBoss extends LevelParent
 	@Override
 	protected void spawnEnemyUnits()
 	{
-		int currentNumberOfEnemies = getNumberOfEnemies();
-		for (int i = 0; i < TOTAL_ENEMIES - currentNumberOfEnemies; i++)
-		{
-			if (Math.random() < ENEMY_SPAWN_PROBABILITY)
-			{
-				double newEnemyInitialYPosition = Math.random() * getEnemyMaximumYPosition();
-				if(newEnemyInitialYPosition > 50)
-				{
-					ActiveActorDestructible newEnemy = new EnemyPlaneVerTwo(getScreenWidth(), newEnemyInitialYPosition);
-					getGameActorManager().setAddEnemyUnit(newEnemy);
-				}
-			}
-		}
+		EnemySpawner.spawnEnemyUnits(
+				EnemyPlaneVerTwo.class,
+				TOTAL_ENEMIES,
+				ENEMY_SPAWN_PROBABILITY,
+				getScreenWidth(),
+				getEnemyMaximumYPosition(),
+				getGameActorManager());
+
 		if(!getGameActorManager().getEnemyUnits().contains(boss))
 		{
 			getGameActorManager().setAddEnemyUnit(boss);
@@ -49,7 +45,7 @@ public class LevelBoss extends LevelParent
 	@Override
 	protected LevelView instantiateLevelView()
 	{
-		levelView = new LevelBossView(getRoot(), PLAYER_INITIAL_HEALTH, 0, boss);
+		levelView = new LevelBossView(getRoot(), PLAYER_INITIAL_HEALTH, NO_KILL_TARGET_OBJECTIVE, boss);
 		return levelView;
 	}
 

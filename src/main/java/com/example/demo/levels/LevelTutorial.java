@@ -3,7 +3,7 @@ package com.example.demo.levels;
 import com.example.demo.controller.MainController;
 import com.example.demo.displays.LevelTutorialView;
 import com.example.demo.displays.LevelView;
-import com.example.demo.entities.ActiveActorDestructible;
+import com.example.demo.entities.destructibles.ActiveActorDestructible;
 import com.example.demo.entities.EnemyPlane;
 
 public class LevelTutorial extends LevelParent

@@ -1,7 +1,7 @@
-package com.example.demo.Managers;
+package com.example.demo.managers;
 
-import com.example.demo.entities.ActiveActor;
-import com.example.demo.entities.ActiveActorDestructible;
+import com.example.demo.entities.destructibles.ActiveActor;
+import com.example.demo.entities.destructibles.ActiveActorDestructible;
 import com.example.demo.entities.FighterPlane;
 import com.example.demo.entities.UserPlane;
 import javafx.scene.Group;
@@ -29,6 +29,11 @@ public class GameActorManager
         this.enemyUnits = new ArrayList<>();
         this.userProjectiles = new ArrayList<>();
         this.enemyProjectiles = new ArrayList<>();
+    }
+
+    private void initializeFriendlyUnits()
+    {
+        root.getChildren().add(user);
     }
 
     private void updateActors()
@@ -120,6 +125,11 @@ public class GameActorManager
     public void setAddEnemyUnit(ActiveActorDestructible enemy)
     {
         addEnemyUnit(enemy);
+    }
+
+    public void getInitializeFriendlyUnit()
+    {
+        initializeFriendlyUnits();
     }
 
     public int getCurrentNumberOfEnemies()
