@@ -4,7 +4,7 @@ import com.example.demo.controller.MainController;
 import com.example.demo.displays.LevelTutorialView;
 import com.example.demo.displays.LevelView;
 import com.example.demo.entities.destructibles.ActiveActorDestructible;
-import com.example.demo.entities.EnemyPlane;
+import com.example.demo.entities.planes.EnemyPlane;
 
 /**
  * The LevelTutorial class extends LevelParent and

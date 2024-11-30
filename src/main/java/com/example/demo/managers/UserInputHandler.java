@@ -2,7 +2,7 @@ package com.example.demo.managers;
 
 import com.example.demo.displays.LevelView;
 import com.example.demo.entities.destructibles.ActiveActorDestructible;
-import com.example.demo.entities.UserPlane;
+import com.example.demo.entities.planes.UserPlane;
 import javafx.animation.Timeline;
 import javafx.scene.Group;
 import javafx.scene.input.KeyCode;

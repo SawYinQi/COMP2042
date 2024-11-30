@@ -1,6 +1,6 @@
 package com.example.demo.displays;
 
-import com.example.demo.entities.Boss;
+import com.example.demo.entities.planes.Boss;
 import javafx.scene.Group;
 
 /**

@@ -1,5 +1,6 @@
-package com.example.demo.entities;
+package com.example.demo.entities.planes;
 
+import com.example.demo.entities.projectiles.EnemyProjectile;
 import com.example.demo.entities.destructibles.ActiveActorDestructible;
 import javafx.scene.shape.Rectangle;
 

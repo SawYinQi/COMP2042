@@ -2,8 +2,8 @@ package com.example.demo.managers;
 
 import com.example.demo.entities.destructibles.ActiveActor;
 import com.example.demo.entities.destructibles.ActiveActorDestructible;
-import com.example.demo.entities.FighterPlane;
-import com.example.demo.entities.UserPlane;
+import com.example.demo.entities.planes.FighterPlane;
+import com.example.demo.entities.planes.UserPlane;
 import javafx.scene.Group;
 //import javafx.scene.paint.Color;
 //import javafx.scene.shape.Rectangle;
