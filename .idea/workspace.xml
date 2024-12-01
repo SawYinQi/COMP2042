@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="656f5a88-191a-47e7-8e97-626e83919872" name="Changes" comment="forgot to add javadocs for this.">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/displays/PauseImageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/entities/planes/Boss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/entities/planes/Boss.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="module-info" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="backup" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/demo/Managers/LevelStateManager.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/demo/displays/HeartDisplay.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/demo/displays/LevelBossView.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/demo/displays/LevelTutorialView.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/demo/displays/LevelView.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2o4QUHapYUKuNiSCqRhQG1saVYI" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Application.game.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in CW2024.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BossProjectileTest.getHitBox.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MainControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MainTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.com.example.demo in CW2024.executor&quot;: &quot;Debug&quot;,
+    &quot;Maven.CW2024 [clean].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jacesu/COMP2042&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/demo/images" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/demo/displays" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+      <recent name="$PROJECT_DIR$/src/main" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.demo" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.demo.utility" />
+      <recent name="com.example.demo.managers" />
+      <recent name="com.example.demo.levels" />
+      <recent name="com.example.demo.entities.projectiles" />
+      <recent name="com.example.demo.entities.planes" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.game">
+    <configuration name="game" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="temurin_21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.controller.Main" />
+      <module name="CW2024" />
+      <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../Downloads/javafx-sdk-23.0.1/lib:$PROJECT_DIR$/target/classes --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in CW2024" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CW2024" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="COMP2042" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="COMP2042" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.game" />
+      <item itemvalue="JUnit.All in CW2024" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in CW2024" />
+        <item itemvalue="JUnit.All in CW2024" />
+        <item itemvalue="JUnit.All in CW2024" />
+        <item itemvalue="JUnit.All in CW2024" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="656f5a88-191a-47e7-8e97-626e83919872" name="Changes" comment="" />
+      <created>1730126382136</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730126382136</updated>
+      <workItem from="1732782636583" duration="34000" />
+      <workItem from="1732782675295" duration="128516000" />
+    </task>
+    <task id="LOCAL-00001" summary="Package organisation">
+      <option name="closed" value="true" />
+      <created>1730358752055</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1730358752055</updated>
+    </task>
+    <task id="LOCAL-00002" summary="update to jdk21">
+      <option name="closed" value="true" />
+      <created>1730535110156</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1730535110156</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Handle NullPointerException">
+      <option name="closed" value="true" />
+      <created>1730535475738</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1730535475738</updated>
+    </task>
+    <task id="LOCAL-00004" summary="downgrade back to version 19 due to macOS issue">
+      <option name="closed" value="true" />
+      <created>1730539530888</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1730539530888</updated>
+    </task>
+    <task id="LOCAL-00005" summary="minor fixes to previous commits and fixed invocationTargetException error.">
+      <option name="closed" value="true" />
+      <created>1730558423197</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1730558423197</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix nullPointerException to match with master branch.">
+      <option name="closed" value="true" />
+      <created>1730559123282</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1730559123282</updated>
+    </task>
+    <task id="LOCAL-00007" summary="minor changes">
+      <option name="closed" value="true" />
+      <created>1730560627833</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1730560627833</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Deleted some unnecessary comments and redundant code, reorganise code braces, separated Shield responsibility from boss, rename some variables and method names for better readability/understanding, update README.md file.">
+      <option name="closed" value="true" />
+      <created>1730815273347</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1730815273347</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Separate BossMovements from boss class improve readability and follow SRP, revise README.md(forgot to include fixing Gameover image being out of screen bound)">
+      <option name="closed" value="true" />
+      <created>1730825242395</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1730825242395</updated>
+    </task>
+    <task id="LOCAL-00010" summary="update modules to further adhere to SRP,(BossMovementPattern,CollisionManager,GameActorManager, LevelStateManager, UserInputHandler), and some minor changes like using switch for user movement logic and implementing initialiseFriendlyUnit in level parent instead of levelone and leveltwo.">
+      <option name="closed" value="true" />
+      <created>1731769132109</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1731769132109</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Update README.md with things I did,&#10;replace Deprecated Observer Class with JavaFX implementations,&#10;combined methods moveVertically and moveHorizontally into move(x,y),&#10;added horizontal movement to boss,&#10;enhance LevelParent's SRP by moving some actor related responsibilities to GameActorManager,&#10;added switchScreen method to switch between different FXML files,&#10;added ScreenController class which delegates user actions from FXML files to MainController,&#10;added menu, lose , win FXML files,&#10;added ammunition logic for user plane.">
+      <option name="closed" value="true" />
+      <created>1732301387200</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1732301387200</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Update README.md with things I did,&#10;replace Deprecated Observer Class with JavaFX implementations,&#10;combined methods moveVertically and moveHorizontally into move(x,y),&#10;added horizontal movement to boss,&#10;enhance LevelParent's SRP by moving some actor related responsibilities to GameActorManager,&#10;added switchScreen method to switch between different FXML files,&#10;added ScreenController class which delegates user actions from FXML files to MainController,&#10;added menu, lose , win FXML files,&#10;added ammunition logic for user plane.">
+      <option name="closed" value="true" />
+      <created>1732301791733</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1732301791733</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix issue with single userProjectile killing multiple enemies.">
+      <option name="closed" value="true" />
+      <created>1732302497585</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1732302497585</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fix issue where enemies penetrated defense is counted as kills.">
+      <option name="closed" value="true" />
+      <created>1732341474904</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1732341474904</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix order of invoking methods in handleCollision and UpdateAllActors, previous order cause issue where health is not reduce when enemy penetrates defense.">
+      <option name="closed" value="true" />
+      <created>1732349927137</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1732349927137</updated>
+    </task>
+    <task id="LOCAL-00016" summary="update to temurin 21 jdk, for javafx 23">
+      <option name="closed" value="true" />
+      <created>1732422731545</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1732422731545</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added Tutorial">
+      <option name="closed" value="true" />
+      <created>1732439306242</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1732439306242</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added displays for ammo and kill target for levels,&#10;moved manager/handler classes to dedicated manager package.">
+      <option name="closed" value="true" />
+      <created>1732545166080</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1732545166080</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Added displays for ammo and kill target for levels,&#10;moved manager/handler classes to dedicated manager package.">
+      <option name="closed" value="true" />
+      <created>1732545577831</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1732545577831</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added Pause option for UserInputHandler and PauseImage for display.">
+      <option name="closed" value="true" />
+      <created>1732556421924</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1732556421924</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Added Pause option for UserInputHandler and PauseImage for display.">
+      <option name="closed" value="true" />
+      <created>1732556512672</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1732556512672</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Fix user being able to regen ammo and generate projectiles while being paused.">
+      <option name="closed" value="true" />
+      <created>1732557606591</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1732557606591</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Added back to menu functionality to win and lose screen,&#10;fix shield visibility problem, update shield.png, and make shield follow boss plane">
+      <option name="closed" value="true" />
+      <created>1732644625670</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1732644625670</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Added boss health bar display.">
+      <option name="closed" value="true" />
+      <created>1732650473720</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1732650473720</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Added custom hitbox for each actors and method for displaying the hitbox for adjusting hitbox position offset and size.">
+      <option name="closed" value="true" />
+      <created>1732698690712</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1732698690712</updated>
+    </task>
+    <task id="LOCAL-00026" summary="fix an error in pom.xml and forgot to add new images to repo.">
+      <option name="closed" value="true" />
+      <created>1732727927818</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1732727927818</updated>
+    </task>
+    <task id="LOCAL-00027" summary="enhance GameActorManager and CollisionManager,&#10;added new enemy type EnemyPlaneVerTwo,&#10;added movement pattern to new enemy type,&#10;renamed LevelTwo to LevelBoss,&#10;added LevelTwo and LevelThree,&#10;modified LevelBoss to include new enemy type.">
+      <option name="closed" value="true" />
+      <created>1732807039730</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1732807039730</updated>
+    </task>
+    <task id="LOCAL-00028" summary="enhance GameActorManager and CollisionManager,&#10;added new enemy type EnemyPlaneVerTwo,&#10;added movement pattern to new enemy type,&#10;renamed LevelTwo to LevelBoss,&#10;added LevelTwo and LevelThree,&#10;modified LevelBoss to include new enemy type.">
+      <option name="closed" value="true" />
+      <created>1732807131839</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1732807131839</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Seperated event handling for the user input in LevelParent into UserInputHandler,&#10;Added MovementPattern class as base class for BossMovementPattern and EnemyPlaneVerTwoMovement,&#10;renamed framesWithSameMove and MAX_FRAME_WITH_SAME_MOVE to movesExecuted and MAX_MOVES_SINCE_LAST_SHUFFLE,&#10;organise entity behavior classes into package behavior.">
+      <option name="closed" value="true" />
+      <created>1732888255034</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1732888255034</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Seperated event handling for the user input in LevelParent into UserInputHandler,&#10;Added MovementPattern class as base class for BossMovementPattern and EnemyPlaneVerTwoMovement,&#10;renamed framesWithSameMove and MAX_FRAME_WITH_SAME_MOVE to movesExecuted and MAX_MOVES_SINCE_LAST_SHUFFLE,&#10;organise entity behavior classes into package behavior.">
+      <option name="closed" value="true" />
+      <created>1732888352698</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1732888352698</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Added TimelineManager class to manage user ammo timeline and level timeline,&#10;Added LevelViewHandler to handle updates to level view depending on the level,&#10;Organise ActiveActor, ActiveActorDestructible, and Destructible to package destructibles,&#10;Added EnemySpawner in utility package to contain spawning logic of spawnEnemyUnits due to repeated use in each level.&#10;&#10;Note to previous commit,&#10;added JavaDocs comments.">
+      <option name="closed" value="true" />
+      <created>1732965062818</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1732965062818</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Finish Javadocs.">
+      <option name="closed" value="true" />
+      <created>1732989836002</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1732989836002</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Organise classes into planes and projectiles.">
+      <option name="closed" value="true" />
+      <created>1732990460788</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1732990460788</updated>
+    </task>
+    <task id="LOCAL-00034" summary="forgot to add javadocs for this.">
+      <option name="closed" value="true" />
+      <created>1732992054234</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1732992054234</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="RELOAD_CONTEXT" value="false" />
+    <MESSAGE value="minor changes" />
+    <MESSAGE value="minor changes to braces to improve readability for me" />
+    <MESSAGE value="Deleted some unnecessary comments and redundant code, reorganise code braces, separated Shield responsibility from boss, rename some variables and method names for better readability/understanding, update README.md file." />
+    <MESSAGE value="Separate BossMovements from boss class improve readability and follow SRP, revise README.md(forgot to include fixing Gameover image being out of screen bound)" />
+    <MESSAGE value="update modules to further adhere to SRP,(BossMovementPattern,CollisionManager,GameActorManager, LevelStateManager, UserInputHandler), and some minor changes like using switch for user movement logic and implementing initialiseFriendlyUnit in level parent instead of levelone and leveltwo." />
+    <MESSAGE value="Update README.md with things I did,&#10;replace Deprecated Observer Class with JavaFX implementations,&#10;combined methods moveVertically and moveHorizontally into move(x,y),&#10;added horizontal movement to boss,&#10;enhance LevelParent's SRP by moving some actor related responsibilities to GameActorManager,&#10;added switchScreen method to switch between different FXML files,&#10;added ScreenController class which delegates user actions from FXML files to MainController,&#10;added menu, lose , win FXML files,&#10;added ammunition logic for user plane." />
+    <MESSAGE value="fix issue with single userProjectile killing multiple enemies." />
+    <MESSAGE value="fix issue where enemies penetrated defense is counted as kills." />
+    <MESSAGE value="fix order of invoking methods in handleCollision and UpdateAllActors, previous order cause issue where health is not reduce when enemy penetrates defense." />
+    <MESSAGE value="update to temurin 21 jdk, for javafx 23" />
+    <MESSAGE value="Added Tutorial" />
+    <MESSAGE value="Added displays for ammo and kill target for levels,&#10;moved manager/handler classes to dedicated manager package." />
+    <MESSAGE value="Added Pause option for UserInputHandler and PauseImage for display." />
+    <MESSAGE value="Fix user being able to regen ammo and generate projectiles while being paused." />
+    <MESSAGE value="Added back to menu functionality to win and lose screen,&#10;fix shield visibility problem, update shield.png, and make shield follow boss plane" />
+    <MESSAGE value="Added boss health bar display." />
+    <MESSAGE value="Added custom hitbox for each actors and method for displaying the hitbox for adjusting hitbox position offset and size." />
+    <MESSAGE value="fix an error in pom.xml and forgot to add new images to repo." />
+    <MESSAGE value="enhance GameActorManager and CollisionManager,&#10;added new enemy type EnemyPlaneVerTwo,&#10;added movement pattern to new enemy type,&#10;renamed LevelTwo to LevelBoss,&#10;renamed levelTwoView to LevelBossView,&#10;added LevelTwo and LevelThree,&#10;modified LevelBoss to include new enemy type." />
+    <MESSAGE value="enhance GameActorManager and CollisionManager,&#10;added new enemy type EnemyPlaneVerTwo,&#10;added movement pattern to new enemy type,&#10;renamed LevelTwo to LevelBoss,&#10;added LevelTwo and LevelThree,&#10;modified LevelBoss to include new enemy type." />
+    <MESSAGE value="Seperated event handling for the user input in LevelParent into UserInputHandler,&#10;Added MovementPattern class as base class for BossMovementPattern and EnemyPlaneVerTwoMovement,&#10;renamed framesWithSameMove and MAX_FRAME_WITH_SAME_MOVE to movesExecuted and MAX_MOVES_SINCE_LAST_SHUFFLE,&#10;organise entity behavior classes into package behavior." />
+    <MESSAGE value="Added TimelineManager class to manage user ammo timeline and level timeline,&#10;Added LevelViewHandler to handle updates to level view depending on the level,&#10;Organise ActiveActor, ActiveActorDestructible, and Destructible to package destructibles,&#10;Added EnemySpawner in utility package to contain spawning logic of spawnEnemyUnits due to repeated use in each level.&#10;&#10;Note to previous commit,&#10;added JavaDocs comments." />
+    <MESSAGE value="Finish Javadocs." />
+    <MESSAGE value="Organise classes into planes and projectiles." />
+    <MESSAGE value="forgot to add javadocs for this." />
+    <option name="LAST_COMMIT_MESSAGE" value="forgot to add javadocs for this." />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
