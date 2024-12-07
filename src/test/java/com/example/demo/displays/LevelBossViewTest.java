@@ -11,6 +11,6 @@ class LevelBossViewTest {
     }
 
     @Test
-    void updateLevelTwoView() {
+    void updateLevelBossView() {
     }
 }

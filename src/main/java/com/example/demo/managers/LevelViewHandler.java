@@ -36,7 +36,7 @@ public class LevelViewHandler
         levelView.updateKillTargetDisplay(user.getNumberOfKills());
         if (levelView instanceof LevelBossView)
         {
-            ((LevelBossView) levelView).updateLevelTwoView();
+            ((LevelBossView) levelView).updateLevelBossView();
         }
         else if(levelView instanceof LevelTutorialView)
         {

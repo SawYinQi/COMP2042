@@ -31,16 +31,6 @@ public abstract class ActiveActor extends ImageView
 	}
 
 	/**
-	 * Abstract method to be implemented in its subclass for updating the position of the actor.
-	 */
-	public abstract void updatePosition();
-
-	/**
-	 * Abstract method to be implemented in its subclass for updating actor state.
-	 */
-	public abstract void updateActor();
-
-	/**
 	 * Moves the actor by a specified horizontal and vertical displacement.
 	 *
 	 * @param horizontalMove the horizontal displacement.

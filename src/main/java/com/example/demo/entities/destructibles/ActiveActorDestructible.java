@@ -25,6 +25,16 @@ public abstract class ActiveActorDestructible extends ActiveActor implements Des
 	}
 
 	/**
+	 * Abstract method to be implemented in its subclass for updating the position of the actor.
+	 */
+	public abstract void updatePosition();
+
+	/**
+	 * Abstract method to be implemented in its subclass for updating actor state.
+	 */
+	public abstract void updateActor();
+
+	/**
 	 * Abstract method to be implemented in its subclass to handle damage taken by the actor.
 	 */
 	@Override

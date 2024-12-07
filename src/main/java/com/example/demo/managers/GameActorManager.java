@@ -56,10 +56,10 @@ public class GameActorManager
      */
     private void updateActors()
     {
-        friendlyUnits.forEach(ActiveActor::updateActor);
-        enemyUnits.forEach(ActiveActor::updateActor);
-        userProjectiles.forEach(ActiveActor::updateActor);
-        enemyProjectiles.forEach(ActiveActor::updateActor);
+        friendlyUnits.forEach(ActiveActorDestructible::updateActor);
+        enemyUnits.forEach(ActiveActorDestructible::updateActor);
+        userProjectiles.forEach(ActiveActorDestructible::updateActor);
+        enemyProjectiles.forEach(ActiveActorDestructible::updateActor);
     }
 
     /**

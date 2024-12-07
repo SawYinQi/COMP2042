@@ -66,7 +66,7 @@ public class LevelBossView extends LevelView
 	 * Updates the level view to reflect changes in the boss's state,
 	 * such as shield visibility, shield position, and boss health.
 	 */
-	public void updateLevelTwoView()
+	public void updateLevelBossView()
 	{
 		updateShieldVisibility();
 		updateShieldPosition();
