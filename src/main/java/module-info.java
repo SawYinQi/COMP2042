@@ -12,4 +12,5 @@ module com.example.demo
     opens com.example.demo.entities.destructibles to javafx.fxml;
     opens com.example.demo.entities.planes to javafx.fxml;
     opens com.example.demo.entities.projectiles to javafx.fxml;
+    opens com.example.demo.utility to javafx.fxml;
 }

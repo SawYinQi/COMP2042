@@ -3,6 +3,7 @@ package com.example.demo.managers;
 import com.example.demo.displays.LevelView;
 import com.example.demo.entities.destructibles.ActiveActorDestructible;
 import com.example.demo.entities.planes.UserPlane;
+import javafx.animation.Animation;
 import javafx.animation.Timeline;
 import javafx.scene.Group;
 import javafx.scene.input.KeyCode;
@@ -19,7 +20,7 @@ public class UserInputHandler
     private final Group root;
     private final List<ActiveActorDestructible> userProjectiles;
     private final LevelView levelView;
-    private boolean isNotPlaying = true;
+    private boolean isNotPlaying;
 
     /**
      * Constructs a UserInputHandler with the specified
@@ -38,6 +39,7 @@ public class UserInputHandler
         this.userProjectiles = userProjectiles;
         this.timeline = timeline;
         this.levelView = levelView;
+        this.isNotPlaying = true;
     }
 
     /**
@@ -51,7 +53,7 @@ public class UserInputHandler
         KeyCode kc = e.getCode();
         if (kc == KeyCode.UP) user.moves(UserPlane.Direction.up);
         if (kc == KeyCode.DOWN) user.moves(UserPlane.Direction.down);
-        if (kc == KeyCode.SPACE && user.getAmmunition() > 0)
+        if (kc == KeyCode.SPACE && user.getAmmunition() > 0 && timeline.getStatus() == Animation.Status.RUNNING)
         {
             fireProjectile(user, root, userProjectiles);
         }

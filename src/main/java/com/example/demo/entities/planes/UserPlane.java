@@ -48,7 +48,7 @@ public class UserPlane extends FighterPlane
 	{
 		super(IMAGE_NAME, IMAGE_HEIGHT, INITIAL_X_POSITION, INITIAL_Y_POSITION, initialHealth);
 		velocityMultiplier = 0;
-		ammunition = 10;
+		ammunition = 5; // Initial ammunition
 		this.timelineManager = new TimelineManager(AMMO_INCREMENT_INTERVAL,this::incrementAmmunition);
 		timelineManager.play();
 	}
