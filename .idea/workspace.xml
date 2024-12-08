@@ -9,15 +9,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="656f5a88-191a-47e7-8e97-626e83919872" name="Changes" comment="Update README.md">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_12_2024,_2_44 am_[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/displays/LevelBossView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/displays/LevelBossView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/entities/destructibles/ActiveActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/entities/destructibles/ActiveActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/entities/destructibles/ActiveActorDestructible.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/entities/destructibles/ActiveActorDestructible.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/managers/GameActorManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/managers/GameActorManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/managers/LevelViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/managers/LevelViewHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/displays/LevelBossViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/displays/LevelBossViewTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/controller/MainControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/controller/MainControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +176,7 @@
       <updated>1730126382136</updated>
       <workItem from="1732782636583" duration="34000" />
       <workItem from="1732782675295" duration="128516000" />
-      <workItem from="1733025780037" duration="26888000" />
+      <workItem from="1733025780037" duration="39405000" />
     </task>
     <task id="LOCAL-00001" summary="Package organisation">
       <option name="closed" value="true" />
@@ -478,7 +474,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733588610045</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Update README.md">
+      <option name="closed" value="true" />
+      <created>1733597671048</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1733597671048</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

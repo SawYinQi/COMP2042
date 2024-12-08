@@ -5,7 +5,7 @@
 
     1.2 Open project in intelliJ.
 
-    1.3 Load Maven dependencies via pop-up from intelliJ.
+    1.3 Load Maven dependencies via pop-up from intelliJ requires javafx 23.0.2, and jdk 21.0.2.
 
     1.4 Navigate to Main.java.
 
@@ -86,9 +86,9 @@
 
     2.11.5 Modify fireProjectile() to only fire when ammunition is more than 0 for ammo mechanic.
 
-    2.12.6 Override getHitBox to adjust custom hitbox for user plane.
+    2.11.6 Override getHitBox to adjust custom hitbox for user plane.
 
-    2.13.7 Moved to entities package within planes package for organisation.
+    2.11.7 Moved to entities package within planes package for organisation.
 ### 2.12 EnemyPlane
     2.12.1 Seperated the logic for determing if it should fire into projectileShouldFire(), as well as for added encapsulation.
 
@@ -96,22 +96,84 @@
 
     2.12.3 Modify updatePosition to use the move().
 
-    2.12.4 Moved to entities package within planes package for organisation.
+    2.12.4 Override getHitBox to adjust custom hitbox for enemy plane.
+
+    2.12.5 Moved to entities package within planes package for organisation.
 ### 2.13 Boss
     2.13.1 Separated movement pattern and shield logic from boss to improved SRP.
     
     2.13.2 Modified updatePosition to include horizontal movement with set horizontal boundaries.
 
-    2.13.3 Moved to entities package within planes package for organisation.
+    2.13.3 Override getHitBox to adjust custom hitbox for boss plane.
+
+    2.13.4 Moved to entities package within planes package for organisation.
 ### 2.14 Projectile
     2.14.1 Modified updatePosition() to include move(), since all subclass has the same updatePosition, using the constructor to pass on horizontal velocity from its subclass will reduce redundancy.
 
     2.14.2 Added updateActor() to reduce redundancy in subclasses since their all the same.
 
     2.14.3 Moved to entities package within projectiles package for organisation.
-### 2.15 
+### 2.15 BossProjectile
+    2.15.1 Override getHitBox to adjust custom hitbox for boss projectiles.
+
+    2.15.2 Super in constrcutor now passed on horizontal velocity of of boss projectile to superclass projectile, for updatePosition().
+
+    2.15.3 Moved to entities package within projectiles package for organisation.
+### 2.16 EnemyProjectile
+    2.16.1 Override getHitBox to adjust custom hitbox for enemy projectiles.
+
+    2.16.2 Super in constrcutor now passed on horizontal velocity of of enemy projectile to superclass projectile, for updatePosition().
+
+    2.16.3 Moved to entities package within projectiles package for organisation.
+### 2.17 UserProjectile
+    2.17.1 Override getHitBox to adjust custom hitbox for user projectiles.
+
+    2.17.2 Super in constrcutor now passed on horizontal velocity of of user projectile to superclass projectile, for updatePosition().
+
+    2.17.3 Moved to entities package within projectiles package for organisation.
+### 2.18 LevelParent
+    2.18.1 LevelParent constructor now accepts MainController, this allows LevelParent to use methods from MainCOntroller, needed for displaying game over screen or win screen.
+
+    2.18.2 Seperated actor, collsion, user input, timeline, level's state(gameover, win or going next level) and level display related logic to new classes (GameActorManager, CollsionManager, LevelStateManager, LevelViewHandler, UserInputHandler, TimelineManager), improve SRP.
+
+    2.18.3 Added initializeLevelView(), this is called in subclasses to ensure subclass constructor is setup first before instantiateLevelView() is called, to avoid null pointer exception.
+
+    2.18.4 Handle NullPointerException, background now requires new image object to be non-null.
+
+    2.18.5 Modified goNextLevel() to use StringProperty to replace previously deprecated observer methods for level transitions.
+
+    2.18.6 Moved to levels package for organisation.
+### 2.19 LevelOne
+    2.19.1 Removed checkIfGameOver() since its now handled by LevelStateManager, this improves SRP.
+
+    2.19.2 Removed initialiseFriendlyUnits since its handled by GameActorManager, this improves SRP.
+
+    2.19.3 Modify SpawnEnemyUnits to use EnemySpawner, now spawning is logic is handled by the utility class improving SRP and code reusebility since the spawning logic is quite similar across levels.
+
+    2.19.4 Moved to levels package for organisation.
+### 2.20 LevelTwo(LevelBoss)
+    2.20.1 Renamed to LevelBoss, to improve readibility.
+    
+    2.20.2 Removed checkIfGameOver() since its now handled by LevelStateManager, this improves SRP.
+
+    2.20.3 Removed initialiseFriendlyUnits since its handled by GameActorManager, this improves SRP.
+
+    2.20.4 Modified spawnEnemyUnit to only spawn boss if enemy nits does not contain boss, and also utilise EnemySpawn class to add 2 additinal enemy units to make the level harder.
+
+    2.20.5 Moved to levels package for organisation.
 ## 3. New Classes
-### 3.1 
+### 3.1 ScreenController 
+    3.1.1 Class for FXML files to communicate with MainController, just for better readability where all screen button methods are in one place.
+
+    3.1.2 Located in controller package.
+### 3.2 LevelTutorialView 
+    3.2.1 Displays the UI elements specific to LevelTutorial class, such as instruction label.
+
+    3.2.2 Located in displays package.
+### 3.3 PauseImage
+    3.3.1 Sets up the pause image, includes methods like showPauseImage() and hidePauseImage() to toggle visibility on and off.
+    
+    3.3.2 Located in displays package.
 ## 4. Additional Features
 ### 4.1 Features Working Properly
     4.1.1 Enhanced boss movement pattern set, allowing it to move vertically and horizontally.
@@ -149,7 +211,7 @@
     4.2.3 Enemy plane version two initially moves vertically off screen due to the spawning position, so I modify updatePosition to allow it to move horizontally into screen view, and once it reached the left bound I setted, it will begin moving vertically as intended for this unit.
 
     4.2.4 Pause option was not handled properly so initially it allowed user plane's ammuntition to regenrate and spawn user projectiles while in pause state, so I stopped ammunition's timeline when in pause state and made sure timeline animation must be running in order to fire user projectiles.
-## 5 Features Not Implemented (Decided to work on other courseworks)
+## 5. Features Not Implemented (Decided to work on other courseworks)
     5.1 Background music
 
     5.2 Game sound effects
