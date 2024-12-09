@@ -10,6 +10,14 @@
     1.4 Navigate to Main.java.
 
     1.5 Run Main.java.
+
+    or 
+
+    1.6 cd project file in terminal.
+
+    1.7 Enter "./mvnw compile".
+    
+    1.8 Enter "java --module-path (path to your javafx) --add-modules javafx.controls,javafx.fxml -cp target/classes com.example.demo.controller.Main".
 ## 2. Classes Modified
 ### 2.1 ShieldImage
     2.1.1 Change directory "/com/example/demo/images/shield.jpg" to "/com/example/demo/images/shield.png" so it will point to the correct directory.
@@ -158,12 +166,12 @@
 
     2.20.3 Removed initialiseFriendlyUnits since its handled by GameActorManager, this improves SRP.
 
-    2.20.4 Modified spawnEnemyUnit to only spawn boss if enemy nits does not contain boss, and also utilise EnemySpawn class to add 2 additinal enemy units to make the level harder.
+    2.20.4 Modified spawnEnemyUnit to only spawn boss if enemy units does not contain boss, and also utilise EnemySpawn class to add 2 additinal enemy units to make the level harder.
 
     2.20.5 Moved to levels package for organisation.
 ## 3. New Classes
 ### 3.1 ScreenController 
-    3.1.1 Class for FXML files to communicate with MainController, just for better readability where all screen button methods are in one place.
+    3.1.1 Class for FXML files to communicate with MainController, just for better readability and for FXML files to bind to a no argument controller.
 
     3.1.2 Located in controller package.
 ### 3.2 LevelTutorialView 
@@ -174,6 +182,121 @@
     3.3.1 Sets up the pause image, includes methods like showPauseImage() and hidePauseImage() to toggle visibility on and off.
     
     3.3.2 Located in displays package.
+### 3.4 AmmunitionDisplay
+    3.4.1 Sets up the display for ammunition label, includes logic for updating ammo count updateAmmunition().
+
+    3.4.2 Located in displays package.
+### 3.5 BossHealthBarDisplay
+    3.5.1 Sets up the display for boss label and progress bar, includes logic for updating boss's health updateBossHealth().
+
+    3.5.2 Located in displays package.
+### 3.6 KillTargetDisplay
+    3.6.1 Sets up the display for kills to advance label, includes logic for updating kills to advance base on user kills updateKillTarget().
+
+    3.6.2 Located in displays package.
+### 3.7 MovementPattern
+    3.7.1 Base class for enemy unit's movement pattern, includes populateMovePattern() which allows subclass to populate their own move pattern array,  getZero().
+
+    3.7.2 shuffleMovePattern and resetCurrentIndex originally from boss class getNextMove is extracted here.
+
+    3.7.3 consecutiveMovesInSameDirection is renamed to movesExecuted, MAX_FRAMES_WITH_SAME_MOVE is renamed to maxMovesSinceLastShuffle,
+    the original names are misleading, beacuse it does not actully track same moves in the same direction.
+
+    3.7.4 getNextMove() originally from boss class, is now abstract class which returns object so it can return either int or array, this is so subclass can define its own logic for returning move sets for translation.
+
+    3.7.5 Located in entities package within behaviors package.
+### 3.8 BossMovementPattern
+    3.8.1 Responsible for populating move set and selecting next move for boss plane.
+
+    3.8.2 Logic is originally from boss class to initialse move set and getNextMove() for translation, extracted here as a new class for separting concerns.
+
+    3.8.3 Overrides populateMovePattern() to populate move pattern array in superclass.
+
+    3.8.4 Overrides getNextMove() to return an int array for move(x, y) translation, depending on the next move selected it could move up down, left, right and stay.
+
+    3.8.5 Located in entities package within behaviors package.
+### 3.9 EnemyPlaneVerTwoMovement
+    3.9.1 Responsible for populating the move set  and selecting the next move for enemy plane version two.
+
+    3.9.2 Located in entities package within behaviors package.
+### 3.10 BossShield
+    3.10.1 Responsible for managing the shield mechanic of the boss plane, originally from boss plane but extracted here as a new class for separation of concerns.
+
+    3.10.2 Renamed MAX_FRAMES_WITH_SHIELD to SHIELD_DURATION for better understanding.
+
+    3.10.3 Located in entities package within behaviors package.
+### 3.11 EnemyPlaneVerTwo
+    3.11.1 Represents a new type of enemy plane which fires the same projectile as enemy plane,with its own hitbox and plane image, but moves vertically.
+
+    3.11.2 Although the main way this new unit moves is vertically, it moves onto screen horizonatlly first before reaching a boundary where it will start moving vertically.
+
+    3.11.3 Located in entities package within planes package.
+### 3.12 LevelTwo
+    3.12.1 Represents a new level which spawns of enemy plane version two as enemy units.
+
+    3.12.2 Located in levels package.
+### 3.13 LevelThree
+    3.13.1 Represents a new level which spawns a mix of enemy plane and enemy plane version two.
+
+    3.13.2 Located in levels package.
+### 3.14 LevelTutorial 
+    3.14.1 Represents a new level which spawn a dummy enemy plane, used as an introduction for new players to learn the game controls and mchanics.
+
+    3.14.2 Located in levels package.
+### 3.15 CollisionManager
+    3.15.1 Responsible for the collsions between in game actors,determined through intersection of hitboxes, and handle enemy actors that passes players defense line.
+
+    3.15.2 Originally was handled by level parent but extracted here for improved SRP.
+
+    3.15.3 handleEnemyPenatration no longers marks enemy actor passing defense line as destroyed actors.
+
+    3.15.4 Located in managers package.
+### 3.16 GameActorManager
+    3.16.1 Responsible for managing actors, such as removing destroyed actors, removing off scrren projectiles, initializing actors, generating projectiles, updating and tracking actors such as player kill count.
+
+    3.16.2 Originally was handled by level parent but extracted here for improved SRP
+
+    3.16.3 Contains method for displaying all actor hitbox, this is makes adjusting the hitbox for each actor easier.
+    
+    3.16.4 updateKillCount() originally updates the player kills depending on number of enemy unit on the screen, however this implementation is not accurate, hence now it updates player kill count base on number of enemies that are mark as destroyed.
+
+    3.16.5 Located in managers package.
+### 3.17 LevelStateManager
+    3.17.1 Responsible for checking the state of the level whether game is over, won, or advancing to next level.
+
+    3.17.2 Originally was handled by level parent but extracted here for improved SRP.
+
+    3.17.3 checkIfGameOver was originally abstract method in level parent, implemented in each subclass, it originally checks if user is destroyed to end game, or if kill to advance has been reached to advance to next level, but I seperated it into checkIfGameOver() and checkIfLevelCompleted() to imporve reuseability and understanding.
+
+    3.17.4 Located in managers package.
+### 3.18 LevelViewHandler
+    3.18.1 Responsible for updating the level view of the specific levels.
+
+    3.18.2 Originally was handled by level parent but extracted here for improved SRP.
+
+    3.18.3 Located in managers package.
+### 3.19 TimeLineManager
+    3.19.1 Responsible for initializing and managing the timeline of classes.
+
+    3.19.2 Originally was handled by level parent but extracted here for improved SRP as well as reusability.
+
+    3.19.3 initializeTimeline() is now reusable for updating level scenes, and regenrating user ammunition.
+
+    3.19.4 Located in managers package.
+### 3.20 UserInputHandler
+    3.20.1 Responsible for handling the user inputs.
+
+    3.20.2 Originally was handled by level parent but extracted here for improved SRP.
+    
+    3.20.3 Modified onKeyPressed to handle pause function of the game.
+
+    3.20.4 Located in managers package.
+### 3.21 EnemySpawner
+    3.21.1 Responsible for adding enemy units to the levels.
+
+    3.21.2 Created for reusabillity of same spawning logic across levels for spawnEnemyUnit().
+
+    3.21.3 Located in utility package.
 ## 4. Additional Features
 ### 4.1 Features Working Properly
     4.1.1 Enhanced boss movement pattern set, allowing it to move vertically and horizontally.
