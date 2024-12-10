@@ -8,13 +8,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="656f5a88-191a-47e7-8e97-626e83919872" name="Changes" comment="Update module-info.java">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_12_2024,_2_44 am_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_12_2024__2_44am__Changes_.xml" beforeDir="false" />
+    <list default="true" id="656f5a88-191a-47e7-8e97-626e83919872" name="Changes" comment="test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/ScreenController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/controller/MainControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/controller/MainControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +67,8 @@
     &quot;JUnit.MainTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.com.example.demo in CW2024.executor&quot;: &quot;Debug&quot;,
     &quot;Maven.CW2024 [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.CW2024 [deploy].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.CW2024 [validate].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
@@ -78,7 +76,7 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jacesu/COMP2042&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jacesu/SawYinQi_IntelliJ_21&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -159,14 +157,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
-        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -178,6 +168,10 @@
       <workItem from="1732782636583" duration="34000" />
       <workItem from="1732782675295" duration="128516000" />
       <workItem from="1733025780037" duration="77318000" />
+      <workItem from="1733813335334" duration="194000" />
+      <workItem from="1733813864793" duration="15000" />
+      <workItem from="1733814405396" duration="20000" />
+      <workItem from="1733814440302" duration="29000" />
     </task>
     <task id="LOCAL-00001" summary="Package organisation">
       <option name="closed" value="true" />
@@ -515,7 +509,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733812428862</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="test">
+      <option name="closed" value="true" />
+      <created>1733813417056</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1733813417056</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -534,7 +536,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="RELOAD_CONTEXT" value="false" />
-    <MESSAGE value="Separate BossMovements from boss class improve readability and follow SRP, revise README.md(forgot to include fixing Gameover image being out of screen bound)" />
     <MESSAGE value="update modules to further adhere to SRP,(BossMovementPattern,CollisionManager,GameActorManager, LevelStateManager, UserInputHandler), and some minor changes like using switch for user movement logic and implementing initialiseFriendlyUnit in level parent instead of levelone and leveltwo." />
     <MESSAGE value="Update README.md with things I did,&#10;replace Deprecated Observer Class with JavaFX implementations,&#10;combined methods moveVertically and moveHorizontally into move(x,y),&#10;added horizontal movement to boss,&#10;enhance LevelParent's SRP by moving some actor related responsibilities to GameActorManager,&#10;added switchScreen method to switch between different FXML files,&#10;added ScreenController class which delegates user actions from FXML files to MainController,&#10;added menu, lose , win FXML files,&#10;added ammunition logic for user plane." />
     <MESSAGE value="fix issue with single userProjectile killing multiple enemies." />
@@ -559,7 +560,8 @@
     <MESSAGE value="Generate JUnit." />
     <MESSAGE value="Update README.md" />
     <MESSAGE value="Update module-info.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update module-info.java" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
