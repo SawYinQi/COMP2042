@@ -78,7 +78,7 @@
 
     2.8.2 Added abstract Rectangle getHitBox() for customizable hitbox for each entities.
 
-     2.8.3 Moved to entities package within destructibles package for organisation.
+    2.8.3 Moved to entities package within destructibles package for organisation.
 ### 2.9 Destructible
     2.8.3 Moved to entities package within destructibles package for organisation.
 ### 2.10 FighterPlane
@@ -309,11 +309,11 @@
 
     4.1.5 Tutorial level teaches users the game controlls, includes a dummy enemy plane target, and instruction manuel.
 
-    4.1.6 Ammunition mechanic to the game, user plane has an initial ammo count of 5, with maximum 20 capacity, ammo is regenerated every 1s and is displayed for players to see, this is implemented with the intention of restricting player's fire rate, making players value each shot attempts.
+    4.1.6 Added ammunition mechanic to the game, user plane has an initial ammo count of 5, with maximum 20 capacity, ammo is regenerated every 1s and is displayed for players to see, this is implemented with the intention of restricting player's fire rate, making players value each shot attempts.
 
     4.1.7 Kills to advance display for players to track how many more enemies they need to eliminate.
 
-    4.1.8 Puase option to user inputs, allows player to puase the game by pressing p key with a puase image as its indicator.
+    4.1.8 Added puase option to user inputs, allows player to puase the game by pressing p key with a puase image as its indicator.
 
     4.1.9 Boss health bar display, located at the top right of the screen, allows players to track the boss's health percentage.
 
@@ -346,6 +346,8 @@
     5.5 Transition screen between levels
 ## 6. Problems
     6.1 I found it difficult to complete the coursework effectively, beacuse its my first time doing refactoring activities, progress was slow in the beginning which left me behind on some of my other courseworks, but in the end i still managed to get some worked done eventhough its not the best I would have wanted, I decided to make peace with my refactoring and started on my other courseworks and studied for quiz nearing the end of November.
+
+    6.2 I had problems running the game at first but identified cuase of errors after using stacktrace, and effectively handled the nullpointer errors and invocation target error from the timeline looping.
 
     
     
