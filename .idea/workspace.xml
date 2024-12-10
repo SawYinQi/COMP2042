@@ -8,11 +8,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="656f5a88-191a-47e7-8e97-626e83919872" name="Changes" comment="Update README.md">
+    <list default="true" id="656f5a88-191a-47e7-8e97-626e83919872" name="Changes" comment="Update module-info.java">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_12_2024,_2_44 am_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_01_12_2024__2_44am__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/ScreenController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/controller/MainControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/controller/MainControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,8 +26,8 @@
       <list>
         <option value="module-info" />
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -176,7 +177,7 @@
       <updated>1730126382136</updated>
       <workItem from="1732782636583" duration="34000" />
       <workItem from="1732782675295" duration="128516000" />
-      <workItem from="1733025780037" duration="39405000" />
+      <workItem from="1733025780037" duration="77318000" />
     </task>
     <task id="LOCAL-00001" summary="Package organisation">
       <option name="closed" value="true" />
@@ -482,7 +483,39 @@
       <option name="project" value="LOCAL" />
       <updated>1733597671048</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Update README.md">
+      <option name="closed" value="true" />
+      <created>1733662003605</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1733662003605</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Update README.md">
+      <option name="closed" value="true" />
+      <created>1733754829423</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1733754829423</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Update README.md">
+      <option name="closed" value="true" />
+      <created>1733805359402</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1733805359402</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Update module-info.java">
+      <option name="closed" value="true" />
+      <created>1733812428862</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1733812428862</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -501,7 +534,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="RELOAD_CONTEXT" value="false" />
-    <MESSAGE value="Deleted some unnecessary comments and redundant code, reorganise code braces, separated Shield responsibility from boss, rename some variables and method names for better readability/understanding, update README.md file." />
     <MESSAGE value="Separate BossMovements from boss class improve readability and follow SRP, revise README.md(forgot to include fixing Gameover image being out of screen bound)" />
     <MESSAGE value="update modules to further adhere to SRP,(BossMovementPattern,CollisionManager,GameActorManager, LevelStateManager, UserInputHandler), and some minor changes like using switch for user movement logic and implementing initialiseFriendlyUnit in level parent instead of levelone and leveltwo." />
     <MESSAGE value="Update README.md with things I did,&#10;replace Deprecated Observer Class with JavaFX implementations,&#10;combined methods moveVertically and moveHorizontally into move(x,y),&#10;added horizontal movement to boss,&#10;enhance LevelParent's SRP by moving some actor related responsibilities to GameActorManager,&#10;added switchScreen method to switch between different FXML files,&#10;added ScreenController class which delegates user actions from FXML files to MainController,&#10;added menu, lose , win FXML files,&#10;added ammunition logic for user plane." />
@@ -526,7 +558,8 @@
     <MESSAGE value="forgot to add javadocs for this." />
     <MESSAGE value="Generate JUnit." />
     <MESSAGE value="Update README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
+    <MESSAGE value="Update module-info.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update module-info.java" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
