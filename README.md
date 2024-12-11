@@ -15,9 +15,9 @@
 
     1.6 cd project file in terminal.
 
-    1.7 Enter "./mvnw compile".
+    1.7 Enter "./mvnw clean compile".
     
-    1.8 Enter "java --module-path (path to your javafx) --add-modules javafx.controls,javafx.fxml -cp target/classes com.example.demo.controller.Main".
+    1.8 Enter "mvn javafx:run".
 ## 2. Classes Modified
 ### 2.1 ShieldImage
     2.1.1 Change directory "/com/example/demo/images/shield.jpg" to "/com/example/demo/images/shield.png" so it will point to the correct directory.
