@@ -8,12 +8,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="656f5a88-191a-47e7-8e97-626e83919872" name="Changes" comment="Update README.md">
+    <list default="true" id="656f5a88-191a-47e7-8e97-626e83919872" name="Changes" comment="Move Main outside controller">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/displays/AmmunitionDisplayTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/displays/AmmunitionDisplayTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -189,6 +187,7 @@
       <workItem from="1733904828782" duration="9517000" />
       <workItem from="1733930496696" duration="834000" />
       <workItem from="1733947193413" duration="49000" />
+      <workItem from="1733976082999" duration="2450000" />
     </task>
     <task id="LOCAL-00001" summary="Package organisation">
       <option name="closed" value="true" />
@@ -550,7 +549,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733930547429</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Move Main outside controller">
+      <option name="closed" value="true" />
+      <created>1733976265791</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1733976265791</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -569,7 +576,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="RELOAD_CONTEXT" value="false" />
-    <MESSAGE value="update modules to further adhere to SRP,(BossMovementPattern,CollisionManager,GameActorManager, LevelStateManager, UserInputHandler), and some minor changes like using switch for user movement logic and implementing initialiseFriendlyUnit in level parent instead of levelone and leveltwo." />
     <MESSAGE value="Update README.md with things I did,&#10;replace Deprecated Observer Class with JavaFX implementations,&#10;combined methods moveVertically and moveHorizontally into move(x,y),&#10;added horizontal movement to boss,&#10;enhance LevelParent's SRP by moving some actor related responsibilities to GameActorManager,&#10;added switchScreen method to switch between different FXML files,&#10;added ScreenController class which delegates user actions from FXML files to MainController,&#10;added menu, lose , win FXML files,&#10;added ammunition logic for user plane." />
     <MESSAGE value="fix issue with single userProjectile killing multiple enemies." />
     <MESSAGE value="fix issue where enemies penetrated defense is counted as kills." />
@@ -594,7 +600,8 @@
     <MESSAGE value="test" />
     <MESSAGE value="Update module-info.java" />
     <MESSAGE value="Update README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
+    <MESSAGE value="Move Main outside controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Move Main outside controller" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

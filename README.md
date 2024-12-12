@@ -5,7 +5,7 @@
 
     1.2 Open project in intelliJ.
 
-    1.3 Load Maven dependencies via pop-up from intelliJ requires javafx 23.0.2, and jdk 21.0.2.
+    1.3 Load Maven dependencies via pop-up from intelliJ requires javafx 23.0.2, and jdk 21.0.2 ensure its installed.
 
     1.4 Navigate to Main.java.
 
