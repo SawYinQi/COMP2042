@@ -8,9 +8,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="656f5a88-191a-47e7-8e97-626e83919872" name="Changes" comment="test">
+    <list default="true" id="656f5a88-191a-47e7-8e97-626e83919872" name="Changes" comment="Update README.md">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/demo/displays/AmmunitionDisplayTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/demo/displays/AmmunitionDisplayTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +120,7 @@
     <configuration name="game" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="temurin_21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="com.example.demo.controller.Main" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.Main" />
       <module name="CW2024" />
       <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../Downloads/javafx-sdk-23.0.1/lib:$PROJECT_DIR$/target/classes --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
@@ -157,6 +161,14 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -172,6 +184,11 @@
       <workItem from="1733813864793" duration="15000" />
       <workItem from="1733814405396" duration="20000" />
       <workItem from="1733814440302" duration="29000" />
+      <workItem from="1733815408023" duration="146000" />
+      <workItem from="1733894927776" duration="153000" />
+      <workItem from="1733904828782" duration="9517000" />
+      <workItem from="1733930496696" duration="834000" />
+      <workItem from="1733947193413" duration="49000" />
     </task>
     <task id="LOCAL-00001" summary="Package organisation">
       <option name="closed" value="true" />
@@ -517,7 +534,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733813417056</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Update module-info.java">
+      <option name="closed" value="true" />
+      <created>1733815258130</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1733815258130</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Update README.md">
+      <option name="closed" value="true" />
+      <created>1733930547429</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1733930547429</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -558,10 +591,10 @@
     <MESSAGE value="Organise classes into planes and projectiles." />
     <MESSAGE value="forgot to add javadocs for this." />
     <MESSAGE value="Generate JUnit." />
-    <MESSAGE value="Update README.md" />
-    <MESSAGE value="Update module-info.java" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="Update module-info.java" />
+    <MESSAGE value="Update README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
